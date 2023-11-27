@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "regislogindash" "\0"
+            VALUE "FileDescription", "bicaraai" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "regislogindash" "\0"
+            VALUE "InternalName", "bicaraai" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "regislogindash.exe" "\0"
-            VALUE "ProductName", "regislogindash" "\0"
+            VALUE "OriginalFilename", "bicaraai.exe" "\0"
+            VALUE "ProductName", "bicaraai" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
