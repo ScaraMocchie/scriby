@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
+import '../controllers/accountData.dart';
 class AchievementCard extends StatefulWidget {
-  const AchievementCard({
+   AchievementCard({
     super.key,
     required this.height,
     required this.width,
@@ -15,12 +15,21 @@ class AchievementCard extends StatefulWidget {
 }
 
 class _AchievementCardState extends State<AchievementCard> {
-  static int activeDays = 100;
-  static int activeStreak = 60;
-  static int allTimeRank = 80;
-  static int weeklyRank = 16;
-  static int playedSong = 5;
-  static int playeDialogue = 10;
+  /*
+    static int? points;
+  static int? activeDays;
+  static int? activeDaystreaks;
+  static int? totalReplay;
+  static int? playedSongs;
+  static int? playedIelts;
+  */ 
+   int activeDays = AccountData.activeDays!;
+   int activeStreak = AccountData.activeDaystreaks!;
+   int points = AccountData.points!;
+   double averageReplay =  double.parse((AccountData.totalReplay!/(AccountData.playedSongs!+AccountData.playedIelts!)).toStringAsFixed(2));
+   //double.parse((12.3412).toStringAsFixed(2))
+   int playedSong = AccountData.playedSongs!;
+   int playeDialogue = AccountData.playedIelts!;
 
   @override
   Widget build(BuildContext context) {
@@ -39,18 +48,18 @@ class _AchievementCardState extends State<AchievementCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              AchivItems(activeDays, "Active Days"),
-              AchivItems(activeStreak, "Highest Active Days Streak"),
-              AchivItems(allTimeRank, "Highest All-Time Rank"),
+              AchivItems(activeDays.toString(), "Active Days"),
+              AchivItems(activeStreak.toString(), "Highest Active Days Streak"),
+              AchivItems(points.toString(), "Highest points"),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AchivItems(weeklyRank, "Highest Weekly Rank"),
-              AchivItems(playedSong, "Played Song"),
-              AchivItems(playeDialogue, "Played Dialogue"),
+              AchivItems(averageReplay.toString(), "Average Replays"),
+              AchivItems(playedSong.toString(), "Played Song"),
+              AchivItems(playeDialogue.toString(), "Played Dialogue"),
             ],
           ),
           SizedBox(height: 10,)
@@ -59,7 +68,7 @@ class _AchievementCardState extends State<AchievementCard> {
     );
   }
 
-  SizedBox AchivItems(int data, String name) {
+  SizedBox AchivItems(String data, String name) {
     return SizedBox(
       width: 95,
       child: Column(

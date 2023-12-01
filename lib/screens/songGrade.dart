@@ -7,6 +7,11 @@ import 'package:percent_indicator/percent_indicator.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import '../controllers/songPoint.dart';
 import '../controllers/startSongQuiz.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import '../controllers/accountData.dart';
+import '../controllers/songSectionData.dart';
+import '../widgets/songlevel.dart';
 class SongGrade extends StatefulWidget{
   SongGrade({super.key});
 
@@ -83,8 +88,46 @@ else{
   ));
 }
 }
-void tes(){
+void tes()async{
+  if(AccountData.sendingScoreState==0){
+    AccountData.sendingScoreState=1;
+    int tempPoints=100;
+    if(Level.level=="Easy"){tempPoints=100;}
+    else if(Level.level=="Medium"){tempPoints=200;}
+    else{tempPoints=300;}
+    PointData. points=(PointData.percentage!*tempPoints).toInt()-PointData.replays*2;
+    print(PointData. points);
+    print(tempPoints);
+    print(PointData.replays);
+    print("jadi kan");
+    List<int> data=[AccountData.userId!,PointData. points,PointData.replays];
+    if(SongSectionData.audioType!="Ielts")
+    {
+      var    response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","updateDataBySong"),
+                  body:jsonEncode(data));
+                  PointData.replays=0;
+                 PointData. points=0;
+                  AccountData.sendingScoreState=0;
+                  AccountData.state=1;
+                  print("hu${AccountData.state}");
+                 await  AccountData.getData();
+                 AccountData.playedAudioToday+=1;
   Get.offAll(HomePage());
+  }else{
+    var    response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","updateDataByIelts"),
+                  body:jsonEncode(data));
+                  PointData.replays=0;
+                  PointData.points=0;
+                   AccountData.sendingScoreState=0;
+                    AccountData.state=1;
+                    print("aw ${AccountData.state}");
+                    await  AccountData.getData();
+                     AccountData.playedAudioToday+=1;
+  Get.offAll(HomePage());
+  }
+    
+  }
+  
 }
 
 double progres=PointData.percentage!;

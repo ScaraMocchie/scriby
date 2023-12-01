@@ -62,7 +62,7 @@ class SongSectionData{
     ]
     */
     audioType="Song";
-      var response=await http.get(Uri.https("bicaraai1.risalahqz.repl.co"
+      var response=await http.get(Uri.https("bicaraai12.risalahqz.repl.co"
                                         ,"getBasicSongList")).timeout(
                                           const Duration(seconds: 13),
                       onTimeout: (){
@@ -102,7 +102,7 @@ class SongSectionData{
     ]
     */
    SongSectionData.audioType="Ielts";
-      var response=await http.get(Uri.https("bicaraai1.risalahqz.repl.co"
+      var response=await http.get(Uri.https("bicaraai12.risalahqz.repl.co"
                                         ,"getBasicIeltsList")).timeout(
                                           const Duration(seconds: 13),
                       onTimeout: (){

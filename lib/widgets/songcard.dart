@@ -54,9 +54,14 @@ Widget SongCard(String imageLink, String songName, String singer,String getTitle
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            (SongSectionData.audioType!="Ielts")?
             CircleAvatar(
               radius: 25,
               backgroundImage:  NetworkImage(imageLink)
+          
+            ):CircleAvatar(
+              radius: 25,
+              backgroundImage:  AssetImage("assets/images/ieltHome.png")
           
             ),
             SizedBox(

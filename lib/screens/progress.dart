@@ -5,7 +5,7 @@ import '../widgets/chart.dart';
 import '../widgets/target.dart';
 
 class ProgressPage extends StatelessWidget {
-  const ProgressPage({super.key});
+  ProgressPage({super.key});
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -111,7 +111,7 @@ class ProgressPage extends StatelessWidget {
                             height: 10,
                           ),
                           Text(
-                            "Spend Time (in minutes)",
+                            "Spend Time ",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w600),
                           ),

@@ -73,13 +73,13 @@ class StartSong{
 
   static Future<void> getBlobData(String getTitle,String difficulty,String songName,String singer,String imageLink ) async {
   print("send 1");
-  final response = await http.get(Uri.https('bicaraai1.risalahqz.repl.co', 'getAudio/${getTitle}&audio1&${difficulty}'));//cheovzvxbc
+  final response = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio1&${difficulty}'));//cheovzvxbc
   print("one more 1");
-  final response11 = await http.get(Uri.https('bicaraai1.risalahqz.repl.co', 'getAudio/${getTitle}&audio2&${difficulty}'));//cheovzvxbc
+  final response11 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio2&${difficulty}'));//cheovzvxbc
   print("one more 2");
-  final response12 = await http.get(Uri.https('bicaraai1.risalahqz.repl.co', 'getAudio/${getTitle}&audio3&${difficulty}'));//cheovzvxbc
+  final response12 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio3&${difficulty}'));//cheovzvxbc
   print("one more 3");
-  final response13=await http.get(Uri.https('bicaraai1.risalahqz.repl.co', 'getLyric/${getTitle}&${difficulty}'));
+  final response13=await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getLyric/${getTitle}&${difficulty}'));
   print("receive all");
   if (response.statusCode == 200) {
     itemPrepare();

@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 import '../bar_items/appbar.dart';
 import '../screens/homePage.dart';
 import '../screens/register_page.dart';
-
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import '../controllers/accountData.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -16,9 +18,9 @@ class _LoginPageState extends State<LoginPage> {
   bool flag = true;
   bool? isChecked = false;
 
-  final emailController = TextEditingController();
+  final usernameController = TextEditingController();
   final passwordController = TextEditingController();
-
+  String status="";
   // @override
   // void dispose() {
   //   // Clean up the controller when the widget is removed from the
@@ -89,19 +91,19 @@ class _LoginPageState extends State<LoginPage> {
                           Text(
                             " Account",
                             style: TextStyle(fontWeight: FontWeight.bold),
-                          )
+                          ),
                         ],
-                      ),
+                      ),Text(status),
                       Container(
                         height: 70,
                         padding: EdgeInsets.all(10),
                         child: TextFormField(
-                          controller: emailController,
+                          controller: usernameController,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20)),
-                            hintText: "Email",
-                            label: Text("Email"),
+                            hintText: "username",
+                            label: Text("username"),
                             hintStyle: TextStyle(
                               color: Colors.grey,
                             ),
@@ -178,9 +180,32 @@ class _LoginPageState extends State<LoginPage> {
                         height: 50,
                         padding: EdgeInsets.only(left: 10, right: 10),
                         child: ElevatedButton(
-                          onPressed: () {
+                          onPressed: () async{
                             // signIn();
-                            Get.off(HomePage());
+                            String usernameValue=usernameController.text;
+                            String passwordValue=passwordController.text;
+                            var response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","login")
+                            ,body:jsonEncode([usernameValue,passwordValue]));
+                            var code=response.statusCode;
+                           
+                            if(code==200){
+                               var data=jsonDecode(response.body);
+                              AccountData.email=data[1];
+                              AccountData.userId=data[0];
+                              AccountData.username=usernameValue;
+                              response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","premium")
+                            ,body:jsonEncode([data[0],data[1]]));
+                             code=response.statusCode;
+                            data=jsonDecode(response.body);
+                            AccountData.isPrem=data[0];
+                            AccountData.permissionStatus=data[3];
+                             AccountData.deadlinePermission=data[2];
+                            await  AccountData.getData();
+                              Get.off(HomePage());}
+                            else{setState(() {
+                              status="account not found";
+                            });}
+                            
                           },
                           child: Text(
                             "LOGIN",
