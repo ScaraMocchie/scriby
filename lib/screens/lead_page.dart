@@ -6,7 +6,7 @@ import './homePage.dart';
 import './accountPage.dart';
 import '../controllers/leaderboardData.dart';
 class LeadPage extends StatelessWidget {
-  
+   String pageName = "LeadPage";
    LeadPage({super.key});
 void _onItemTapped(int index) {
    // setState(() {
