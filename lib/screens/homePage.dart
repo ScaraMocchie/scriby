@@ -21,7 +21,7 @@ class HomePage extends StatefulWidget{
 }
 
 class _HomePage extends State<HomePage>{
-
+String pageName = "HomePage";
 MediaQueryData mediaQueryData = MediaQueryData.fromWindow(ui.window);
 double progres=0.75;
 void _onItemTapped(int index) {
