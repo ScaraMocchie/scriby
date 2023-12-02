@@ -88,6 +88,7 @@ flutter:
     - assets/images/flat-color-icons_google.png
     - assets/images/vector_3.png
     - assets/images/ieltHome.png
+    - assets/images/cardInfo_image.svg
   fonts: 
     - family: Poppins
       fonts: 
