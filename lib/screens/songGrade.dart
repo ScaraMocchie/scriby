@@ -20,6 +20,7 @@ class SongGrade extends StatefulWidget{
 }
 
 class _SongGrade extends State<SongGrade>{
+String pageName = "SongGrade";
 MediaQueryData mediaQueryData = MediaQueryData.fromWindow(ui.window);
 int option=0;
 
