@@ -5,6 +5,7 @@ import '../widgets/chart.dart';
 import '../widgets/target.dart';
 
 class ProgressPage extends StatelessWidget {
+  String pageName = "ProgressPage";
   ProgressPage({super.key});
   @override
   Widget build(BuildContext context) {
