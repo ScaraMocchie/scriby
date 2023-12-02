@@ -13,6 +13,7 @@ class SongAns3 extends StatefulWidget {
 }
 
 class _SongAns3State extends State<SongAns3> {
+  String pageName = "SongAns3";
   double _initial = 1;
 int start=0;
   int playing=0;
