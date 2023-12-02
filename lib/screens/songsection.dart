@@ -8,6 +8,7 @@ import '../widgets/songlevel.dart';
 import 'package:get/get.dart';
 import '../controllers/songSectionData.dart';
 class SongSection extends StatelessWidget {
+  String pageName = "SongSection";
   SongSection({super.key});
   static var level = Level.level;
  
