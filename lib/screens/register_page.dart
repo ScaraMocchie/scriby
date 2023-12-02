@@ -14,6 +14,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  String pageName = "RegisterPage";
   bool ok = true;
   bool flag = true;
   String status="";
