@@ -14,6 +14,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String pageName = "LoginPage";
   bool ok = true;
   bool flag = true;
   bool? isChecked = false;
