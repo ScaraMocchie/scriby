@@ -14,6 +14,7 @@ class SongAns extends StatefulWidget {
 }
 
 class _SongAnsState extends State<SongAns> {
+  String pageName = "SongAns";
   double _initial = 0.3;
   int start=0;
   int playing=0;
