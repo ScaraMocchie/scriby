@@ -17,7 +17,7 @@ class AccountPage extends StatefulWidget{
 }
 
 class _AccountPage extends State<AccountPage>{
-
+String pageName = "AccountPage";
 MediaQueryData mediaQueryData = MediaQueryData.fromWindow(ui.window);
 
 void _onItemTapped(int index) {
