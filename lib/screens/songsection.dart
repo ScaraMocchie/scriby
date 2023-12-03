@@ -1,4 +1,5 @@
 import 'package:bicaraai3/screens/searchPage.dart';
+import 'package:bicaraai3/screens/seemore_page.dart';
 import 'package:flutter/material.dart';
 import '../widgets/searchbar.dart';
 import '../widgets/favcard.dart';
@@ -27,14 +28,12 @@ class SongSection extends StatelessWidget {
     String audioTypeTitle=" Section";
     
     return Scaffold(
+      backgroundColor: Color(0xffE8E8E8),
       body: SizedBox(
-        height: (height >= 840) ? height - (height * (56 / 800)) : height + 40,
+        height: height,
         child: SingleChildScrollView(
           child: Container(
               width: width,
-              height: (height >= 840)
-                  ? height - (height * (56 / 800))
-                  : height + 40,
               decoration: const BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
@@ -98,7 +97,7 @@ class SongSection extends StatelessWidget {
                         height: (height >= 840) ? 10 : 0,
                       ),
                       const Text(
-                        "Favorites",
+                        "Recommendation",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),
@@ -215,7 +214,9 @@ class SongSection extends StatelessWidget {
                                     ],
                                   )),
                               TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context){return SeeMore();}));
+                                  },
                                   child: const Text(
                                     "See More",
                                     style: TextStyle(color: Colors.black),
