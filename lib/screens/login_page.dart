@@ -94,7 +94,10 @@ class _LoginPageState extends State<LoginPage> {
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],
-                      ),Text(status),
+                      ),Padding(
+                        padding: const EdgeInsets.only(left: 10, top: 10),
+                        child: Text(status, style: TextStyle(color: Colors.red, fontSize: 12),),
+                      ),
                       Container(
                         height: 70,
                         padding: EdgeInsets.all(10),
@@ -204,7 +207,7 @@ class _LoginPageState extends State<LoginPage> {
                             await  AccountData.getData();
                               Get.off(HomePage());}
                             else{setState(() {
-                              status="account not found";
+                              status="Account not found!";
                             });}
                             
                           },
