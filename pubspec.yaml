@@ -90,6 +90,9 @@ flutter:
     - assets/images/vector_3.png
     - assets/images/ieltHome.png
     - assets/images/cardInfo_image.svg
+    - assets/images/check-fill.svg
+    - assets/images/cross-2.svg
+    - assets/images/logomark.png
     - assets/images/search_img.svg
   fonts: 
     - family: Poppins
