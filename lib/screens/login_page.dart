@@ -1,3 +1,4 @@
+import 'package:bicaraai3/screens/lockscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../bar_items/appbar.dart';
@@ -209,7 +210,12 @@ class _LoginPageState extends State<LoginPage> {
                             AccountData.permissionStatus=data[3];
                             AccountData.deadlinePermission=data[2];
                             await  AccountData.getData();
-                              Get.off(HomePage());}
+                              if (AccountData.permissionStatus == -1){
+                                Navigator.push(context, MaterialPageRoute(builder: (context){return LockScreen();}));
+                              } else{
+                                Get.off(HomePage());
+                              }
+                              }
                             else{setState(() {
                               status="Account not found!";
                             });}
