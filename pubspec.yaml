@@ -94,6 +94,7 @@ flutter:
     - assets/images/cross-2.svg
     - assets/images/logomark.png
     - assets/images/search_img.svg
+    - assets/images/succes_reed.svg
   fonts: 
     - family: Poppins
       fonts: 

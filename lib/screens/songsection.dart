@@ -154,7 +154,7 @@ class SongSection extends StatelessWidget {
                                 "Play Random Song",
                                 style: TextStyle(
                                     fontSize: 16,
-                                    fontWeight: FontWeight.w900,
+                                    fontWeight: FontWeight.w600,
                                     color: Colors.white),
                               ),
 
