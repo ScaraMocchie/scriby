@@ -71,8 +71,9 @@ class StartSong{
   return thePlayer;
 }
 
-  static Future<void> getBlobData(String getTitle,String difficulty,String songName,String singer,String imageLink ) async {
+  static Future<int> getBlobData(String getTitle,String difficulty,String songName,String singer,String imageLink ) async {
   print("send 1");
+  try{
   final response = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio1&${difficulty}'));//cheovzvxbc
   print("one more 1");
   final response11 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio2&${difficulty}'));//cheovzvxbc
@@ -99,9 +100,12 @@ class StartSong{
     print("lyric1: ${lyric1}");
     print("lyric2: ${lyric2}");
     print("lyric3: ${lyric3}");
-   
+   return 1;
   } else {
-    throw Exception('Failed to load Blob data');
+    return 0;
+    //throw Exception('Failed to load Blob data');
+  }}catch(e){
+    return -1;
   }
 }
 
