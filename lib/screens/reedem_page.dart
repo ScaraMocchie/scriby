@@ -1,6 +1,8 @@
 import 'package:bicaraai3/screens/reedem_success.dart';
 import 'package:flutter/material.dart';
-
+import '../controllers/accountData.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 class ReedemPage extends StatefulWidget {
   const ReedemPage({super.key});
 
@@ -38,8 +40,17 @@ class _ReedemPageState extends State<ReedemPage> {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: InkWell(
-                    onTap: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SuccessReedem();}));
+                    onTap: ()async {
+                      var response1=await http.post(Uri.https("bicaraai12.risalahqz.repl.co","validateRedeemCode"),
+                                body:jsonEncode({"email":AccountData.email!,"redeem":reecodeController.text})
+                               );
+                      var data1=jsonDecode(response1.body);
+                      if(data1[1]!=1){
+                        setState((){});
+                      }else{
+                        AccountData.permissionStatus=1;
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+                        return SuccessReedem();}));}
                     },
                     child:Container(
                         alignment: Alignment.center,

@@ -11,14 +11,14 @@ class SuccessReedem extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     var height = size.height;
     var width = size.width;
-    return Scaffold(
+    return SafeArea(child:Scaffold(
       body: Stack(
         children: [
           Container(
             padding: EdgeInsets.all(20),
             height: height,
             width: width,
-            child: Column(
+            child:SingleChildScrollView(child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SvgPicture.asset("assets/images/succes_reed.svg", width: 6/10*width,),
@@ -49,8 +49,10 @@ class SuccessReedem extends StatelessWidget {
               ),
               ],
             )
-            ),]
+            )
+            ),
+            ]
           )
-      );
+      ));
   }
 }
