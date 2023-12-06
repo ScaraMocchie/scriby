@@ -39,6 +39,7 @@ dependencies:
   google_fonts: ^6.1.0
   fl_chart: ^0.64.0
   audioplayers: ^5.2.0
+  string_similarity: ^2.0.0
   flutter:
     sdk: flutter
 
@@ -89,6 +90,11 @@ flutter:
     - assets/images/vector_3.png
     - assets/images/ieltHome.png
     - assets/images/cardInfo_image.svg
+    - assets/images/check-fill.svg
+    - assets/images/cross-2.svg
+    - assets/images/logomark.png
+    - assets/images/search_img.svg
+    - assets/images/succes_reed.svg
   fonts: 
     - family: Poppins
       fonts: 

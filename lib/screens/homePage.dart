@@ -276,8 +276,10 @@ Widget ieltContainer(){
       int statcode=await SongSectionData.storeApiIelts() ;
       if(statcode==200){print("lets 3");
     Navigator.pop(context);
-    print("lets 4");
+    print("lets 4 aw");
     Level.level="Easy";
+    print("permission");
+    print(AccountData.permissionStatus);
     Get.to(()=>SongSection());}else{
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return HomePage();}));
     }

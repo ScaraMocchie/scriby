@@ -1,3 +1,5 @@
+import 'package:bicaraai3/screens/persuasive_ad.dart';
+
 import '../screens/homePage.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
@@ -89,7 +91,7 @@ else{
   ));
 }
 }
-void tes()async{
+void finish()async{
   if(AccountData.sendingScoreState==0){
     AccountData.sendingScoreState=1;
     int tempPoints=100;
@@ -124,7 +126,12 @@ void tes()async{
                     print("aw ${AccountData.state}");
                     await  AccountData.getData();
                      AccountData.playedAudioToday+=1;
-  Get.offAll(HomePage());
+  if (AccountData.playedAudioToday%3==0 && AccountData.permissionStatus!=1){
+    Navigator.push(context, MaterialPageRoute(builder: (context){return PersuasiveAd();}));
+  }
+  else{
+    Get.offAll(HomePage());
+  }
   }
     
   }
@@ -226,7 +233,11 @@ Widget build(BuildContext context){
                  style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF527EE7),shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
     minimumSize: Size(mediaQueryData.size.width*9/11 , 46), // Set the width and height as needed
   ),
-                onPressed: tes,
+                onPressed: () {
+                  
+                  finish();
+                  
+                  },
                 child: Text("Finish Review",style: TextStyle(color: Colors.white),),
               )]/*utama*/
               ,)

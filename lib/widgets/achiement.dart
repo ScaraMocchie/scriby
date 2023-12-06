@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../controllers/accountData.dart';
+import 'package:bicaraai3/widgets/box_achv.dart';
 class AchievementCard extends StatefulWidget {
    AchievementCard({
     super.key,
@@ -37,44 +38,34 @@ class _AchievementCardState extends State<AchievementCard> {
     var width = widget.width;
     // final double Yay = AchievementCard.height;
     return Container(
-      height: (height > 850) ?(height * 140 / 800):(height * 140 / 800)+45,
+      padding: EdgeInsetsDirectional.all(10),
+      // height: (height > 850) ?(height * 140 / 800):(height * 140 / 800)+45,
       width: width,
+      margin: EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(15)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              AchivItems(activeDays.toString(), "Active Days"),
-              AchivItems(activeStreak.toString(), "Highest Active Days Streak"),
-              AchivItems(points.toString(), "Highest points"),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AchivItems(averageReplay.toString(), "Average Replays"),
-              AchivItems(playedSong.toString(), "Played Song"),
-              AchivItems(playeDialogue.toString(), "Played Dialogue"),
-            ],
-          ),
-          SizedBox(height: 10,)
+        children: [AchivItems(points, "Total Points"),
+        SizedBox(height: 10,),
+        BoxAchv(name: "Active Days", value: activeDays.toString(), endText: "days"),
+        BoxAchv(name: "Highest Streak", value: activeStreak.toString(), endText: "days"),
+        BoxAchv(name: "Average Replays", value: averageReplay.toString(), endText: "times"),
+        BoxAchv(name: "Played Songs", value: playedSong.toString(), endText: "audio"),
+        BoxAchv(name: "Played Dialogues", value: playeDialogue.toString(), endText: "audio"),
+          
         ],
       ),
     );
   }
 
-  SizedBox AchivItems(String data, String name) {
+  SizedBox AchivItems(int data, String name) {
     return SizedBox(
-      width: 95,
+      // width: 300,
       child: Column(
         children: [
           Text(
-            data.toString(),
+            data.toString()+" XP",
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           Text(

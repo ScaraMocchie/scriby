@@ -1,3 +1,4 @@
+import 'package:bicaraai3/screens/lockscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../bar_items/appbar.dart';
@@ -94,13 +95,18 @@ class _LoginPageState extends State<LoginPage> {
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],
-                      ),Text(status),
+                      ),Padding(
+                        padding: const EdgeInsets.only(left: 10, top: 10),
+                        child: Text(status, style: TextStyle(color: Colors.red, fontSize: 12),),
+                      ),
                       Container(
                         height: 70,
                         padding: EdgeInsets.all(10),
                         child: TextFormField(
+                          maxLength: 24,
                           controller: usernameController,
                           decoration: InputDecoration(
+                            counterText: '',
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20)),
                             hintText: "username",
@@ -116,8 +122,10 @@ class _LoginPageState extends State<LoginPage> {
                         padding: EdgeInsets.all(10),
                         child: TextFormField(
                           controller: passwordController,
+                          maxLength: 24,
                           obscureText: ok,
                           decoration: InputDecoration(
+                            counterText: '',
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20)),
                             hintText: "Password",
@@ -200,11 +208,16 @@ class _LoginPageState extends State<LoginPage> {
                             data=jsonDecode(response.body);
                             AccountData.isPrem=data[0];
                             AccountData.permissionStatus=data[3];
-                             AccountData.deadlinePermission=data[2];
+                            AccountData.deadlinePermission=data[2];
                             await  AccountData.getData();
-                              Get.off(HomePage());}
+                              if (AccountData.permissionStatus == -1){
+                                Navigator.push(context, MaterialPageRoute(builder: (context){return LockScreen();}));
+                              } else{
+                                Get.off(HomePage());
+                              }
+                              }
                             else{setState(() {
-                              status="account not found";
+                              status="Account not found!";
                             });}
                             
                           },

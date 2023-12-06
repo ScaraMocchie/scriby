@@ -1,6 +1,6 @@
+import 'package:bicaraai3/screens/searchPage.dart';
+import 'package:bicaraai3/screens/seemore_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-//import './progress.dart';
 import '../widgets/searchbar.dart';
 import '../widgets/favcard.dart';
 import '../widgets/songcard.dart';
@@ -28,14 +28,12 @@ class SongSection extends StatelessWidget {
     String audioTypeTitle=" Section";
     
     return Scaffold(
+      backgroundColor: Color(0xffE8E8E8),
       body: SizedBox(
-        height: (height >= 840) ? height - (height * (56 / 800)) : height + 40,
+        height: height,
         child: SingleChildScrollView(
           child: Container(
               width: width,
-              height: (height >= 840)
-                  ? height - (height * (56 / 800))
-                  : height + 40,
               decoration: const BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
@@ -80,13 +78,26 @@ class SongSection extends StatelessWidget {
                       SizedBox(
                         height: (height >= 840) ? 10 : 0,
                       ),
-                      const SearchingBar(),
+                      Stack(
+                        children: [
+                          const SearchingBar(),
+                          InkWell(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context){return SearchPage();}));
+                          },
+                          child: Container(
+                            height: 45,
+                            width: width,
+                          ),
+                        ),
+                        ],
+                      ),
+                       
                       SizedBox(
                         height: (height >= 840) ? 10 : 0,
                       ),
-                      // Fav
                       const Text(
-                        "Favorites",
+                        "Recommendation",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),
@@ -139,12 +150,11 @@ class SongSection extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-                              // SizedBox(width: width*0.005,),
                               const Text(
                                 "Play Random Song",
                                 style: TextStyle(
                                     fontSize: 16,
-                                    fontWeight: FontWeight.w900,
+                                    fontWeight: FontWeight.w600,
                                     color: Colors.white),
                               ),
 
@@ -204,7 +214,9 @@ class SongSection extends StatelessWidget {
                                     ],
                                   )),
                               TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context){return SeeMore();}));
+                                  },
                                   child: const Text(
                                     "See More",
                                     style: TextStyle(color: Colors.black),
