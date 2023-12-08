@@ -69,7 +69,7 @@ class ProgressPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
-                        "Weekly Target",
+                        "WEEKLY TARGET",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../controllers/accountData.dart';
-import 'package:bicaraai3/widgets/box_achv.dart';
+import 'package:dimastiui/widgets/box_achv.dart';
 class AchievementCard extends StatefulWidget {
    AchievementCard({
     super.key,
@@ -46,7 +46,7 @@ class _AchievementCardState extends State<AchievementCard> {
           color: Colors.white, borderRadius: BorderRadius.circular(15)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [AchivItems(points, "Total Points"),
+        children: [AchivItems(points, "Total Pointss"),
         SizedBox(height: 10,),
         BoxAchv(name: "Active Days", value: activeDays.toString(), endText: "days"),
         BoxAchv(name: "Highest Streak", value: activeStreak.toString(), endText: "days"),

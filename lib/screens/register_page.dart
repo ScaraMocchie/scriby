@@ -1,4 +1,4 @@
-import 'package:bicaraai3/controllers/accountMessage.dart';
+import 'package:dimastiui/controllers/accountMessage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../bar_items/appbar.dart';
@@ -169,6 +169,8 @@ class _RegisterPageState extends State<RegisterPage> {
                               String usernameValue=usernameController.text;
                               String passwordValue=passwordController.text;
                               String emailValue=emailController.text;
+                              Get.off(HomePage());
+                              /*
                               var response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","register")
                               ,body:jsonEncode([emailValue,usernameValue,passwordValue]));
                               var code=response.statusCode;
@@ -193,7 +195,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 setState(() {
                                   status=data[1];
                                 });
-                              }
+                              }*/
                             }
                           },
                           child: Text(

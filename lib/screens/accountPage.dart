@@ -167,7 +167,7 @@ Widget accountOption(MediaQueryData mediaQueryData){
     width: mediaQueryData.size.width,
     child: Row(children: [
       Text("          "),
-      Image(image:AssetImage("assets/images/accAcc.png"),
+      Image(image:AssetImage("assets/images/accAccl.png"),
       height: 30,
       width: 30,
     ),
@@ -217,13 +217,13 @@ Widget statOption(MediaQueryData mediaQueryData){
     width: mediaQueryData.size.width,
     child: Row(children: [
       Text("          "),
-      Image(image:AssetImage("assets/images/statAcc.png"),
+      Image(image:AssetImage("assets/images/stat.png"),
       height: 30,
       width: 30,
     ),
     Text("      "),
     Text(" "),
-    Text("stat"),
+    Text("Progress"),
     Expanded(child: Container( //expanded
       alignment: Alignment.centerRight,
       child: Image(image:AssetImage("assets/images/arrowAcc.png")),
@@ -242,13 +242,13 @@ Widget myVipOption(MediaQueryData mediaQueryData){
     width: mediaQueryData.size.width,
     child: Row(children: [
       Text("          "),
-      Image(image:AssetImage("assets/images/crownAcc.png"),
+      Image(image:AssetImage("assets/images/vip.png"),
       height: 30,
       width: 30,
     ),
     Text("      "),
     Text(" "),
-    Text("myVip"),
+    Text("MyVip",style:TextStyle(fontWeight: FontWeight.bold)),
    Expanded(child: Container( //expanded
       alignment: Alignment.centerRight,
       child: Image(image:AssetImage("assets/images/arrowAcc.png")),
@@ -267,13 +267,13 @@ Widget helpOption(MediaQueryData mediaQueryData){
     width: mediaQueryData.size.width,
     child: Row(children: [
       Text("          "),
-      Image(image:AssetImage("assets/images/GroupAcc.png"),
+      Image(image:AssetImage("assets/images/help.png"),
       height: 30,
       width: 30,
     ),
     Text("      "),
     Text(" "),
-    Text("help"),
+    Text("Help"),
     Expanded(child: Container( //expanded
       alignment: Alignment.centerRight,
       child: Image(image:AssetImage("assets/images/arrowAcc.png")),
@@ -292,13 +292,13 @@ Widget otherAppOption(MediaQueryData mediaQueryData){
     width: mediaQueryData.size.width,
     child: Row(children: [
       Text("          "),
-      Image(image:AssetImage("assets/images/otherappAcc.png"),
+      Image(image:AssetImage("assets/images/other.png"),
       height: 30,
       width: 30,
     ),
     Text("      "),
     Text(" "),
-    Text("otherApp"),
+    Text("OtherApp"),
     Expanded(child: Container( //Expanded
       alignment: Alignment.centerRight,
       child: Image(image:AssetImage("assets/images/arrowAcc.png")),

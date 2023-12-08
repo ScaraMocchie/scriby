@@ -1,8 +1,8 @@
 
-import 'package:bicaraai3/controllers/songSectionData.dart';
+import 'package:dimastiui/controllers/songSectionData.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:string_similarity/string_similarity.dart';
-import 'package:bicaraai3/widgets/songcard.dart';
+import 'package:dimastiui/widgets/songcard.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatefulWidget {

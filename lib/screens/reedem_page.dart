@@ -1,4 +1,4 @@
-import 'package:bicaraai3/screens/reedem_success.dart';
+import 'package:dimastiui/screens/reedem_success.dart';
 import 'package:flutter/material.dart';
 import '../controllers/accountData.dart';
 import 'dart:convert';

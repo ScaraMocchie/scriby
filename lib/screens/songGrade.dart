@@ -1,4 +1,4 @@
-import 'package:bicaraai3/screens/persuasive_ad.dart';
+import 'package:dimastiui/screens/persuasive_ad.dart';
 
 import '../screens/homePage.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +14,7 @@ import 'dart:convert';
 import '../controllers/accountData.dart';
 import '../controllers/songSectionData.dart';
 import '../widgets/songlevel.dart';
+import '../database/leaderboardDB.dart';
 class SongGrade extends StatefulWidget{
   SongGrade({super.key});
 
@@ -99,6 +100,12 @@ void finish()async{
     else if(Level.level=="Medium"){tempPoints=200;}
     else{tempPoints=300;}
     PointData. points=(PointData.percentage!*tempPoints).toInt()-PointData.replays*2;
+    AccountData.points=AccountData.points!+PointData. points;
+    LeaderboardDB.points[0]+=PointData. points;
+     AccountData.totalReplay=AccountData.totalReplay!+PointData. replays;
+     AccountData.weeklyProgress=AccountData.weeklyProgress!+1;
+      AccountData.weeklyProgresPercentage=((AccountData.weeklyProgress!/AccountData.weeklyTarget!)*100).toInt();
+      AccountData.weeklyStat!["Saturday"]=AccountData.weeklyStat!["Saturday"]+1;
     print(PointData. points);
     print(tempPoints);
     print(PointData.replays);
@@ -106,25 +113,23 @@ void finish()async{
     List<int> data=[AccountData.userId!,PointData. points,PointData.replays];
     if(SongSectionData.audioType!="Ielts")
     {
-      var    response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","updateDataBySong"),
-                  body:jsonEncode(data));
+   
                   PointData.replays=0;
                  PointData. points=0;
                   AccountData.sendingScoreState=0;
                   AccountData.state=1;
                   print("hu${AccountData.state}");
-                 await  AccountData.getData();
+              //   await  AccountData.getData();
                  AccountData.playedAudioToday+=1;
   Get.offAll(HomePage());
   }else{
-    var    response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","updateDataByIelts"),
-                  body:jsonEncode(data));
+   
                   PointData.replays=0;
                   PointData.points=0;
                    AccountData.sendingScoreState=0;
                     AccountData.state=1;
                     print("aw ${AccountData.state}");
-                    await  AccountData.getData();
+               //     await  AccountData.getData();
                      AccountData.playedAudioToday+=1;
   if (AccountData.playedAudioToday%3==0 && AccountData.permissionStatus!=1){
     Navigator.push(context, MaterialPageRoute(builder: (context){return PersuasiveAd();}));

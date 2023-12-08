@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-
+import '../database/songListDB.dart';
 
 
 //SongSectionData.audioType
@@ -62,6 +62,7 @@ class SongSectionData{
     ]
     */
     audioType="Song";
+    /*
       var response=await http.get(Uri.https("bicaraai12.risalahqz.repl.co"
                                         ,"getBasicSongList")).timeout(
                                           const Duration(seconds: 13),
@@ -69,20 +70,21 @@ class SongSectionData{
 
                                           return http.Response("nope", 500);});
       List<dynamic> listBody=jsonDecode(response.body);
+      */
      itemPrepare1();
-    for(int i=0;i<listBody.length;i++){
-      List<dynamic> tempList=listBody[i];
+    for(int i=0;i<SongListDB.songList.length;i++){
+      List<dynamic> tempList=SongListDB.songList[i];
       
-         SongSectionData.titles?.add(tempList[1]);
-      SongSectionData. singer?.add(tempList[2]);
-       SongSectionData.imageLink?.add(tempList[3]);
-       SongSectionData.getTitle?.add(tempList[4]);
+         SongSectionData.titles?.add(tempList[0]);
+      SongSectionData. singer?.add(tempList[1]);
+       SongSectionData.imageLink?.add(tempList[2]);
+       SongSectionData.getTitle?.add(tempList[3]);
       
     }
      SongSectionData.fillBasicSongListStatus=true;
     print("lets go 5 ");
-    print(response.statusCode);
-    return response.statusCode;
+    //print(response.statusCode);
+    return 200;
   }
   static Future<int> storeApiIelts() async{
     /*
@@ -103,6 +105,7 @@ class SongSectionData{
     ]
     */
    SongSectionData.audioType="Ielts";
+   /*
       var response=await http.get(Uri.https("bicaraai12.risalahqz.repl.co"
                                         ,"getBasicIeltsList")).timeout(
                                           const Duration(seconds: 13),
@@ -110,19 +113,20 @@ class SongSectionData{
 
                                           return http.Response("nope", 500);});
       List<dynamic> listBody=jsonDecode(response.body);
+      */
      itemPrepare1();
-    for(int i=0;i<listBody.length;i++){
-      List<dynamic> tempList=listBody[i];
+    for(int i=0;i<SongListDB.ieltsList.length;i++){
+      List<dynamic> tempList=SongListDB.ieltsList[i];
       
-         SongSectionData.titles?.add(tempList[1]);
-      SongSectionData. singer?.add(tempList[2]);
-       SongSectionData.imageLink?.add(tempList[3]);
-       SongSectionData.getTitle?.add(tempList[4]);
+         SongSectionData.titles?.add(tempList[0]);
+      SongSectionData. singer?.add(tempList[1]);
+       SongSectionData.imageLink?.add(tempList[2]);
+       SongSectionData.getTitle?.add(tempList[3]);
       
     }
      SongSectionData.fillBasicSongListStatus=true;
     print("lets go 5 ");
-    return response.statusCode;
+    return 200;
   }
 
 

@@ -1,5 +1,5 @@
-import 'package:bicaraai3/screens/searchPage.dart';
-import 'package:bicaraai3/screens/seemore_page.dart';
+import 'package:dimastiui/screens/searchPage.dart';
+import 'package:dimastiui/screens/seemore_page.dart';
 import 'package:flutter/material.dart';
 import '../widgets/searchbar.dart';
 import '../widgets/favcard.dart';
