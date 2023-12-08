@@ -38,7 +38,7 @@ Widget SongCard(String imageLink, String songName, String singer,String getTitle
           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongSection();}));
         }
       else{Navigator.pop(context);
-      Get.off(SongAns());}
+      Get.off(()=>SongAns());}
       if(statscode==-1){
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongSection();}));
       }

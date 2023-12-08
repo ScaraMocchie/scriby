@@ -379,6 +379,7 @@ class _HomePage extends State<HomePage> {
                           fontFamily: "Poppins", fontWeight: FontWeight.normal),
                       maxLines: 3,
                     )
+
                   ]),
             ),Container(
               width: width * 1 / 11,),
@@ -391,4 +392,5 @@ class _HomePage extends State<HomePage> {
           ]),
         ));
   }
+
 }
