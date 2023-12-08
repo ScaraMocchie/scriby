@@ -20,7 +20,7 @@ class _TargetCardState extends State<TargetCard> {
     var width = size.width;
     return Container(
       alignment: Alignment.center,
-      height: height * 138 / 800,
+      height: 138,
       width: width,
       padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -31,7 +31,7 @@ class _TargetCardState extends State<TargetCard> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           CircularPercentIndicator(
-            radius: (height >= 800) ?46:40,
+            radius: 46,
             percent: AccountData.weeklyProgresPercentage!/100,
             circularStrokeCap: CircularStrokeCap.round,
             lineWidth: 8,

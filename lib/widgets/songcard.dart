@@ -59,7 +59,7 @@ Widget SongCard(String imageLink, String songName, String singer,String getTitle
             (SongSectionData.audioType!="Ielts")?
             CircleAvatar(
               radius: 25,
-              backgroundImage:  NetworkImage(imageLink)
+              backgroundImage:  AssetImage(imageLink)
           
             ):CircleAvatar(
               radius: 25,

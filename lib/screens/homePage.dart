@@ -43,6 +43,7 @@ class _HomePage extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
@@ -52,17 +53,17 @@ class _HomePage extends State<HomePage> {
                 "assets/images/img_logo_1.png",
                 height: 32,
               ),
-              Expanded(
-                  child: Container(
-                //Expanded
-                alignment: Alignment.centerRight,
-                child: InkWell(
-                    child:
-                        Image(image: AssetImage("assets/images/vip_home.png")),
-                    onTap: () {
-                      print("1");
-                    }),
-              ))
+              // Expanded(
+              //     child: Container(
+              //   //Expanded
+              //   alignment: Alignment.centerRight,
+              //   child: InkWell(
+              //       child:
+              //           Image(image: AssetImage("assets/images/vip_home.png")),
+              //       onTap: () {
+              //         print("1");
+              //       }),
+              // ))
             ])),
             shadowColor: Color.fromARGB(255, 0, 0, 0),
             elevation: 1.5,
@@ -71,7 +72,7 @@ class _HomePage extends State<HomePage> {
           body: Row(
             children: [
               Container(
-                width: mediaQueryData.size.width / 11,
+                width: width/ 11,
                 color: Colors.white,
               ),
               Expanded(
@@ -94,7 +95,7 @@ class _HomePage extends State<HomePage> {
                       height: 20,
                     ),
                     Container(
-                      width: mediaQueryData.size.width * 9 / 11,
+                      width: width * 9 / 11,
                       decoration: BoxDecoration(
                         border: Border.all(color: Color(0xFF0FD3D5)),
                         borderRadius: BorderRadius.circular(15),
@@ -140,7 +141,7 @@ class _HomePage extends State<HomePage> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Color(0xFF527EE7),
                               minimumSize: Size(
-                                  mediaQueryData.size.width * 9 / 11 - 50,
+                                  width * 9 / 11 - 50,
                                   43), // Set the width and height as needed
                             ),
                             onPressed: () async {
@@ -177,7 +178,7 @@ class _HomePage extends State<HomePage> {
                 )),
               )),
               Container(
-                width: mediaQueryData.size.width / 11,
+                width: width / 11,
                 color: Colors.white,
               )
             ],
@@ -226,6 +227,7 @@ class _HomePage extends State<HomePage> {
   }
 
   Widget songContainer(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     String title = "Guess The Lyrics";
     String text =
         "Choose song that you want and improve your listening skill in fun way!";
@@ -270,10 +272,10 @@ class _HomePage extends State<HomePage> {
                     Color.fromARGB(255, 180, 205, 245).withOpacity(0.68),
                     Color.fromARGB(255, 218, 228, 245)
                   ])),
-          width: mediaQueryData.size.width * 9 / 11,
+          width: width * 9 / 11,
           child: Row(children: [
             Container(
-              width: mediaQueryData.size.width * 6 / 11,
+              width: width * 6 / 11,
               alignment: Alignment.centerLeft,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -295,10 +297,10 @@ class _HomePage extends State<HomePage> {
                     )
                   ]),
             ), Container(
-              width: mediaQueryData.size.width * 1 / 11,),
+              width: width * 1 / 11,),
             Expanded(
                 child: Container(
-              width: (mediaQueryData.size.width * 3 / 11),
+              width: (width * 3 / 11),
               alignment: Alignment.centerLeft,
               padding: EdgeInsets.all(3),
               child: Image.asset("assets/images/musicHome.png"),
@@ -308,6 +310,7 @@ class _HomePage extends State<HomePage> {
   }
 
   Widget ieltContainer() {
+    var width = MediaQuery.of(context).size.width;
     String title = "Get Ready For IELTS";
     String text = "prepare yourself for IELTS with various audio options!";
     return InkWell(
@@ -353,10 +356,10 @@ class _HomePage extends State<HomePage> {
                     Color.fromARGB(255, 180, 205, 245).withOpacity(0.68),
                     Color.fromARGB(255, 218, 228, 245)
                   ])),
-          width: mediaQueryData.size.width * 9 / 11,
+          width: width * 9 / 11,
           child: Row(children: [
             Container(
-              width: mediaQueryData.size.width * 6 / 11,
+              width: width * 6 / 11,
               alignment: Alignment.centerLeft,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -378,10 +381,10 @@ class _HomePage extends State<HomePage> {
                     )
                   ]),
             ),Container(
-              width: mediaQueryData.size.width * 1 / 11,),
+              width: width * 1 / 11,),
             Expanded(
                 child: Container(
-              width: mediaQueryData.size.width * 3 / 11,
+              width: width * 3 / 11,
               alignment: Alignment.centerLeft,
               child: Image.asset("assets/images/ieltHome.png"),
             ))

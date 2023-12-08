@@ -279,6 +279,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 10,
                       ),
                       Container(
+                        margin: EdgeInsets.only(bottom: 20),
                         width: double.infinity,
                         height: 50,
                         decoration: BoxDecoration(
@@ -292,12 +293,13 @@ class _LoginPageState extends State<LoginPage> {
                         child: ElevatedButton(
                           onPressed: () {},
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 8, right: 70),
+                            padding: const EdgeInsets.only(left: 0, right: 0),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Image.asset(
                                     "assets/images/flat-color-icons_google.png"),
+                                SizedBox(width: 20,),
                                 Text(
                                   "Continue with Google",
                                   style: TextStyle(

@@ -44,12 +44,15 @@ class ProgressPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 // mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const Row(
+                  Row(
                     children: <Widget>[
-                      Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.white,
-                      ),
+                      IconButton(onPressed: (){
+                            Navigator.of(context).pop();
+                          }, icon:
+                          Icon(
+                            Icons.arrow_back_ios_rounded,
+                            color: Colors.white,
+                          ),),
                       SizedBox(
                         width: 10,
                       ),
@@ -78,7 +81,7 @@ class ProgressPage extends StatelessWidget {
                       InkWell(
                         child: Container(
                           alignment: Alignment.center,
-                          height: height * 25 / 800,
+                          height: 25,
                           width: 83,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
@@ -99,7 +102,7 @@ class ProgressPage extends StatelessWidget {
                     height: height * 22 / 800,
                   ),
                   Container(
-                    // height: height*170/800,
+                    padding: EdgeInsets.symmetric(vertical: 15),
                     width: width,
                     decoration: BoxDecoration(
                         color: Colors.white,

@@ -121,7 +121,7 @@ class _UserChartState extends State<UserChart> {
     var height = size.height;
     var width = size.width;
     return SizedBox(
-        height: height * 190 / 800,
+        height: 190,
         child: MyBarData(
           weeklySum: chartData,
         ));
