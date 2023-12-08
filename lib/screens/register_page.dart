@@ -1,4 +1,5 @@
-import 'package:bicaraai3/controllers/accountMessage.dart';
+import 'package:dimastiui/controllers/accountMessage.dart';
+import 'package:dimastiui/screens/tos_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../bar_items/appbar.dart';
@@ -23,6 +24,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+  bool agree = false;
 
   // void signUp() {}
 
@@ -165,10 +167,15 @@ class _RegisterPageState extends State<RegisterPage> {
                         padding: EdgeInsets.only(left: 10, right: 10),
                         child: ElevatedButton(
                           onPressed: () async{
-                            if(emailStatus==''){
+                            if(emailStatus=='' && agree == false){
+                              showDisclaimerDialog(context);}
+
+                            if(emailStatus=='' && agree == true){
                               String usernameValue=usernameController.text;
                               String passwordValue=passwordController.text;
                               String emailValue=emailController.text;
+                              Get.off(HomePage());
+                              /*
                               var response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","register")
                               ,body:jsonEncode([emailValue,usernameValue,passwordValue]));
                               var code=response.statusCode;
@@ -193,7 +200,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 setState(() {
                                   status=data[1];
                                 });
-                              }
+                              }*/
                             }
                           },
                           child: Text(
@@ -206,7 +213,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                           style: ButtonStyle(
                               backgroundColor:
-                                  MaterialStatePropertyAll(Color(0xFF527EE7)),
+                                  MaterialStatePropertyAll((agree == true)?Color(0xFF527EE7):Color.fromARGB(255, 143, 143, 143)),
                               shape: MaterialStatePropertyAll(
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
@@ -244,6 +251,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       Container(
                         width: double.infinity,
+                        margin: EdgeInsets.only(bottom: 20),
                         height: 50,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
@@ -256,12 +264,13 @@ class _RegisterPageState extends State<RegisterPage> {
                         child: ElevatedButton(
                           onPressed: () {},
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 8, right: 70),
+                            padding: const EdgeInsets.only(left: 0, right: 0),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Image.asset(
                                     "assets/images/flat-color-icons_google.png"),
+                                SizedBox(width: 20,),
                                 Text(
                                   "Continue with Google",
                                   style: TextStyle(
@@ -291,6 +300,80 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ],
       ),
+    );
+  }
+  Future<void> showDisclaimerDialog(BuildContext context) async{
+    showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        return disclaimer();
+      },
+    );
+    
+  }
+  Widget disclaimer() {
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Center(
+      child: Container(
+        height: 400,
+        width: 600,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20)
+        ),
+        padding: EdgeInsets.all(20),
+        margin: EdgeInsets.all(20),
+        child: Stack(
+          children: 
+          [
+            Align(
+              alignment: Alignment.topRight,
+              child: InkWell(
+                onTap: (){
+                  Navigator.of(context).pop();
+                },
+                child: Icon(Icons.clear_rounded)),
+            ),
+            Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("DISCLAIMER", textAlign: TextAlign.center, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, letterSpacing: 3),),
+              SizedBox(height: 20,),
+              Text('Before entering this website please read the following information carefully. By entering this site you are acknowledging you have read and agree to the terms and conditions. To acknowledge you have read and agree to the terms and conditions and to enter our website please "I AGREE" our site or please click leave our site.', textAlign: TextAlign.center,),
+              InkWell(
+                onTap: (){
+                  MyshowDialog.showToSDialog(context);
+                },
+                child: Container(
+                  height: 50,
+                  alignment: Alignment.center,
+                  child: Text("Read Terms of Services", style: TextStyle(
+                    decoration: TextDecoration.underline
+                  ),)),
+              ),
+              InkWell(                
+                onTap: (){
+                Navigator.of(context).pop();
+                setState(() {
+                  agree = true;
+                });
+              }, child: Container(
+                alignment: Alignment.center,
+                height: 50,
+                width: 200,
+                decoration: BoxDecoration(
+                  color: Color(0xFF527EE7),
+                  borderRadius: BorderRadiusDirectional.circular(30),
+                ),
+                child: Text("I AGREE", style: TextStyle(color: Colors.white, fontSize: 17),),
+              )),
+            ],
+          ),]
+        ),
+      ),
+    ),
     );
   }
 }

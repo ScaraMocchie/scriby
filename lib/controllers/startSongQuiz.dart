@@ -2,6 +2,8 @@ import 'package:just_audio/just_audio.dart';
 import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import '../database/audioDB.dart';
+import '../controllers/songSectionData.dart';
 class MyJABytesSource extends StreamAudioSource {
   final Uint8List? _buffer;
 
@@ -73,27 +75,70 @@ class StartSong{
 
   static Future<int> getBlobData(String getTitle,String difficulty,String songName,String singer,String imageLink ) async {
   print("send 1");
+
   try{
+    print(getTitle);
+     if(SongSectionData.audioType=="Ielts"){
+      getTitle="librarian"  ;
+      difficulty="ieltsEasy";
+      print(getTitle );
+     }
+    /*
+    final response=await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio2/${getTitle}&${difficulty}'));
+    */
+    /*
   final response = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio1&${difficulty}'));//cheovzvxbc
   print("one more 1");
   final response11 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio2&${difficulty}'));//cheovzvxbc
   print("one more 2");
   final response12 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio3&${difficulty}'));//cheovzvxbc
   print("one more 3");
-  final response13=await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getLyric/${getTitle}&${difficulty}'));
+  */
+ 
+  //final response13=await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getLyric/${getTitle}&${difficulty}'));
   print("receive all");
-  if (response.statusCode == 200) {
+  int statusCode=200;
+  if (statusCode == 200) {
+    print("aw");
     itemPrepare();
     StartSong.title=songName;
       StartSong.singer=singer;
       StartSong.imageLink=imageLink;
+      /*
     StartSong.forPlayer1=response.bodyBytes;
     StartSong.forPlayer2=response11.bodyBytes;
     StartSong.forPlayer3=response12.bodyBytes;
+    */
+    print("jinda");
+    //print(AudioDB.audioUtama.length);
+    List<dynamic> data=[];
+    List<String> lyrics=[];
+    if(SongSectionData.audioType=="Ielts"){
+      lyrics=[
+        "okay, everyone. So Here we are at the entrance to the town library",
+        "my name is Ann, and i'm the chief librarian here",
+        "well, as you see my desk is just on your right as you go in",  
+      ];
+      data=jsonDecode(AudioDB.audioKedua);
+    }else{
+      lyrics=[
+        "I have died everyday, waiting for you",
+        "One step closer",
+        "For a thousand years",
+      ];
+     data=jsonDecode(AudioDB.audioUtama);}
+    print(data.length);
+    print("janda");
+    StartSong.forPlayer1=base64Decode(data[0]);
+    print("jandi");
+    StartSong.forPlayer2=base64Decode(data[1]);
+    StartSong.forPlayer3=base64Decode(data[2]);
     StartSong.player1=await getAudio(StartSong.forPlayer1);
     StartSong.player2=await getAudio(StartSong.forPlayer2);
     StartSong.player3=await getAudio(StartSong.forPlayer3);
-    var temp= jsonDecode(response13.body);
+    print("jaidi");
+ 
+    var temp= lyrics;
     StartSong.lyric1=temp[0];
     StartSong.lyric2=temp[1];
     StartSong.lyric3=temp[2];
@@ -105,6 +150,7 @@ class StartSong{
     return -1;
     //throw Exception('Failed to load Blob data');
   }}catch(e){
+    print("iel ${e}");
     return -1;
   }
 }

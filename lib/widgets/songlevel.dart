@@ -1,7 +1,7 @@
 
 
-import 'package:bicaraai3/controllers/accountData.dart';
-import 'package:bicaraai3/widgets/card_info.dart';
+import 'package:dimastiui/controllers/accountData.dart';
+import 'package:dimastiui/widgets/card_info.dart';
 import 'package:flutter/material.dart';
 
 class Level{

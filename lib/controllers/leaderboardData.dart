@@ -10,6 +10,7 @@ class LeaderboardData{
   static List<String>? usernames;
   static List<int>? userId;
   static int lengths=21;
+  
   static Future<void>? getData() async{
     var response= await http.get(Uri.https("bicaraai12.risalahqz.repl.co","giveTop20"));
     scores=[];

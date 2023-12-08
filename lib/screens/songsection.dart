@@ -1,5 +1,6 @@
-import 'package:bicaraai3/screens/searchPage.dart';
-import 'package:bicaraai3/screens/seemore_page.dart';
+import 'package:dimastiui/database/songListDB.dart';
+import 'package:dimastiui/screens/searchPage.dart';
+import 'package:dimastiui/screens/seemore_page.dart';
 import 'package:flutter/material.dart';
 import '../widgets/searchbar.dart';
 import '../widgets/favcard.dart';
@@ -59,10 +60,13 @@ class SongSection extends StatelessWidget {
                     children: <Widget>[
                        Row(
                         children: <Widget>[
+                          IconButton(onPressed: (){
+                            Navigator.of(context).pop();
+                          }, icon:
                           Icon(
-                            Icons.arrow_back_ios,
+                            Icons.arrow_back_ios_rounded,
                             color: Colors.white,
-                          ),
+                          ),),
                           SizedBox(
                             width: 10,
                           ),
@@ -108,22 +112,14 @@ class SongSection extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
-                              FavCard(
-                                  'https://i1.sndcdn.com/artworks-000393932631-f2l978-t500x500.jpg',
-                                  "Love Mysfelf",
-                                  "BTS"),
-                              FavCard(
-                                  'https://i1.sndcdn.com/artworks-000393932631-f2l978-t500x500.jpg',
-                                  "Love Mysfelf",
-                                  "BTS"),
-                              FavCard(
-                                  'https://i1.sndcdn.com/artworks-000393932631-f2l978-t500x500.jpg',
-                                  "Love Mysfelf",
-                                  "BTS"),
-                              FavCard(
-                                  'https://i1.sndcdn.com/artworks-000393932631-f2l978-t500x500.jpg',
-                                  "Love Mysfelf",
-                                  "BTS"),
+                              for (int i = 0; i < songList!.length; i++)
+                              Container(
+                                width: 120,
+                                padding: const EdgeInsets.symmetric(horizontal: 5),
+                                child: FavCard(
+                                    SongListDB.songList[i][4],
+                                    songList[i], singerist![i]),
+                              ),
                             ],
                           ),
                         ),
@@ -195,25 +191,6 @@ class SongSection extends StatelessWidget {
                           Row(
                             children: [
                               TextButton(
-                                  onPressed: () {},
-                                  child: const Row(
-                                    children: [
-                                      Icon(
-                                        Icons.sort_rounded,
-                                        color: Colors.black,
-                                      ),
-                                      SizedBox(
-                                        width: 5,
-                                      ),
-                                      Text(
-                                        "Sort",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                        ),
-                                      )
-                                    ],
-                                  )),
-                              TextButton(
                                   onPressed: () {
                                     Navigator.push(context, MaterialPageRoute(builder: (context){return SeeMore();}));
                                   },
@@ -236,7 +213,7 @@ class SongSection extends StatelessWidget {
                           children: [
                            
                             for (int i = 0; i < songList!.length; i++)
-                              SongCard(imageList![i], songList[i], singerist![i],getTitleList![i],context)
+                              SongCard(SongListDB.songList[i][4], songList[i], singerist![i],getTitleList![i],context)
                      
                           ],
                         )),

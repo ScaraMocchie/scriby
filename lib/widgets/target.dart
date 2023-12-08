@@ -20,26 +20,28 @@ class _TargetCardState extends State<TargetCard> {
     var width = size.width;
     return Container(
       alignment: Alignment.center,
-      height: height * 122 / 800,
+      height: 138,
       width: width,
+      padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: const Color(0xff20BCDA).withOpacity(0.59)),
+          color: Color.fromARGB(255, 0, 177, 212).withOpacity(0.59)),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           CircularPercentIndicator(
-            radius: (height >= 800) ?46:40,
+            radius: 46,
             percent: AccountData.weeklyProgresPercentage!/100,
             circularStrokeCap: CircularStrokeCap.round,
-            lineWidth: 12,
-            progressColor: Color(0xff528DE7),
+            lineWidth: 8,
+            progressColor:Color.fromARGB(255, 8, 43, 95),// Color(0xff528DE7),
             animation: true,
             animationDuration: 800,
             animateFromLastPercent: true,
             backgroundColor: Colors.white,
-            center: Text("${AccountData.weeklyProgresPercentage}%", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Color(0xff528DE7)),),
+            center: Text("${AccountData.weeklyProgresPercentage}%", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, 
+            color: Color.fromARGB(255, 8, 43, 95)),),
             ),
           TextTarget("Target", target),
           TextTarget("Played Audio", spended),
@@ -51,6 +53,7 @@ class _TargetCardState extends State<TargetCard> {
   Column TextTarget(String title, String hours) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           title,

@@ -1,3 +1,5 @@
+import 'package:dimastiui/screens/about_us.dart';
+import 'package:dimastiui/screens/tos_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 import 'package:get/get.dart';
@@ -84,7 +86,7 @@ void _onItemTapped(int index) {
                     Container(
                     
                    
-                    width: mediaQueryData.size.width,
+                    width:MediaQuery.of(context).size.width,
                      decoration: BoxDecoration(
                       color: Color.fromARGB(255, 255, 255, 255),
                       borderRadius: BorderRadius.only(topLeft: Radius.circular(32),topRight: Radius.circular(32)),
@@ -100,11 +102,11 @@ void _onItemTapped(int index) {
                           child:Column(
                             //mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              accountOption(mediaQueryData),
-                              statOption(mediaQueryData),
-                              myVipOption(mediaQueryData),
-                              helpOption(mediaQueryData),
-                              otherAppOption( mediaQueryData)
+                              accountOption(MediaQuery.of(context)),
+                              statOption(MediaQuery.of(context)),
+                              TermsOfService(MediaQuery.of(context), context),
+                              helpOption(MediaQuery.of(context), context),
+                              // otherAppOption( mediaQueryData)
                           ],
                           )
                         )
@@ -167,7 +169,7 @@ Widget accountOption(MediaQueryData mediaQueryData){
     width: mediaQueryData.size.width,
     child: Row(children: [
       Text("          "),
-      Image(image:AssetImage("assets/images/accAcc.png"),
+      Image(image:AssetImage("assets/images/accAccl.png"),
       height: 30,
       width: 30,
     ),
@@ -217,13 +219,13 @@ Widget statOption(MediaQueryData mediaQueryData){
     width: mediaQueryData.size.width,
     child: Row(children: [
       Text("          "),
-      Image(image:AssetImage("assets/images/statAcc.png"),
+      Image(image:AssetImage("assets/images/stat.png"),
       height: 30,
       width: 30,
     ),
     Text("      "),
     Text(" "),
-    Text("stat"),
+    Text("Progress"),
     Expanded(child: Container( //expanded
       alignment: Alignment.centerRight,
       child: Image(image:AssetImage("assets/images/arrowAcc.png")),
@@ -234,21 +236,20 @@ Widget statOption(MediaQueryData mediaQueryData){
   ));
 }
 
-Widget myVipOption(MediaQueryData mediaQueryData){
+Widget TermsOfService(MediaQueryData mediaQueryData, context){
   return InkWell(
-    onTap:(){},
+    onTap:(){
+      MyshowDialog.showToSDialog(context);
+    },
     child:Container(
     padding: EdgeInsets.all(16),
     width: mediaQueryData.size.width,
     child: Row(children: [
       Text("          "),
-      Image(image:AssetImage("assets/images/crownAcc.png"),
-      height: 30,
-      width: 30,
-    ),
+      Icon(Icons.my_library_books_rounded, size: 30,),
     Text("      "),
     Text(" "),
-    Text("myVip"),
+    Text("Terms of Service",),
    Expanded(child: Container( //expanded
       alignment: Alignment.centerRight,
       child: Image(image:AssetImage("assets/images/arrowAcc.png")),
@@ -259,21 +260,21 @@ Widget myVipOption(MediaQueryData mediaQueryData){
   ));
 }
 
-Widget helpOption(MediaQueryData mediaQueryData){
+Widget helpOption(MediaQueryData mediaQueryData, context){
   return InkWell(
-    onTap:(){},
+    onTap:(){Navigator.push(context, MaterialPageRoute(builder: (context){return AboutUs();}));},
     child:Container(
     padding: EdgeInsets.all(16),
     width: mediaQueryData.size.width,
     child: Row(children: [
       Text("          "),
-      Image(image:AssetImage("assets/images/GroupAcc.png"),
+      Image(image:AssetImage("assets/images/help.png"),
       height: 30,
       width: 30,
     ),
     Text("      "),
     Text(" "),
-    Text("help"),
+    Text("About Us"),
     Expanded(child: Container( //expanded
       alignment: Alignment.centerRight,
       child: Image(image:AssetImage("assets/images/arrowAcc.png")),
@@ -292,13 +293,13 @@ Widget otherAppOption(MediaQueryData mediaQueryData){
     width: mediaQueryData.size.width,
     child: Row(children: [
       Text("          "),
-      Image(image:AssetImage("assets/images/otherappAcc.png"),
+      Image(image:AssetImage("assets/images/other.png"),
       height: 30,
       width: 30,
     ),
     Text("      "),
     Text(" "),
-    Text("otherApp"),
+    Text("OtherApp"),
     Expanded(child: Container( //Expanded
       alignment: Alignment.centerRight,
       child: Image(image:AssetImage("assets/images/arrowAcc.png")),

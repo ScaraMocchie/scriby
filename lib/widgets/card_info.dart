@@ -1,5 +1,5 @@
-import 'package:bicaraai3/screens/reedem_page.dart';
-import 'package:bicaraai3/screens/songsection.dart';
+import 'package:dimastiui/screens/reedem_page.dart';
+import 'package:dimastiui/screens/songsection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';

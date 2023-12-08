@@ -1,3 +1,4 @@
+import 'package:dimastiui/screens/about_us.dart';
 import 'package:flutter/material.dart';
 import "./screens/login_page.dart";
 import 'package:get/get.dart';

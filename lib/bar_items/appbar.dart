@@ -22,12 +22,13 @@ class UpBar extends StatelessWidget {
       ),
       child: Align(
           alignment: Alignment.centerLeft,
-          child: InkWell(
-              onTap: () {},
-              child: const Icon(
-                Icons.arrow_back_rounded,
-                color: Colors.white,
-              ))),
+          // child: InkWell(
+          //     onTap: () {},
+          //     child: const Icon(
+          //       Icons.arrow_back_rounded,
+          //       color: Colors.white,
+          //     ))
+          ),
     );
   }
 }

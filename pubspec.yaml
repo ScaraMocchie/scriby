@@ -1,4 +1,4 @@
-name: bicaraai3
+name: dimastiui
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -95,6 +95,11 @@ flutter:
     - assets/images/logomark.png
     - assets/images/search_img.svg
     - assets/images/succes_reed.svg
+    - assets/song_images/7Y_cover.png
+    - assets/song_images/ATY_cover.png
+    - assets/images/about_us/connect.svg
+    - assets/images/about_us/features.svg
+    - assets/images/about_us/teams.svg
   fonts: 
     - family: Poppins
       fonts: 

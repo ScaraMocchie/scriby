@@ -54,7 +54,7 @@ class MyBarData extends StatelessWidget {
           .map((data) => BarChartGroupData(x: data.x, barRods: [
                 BarChartRodData(
                   toY: data.y,
-                  color: Color(0xff528DE7),
+                  color: Color.fromARGB(255, 8, 43, 95),
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(7),
                       topRight: Radius.circular(7)),
@@ -121,7 +121,7 @@ class _UserChartState extends State<UserChart> {
     var height = size.height;
     var width = size.width;
     return SizedBox(
-        height: height * 190 / 800,
+        height: 190,
         child: MyBarData(
           weeklySum: chartData,
         ));

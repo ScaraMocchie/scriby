@@ -22,7 +22,7 @@ class BoxAchv extends StatelessWidget {
             width: width,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
-              color: Color(0xff20BCDA).withOpacity(0.26)
+              color: Color.fromARGB(255, 0, 179, 214).withOpacity(0.26)
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

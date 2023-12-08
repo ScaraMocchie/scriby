@@ -1,4 +1,4 @@
-import 'package:bicaraai3/screens/lockscreen.dart';
+import 'package:dimastiui/screens/lockscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../bar_items/appbar.dart';
@@ -38,7 +38,11 @@ class _LoginPageState extends State<LoginPage> {
   //     password: passwordController.text,
   //   );
   // }
-
+  Future<void> panggil()async{
+    
+    var response= await http.get(Uri.https("bicaraai12.risalahqz.repl.co","hello"));
+    print("huh?");
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -191,8 +195,13 @@ class _LoginPageState extends State<LoginPage> {
                         child: ElevatedButton(
                           onPressed: () async{
                             // signIn();
+                            print("panggil");
+                            panggil();
+                            print("terpanggil");
                             String usernameValue=usernameController.text;
                             String passwordValue=passwordController.text;
+                            Get.off(()=>HomePage());
+                          /*
                             var response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","login")
                             ,body:jsonEncode([usernameValue,passwordValue]));
                             var code=response.statusCode;
@@ -209,7 +218,7 @@ class _LoginPageState extends State<LoginPage> {
                             AccountData.isPrem=data[0];
                             AccountData.permissionStatus=data[3];
                             AccountData.deadlinePermission=data[2];
-                            await  AccountData.getData();
+                   //         await  AccountData.getData();
                               if (AccountData.permissionStatus == -1){
                                 Navigator.push(context, MaterialPageRoute(builder: (context){return LockScreen();}));
                               } else{
@@ -219,7 +228,7 @@ class _LoginPageState extends State<LoginPage> {
                             else{setState(() {
                               status="Account not found!";
                             });}
-                            
+                            */
                           },
                           child: Text(
                             "LOGIN",
@@ -270,6 +279,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 10,
                       ),
                       Container(
+                        margin: EdgeInsets.only(bottom: 20),
                         width: double.infinity,
                         height: 50,
                         decoration: BoxDecoration(
@@ -283,12 +293,13 @@ class _LoginPageState extends State<LoginPage> {
                         child: ElevatedButton(
                           onPressed: () {},
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 8, right: 70),
+                            padding: const EdgeInsets.only(left: 0, right: 0),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Image.asset(
                                     "assets/images/flat-color-icons_google.png"),
+                                SizedBox(width: 20,),
                                 Text(
                                   "Continue with Google",
                                   style: TextStyle(

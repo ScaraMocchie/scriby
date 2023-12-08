@@ -1,8 +1,9 @@
 
-import 'package:bicaraai3/controllers/songSectionData.dart';
+import 'package:dimastiui/controllers/songSectionData.dart';
+import 'package:dimastiui/database/songListDB.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:string_similarity/string_similarity.dart';
-import 'package:bicaraai3/widgets/songcard.dart';
+import 'package:dimastiui/widgets/songcard.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatefulWidget {
@@ -17,7 +18,8 @@ class _SearchPageState extends State<SearchPage> {
   List<String> displayListsong = List.from(SongSectionData.titles!);
   var displayListgsong = List.from(SongSectionData.getTitle!);
   var displayListsinger = List.from(SongSectionData.singer!);
-  var displayListimage = List.from(SongSectionData.imageLink!);
+  var originImage = [SongListDB.songList[0][4], SongListDB.songList[1][4]];
+  var displayListimage = [SongListDB.songList[0][4], SongListDB.songList[1][4]];
   void bestmatch(List<String?> values, String value){
     if (values.length>1){
       int indxbest = value.bestMatch(values).bestMatchIndex;
@@ -34,7 +36,7 @@ class _SearchPageState extends State<SearchPage> {
         displayListsong = List.from(SongSectionData.titles!);
         displayListgsong = List.from(SongSectionData.getTitle!);
         displayListsinger = List.from(SongSectionData.singer!);
-        displayListimage = List.from(SongSectionData.imageLink!);
+        displayListimage = originImage;
       } else{
       const double similarityValue = 0.2;
       displayListsong = SongSectionData.titles!
@@ -52,7 +54,7 @@ class _SearchPageState extends State<SearchPage> {
           .map((title) => SongSectionData.singer![SongSectionData.titles!.indexOf(title)])
           .toList();
       displayListimage = displayListsong
-          .map((title) => SongSectionData.imageLink![SongSectionData.titles!.indexOf(title)])
+          .map((title) => originImage[SongSectionData.titles!.indexOf(title)])
           .toList();
       }
       });
@@ -93,12 +95,25 @@ class _SearchPageState extends State<SearchPage> {
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text(
-                                "Search for a audio",
-                                style: TextStyle(
-                                    fontSize: 22,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
+                              Row(
+                                children: [IconButton(onPressed: (){
+                            Navigator.of(context).pop();
+                          }, icon:
+                          Icon(
+                            Icons.arrow_back_ios_rounded,
+                            color: Colors.white,
+                          ),),
+                          SizedBox(
+                            width: 10,
+                          ),
+                                  Text(
+                                    "Search for a audio",
+                                    style: TextStyle(
+                                        fontSize: 22,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
                               ),
                               SizedBox(
                                 height: 10,
