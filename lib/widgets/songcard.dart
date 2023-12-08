@@ -25,7 +25,21 @@ Widget SongCard(String imageLink, String songName, String singer,String getTitle
     );
   }
   return InkWell(
-    onTap: () async{
+    onTap:
+    /*
+    ()async{
+       StartSong.player1Receive=0;
+    StartSong.player2Receive=0;
+    StartSong.player3Receive=0;
+    showLoadingDialog(context);
+      String difficulty = Level.level;
+      if(SongSectionData.audioType=="Ielts"){difficulty="ielts"+difficulty;}
+         StartSong.getBlobData(getTitle,difficulty,songName,singer,imageLink);
+      
+    }
+    */
+   
+    () async{
       showLoadingDialog(context);
       String difficulty = Level.level;
       if(SongSectionData.audioType=="Ielts"){difficulty="ielts"+difficulty;}
@@ -43,6 +57,7 @@ Widget SongCard(String imageLink, String songName, String singer,String getTitle
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongSection();}));
       }
       }
+      /////////////////////
       ,child:
   Card(
     elevation: 5,

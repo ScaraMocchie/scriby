@@ -1,7 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'dart:async';
+import '../screens/songsection.dart';
+import '../screens/song_ans_page.dart';
+import '../screens/song_ans_page2.dart';
+import '../screens/song_ans_page3.dart';
+import '../screens/songGrade.dart ';
 class MyJABytesSource extends StreamAudioSource {
   final Uint8List? _buffer;
 
@@ -22,10 +29,13 @@ class MyJABytesSource extends StreamAudioSource {
 
 
 class StartSong{
-  
+  static int? statcode;
   static String? title;
   static String? singer;
   static String? imageLink;
+  static int player1Receive=0;
+  static int player2Receive=0;
+  static int player3Receive=0;
   static Uint8List? forPlayer1;
   static Uint8List? forPlayer2;
   static Uint8List? forPlayer3;
@@ -100,6 +110,55 @@ class StartSong{
     print("lyric1: ${lyric1}");
     print("lyric2: ${lyric2}");
     print("lyric3: ${lyric3}");
+    statcode=1;
+   return 1;
+  } else {
+    statcode=-1;
+    return -1;
+    //throw Exception('Failed to load Blob data');
+  }}catch(e){
+    statcode=-1;
+    return -1;
+  }
+}
+
+
+  static Future<int> getBlobData2(String getTitle,String difficulty,String songName,String singer,String imageLink ) async {
+  print("send 1");
+  try{
+    final response13=await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getLyric/${getTitle}&${difficulty}'));
+    var temp= jsonDecode(response13.body);
+    StartSong.lyric1=temp[0];
+    StartSong.lyric2=temp[1];
+    StartSong.lyric3=temp[2];
+  final response = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio1&${difficulty}'));//cheovzvxbc
+  print("one more 1");
+    StartSong.forPlayer1=response.bodyBytes;
+    StartSong.player1=await getAudio(StartSong.forPlayer1);
+    player1Receive=response.statusCode;
+  final response11 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio2&${difficulty}'));//cheovzvxbc
+  print("one more 2");
+   StartSong.forPlayer2=response11.bodyBytes;
+   StartSong.player2=await getAudio(StartSong.forPlayer2);
+   player2Receive=response11.statusCode;
+  final response12 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio3&${difficulty}'));//cheovzvxbc
+  print("one more 3");
+   StartSong.forPlayer3=response12.bodyBytes;
+    StartSong.player3=await getAudio(StartSong.forPlayer3);
+    player3Receive=response12.statusCode;
+  print("receive all");
+  if (response.statusCode == 200) {
+    itemPrepare();
+    StartSong.title=songName;
+      StartSong.singer=singer;
+      StartSong.imageLink=imageLink;
+  
+   
+   
+    
+    print("lyric1: ${lyric1}");
+    print("lyric2: ${lyric2}");
+    print("lyric3: ${lyric3}");
    return 1;
   } else {
     return -1;
@@ -108,9 +167,53 @@ class StartSong{
     return -1;
   }
 }
+static Future<void> getStatus1(BuildContext context) async{
+  int time=0;
+  Timer.periodic(Duration(milliseconds: 100), (Timer timer) { 
+    time+=1;
+    if(time==290 || player1Receive!=200){
+      timer.cancel();
+      
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongSection();}));
+    }
 
-static Future<void> sendLyricAnswers() async{
-  
+    else if(player1Receive==200){
+      timer.cancel();
+      
+
+    }
+  });
+}
+static Future<void> getStatus2(BuildContext context) async{
+  int time=0;
+   Timer.periodic(Duration(milliseconds: 100), (Timer timer) { 
+    time+=1;
+    if(time==290 || player2Receive!=200){
+      timer.cancel();
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongSection();}));
+    }
+    else if(player2Receive==200){
+      timer.cancel();
+      
+
+    }
+  });
+}
+static Future<void> getStatus3(BuildContext context) async{
+  int time=0;
+   Timer.periodic(Duration(milliseconds: 100), (Timer timer) { 
+    time+=1;
+    if(time==290 || player3Receive!=200){
+      timer.cancel();
+      
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongSection();}));
+    }
+    else if(player3Receive==200){
+      timer.cancel();
+      
+
+    }
+  });
 }
 
 }

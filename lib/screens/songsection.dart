@@ -7,6 +7,7 @@ import '../widgets/songcard.dart';
 import '../widgets/songlevel.dart';
 import 'package:get/get.dart';
 import '../controllers/songSectionData.dart';
+import '../controllers/startSongQuiz.dart';
 class SongSection extends StatelessWidget {
   String pageName = "SongSection";
   SongSection({super.key});
@@ -16,7 +17,7 @@ class SongSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+   
     var imageList = SongSectionData.imageLink;
     var songList = SongSectionData.titles;
     var singerist = SongSectionData.singer;
