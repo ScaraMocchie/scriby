@@ -305,7 +305,7 @@ Widget ieltContainer(){
     width:mediaQueryData.size.width*9/11 ,
     
     child: Row(
-      
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: 
     
     [

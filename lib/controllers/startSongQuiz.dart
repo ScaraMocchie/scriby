@@ -102,7 +102,7 @@ class StartSong{
     print("lyric3: ${lyric3}");
    return 1;
   } else {
-    return 0;
+    return -1;
     //throw Exception('Failed to load Blob data');
   }}catch(e){
     return -1;
