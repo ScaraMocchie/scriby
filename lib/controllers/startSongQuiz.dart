@@ -49,6 +49,9 @@ class StartSong{
   static String? userLyric1;
   static String? userLyric2;
   static String? userLyric3;
+  static http.Response? response;
+  static http.Response? response11;
+  static http.Response? response12;
   static void makeNull(){
     StartSong.title=null;
     StartSong.singer=null;
@@ -82,6 +85,27 @@ class StartSong{
   return thePlayer;
 }
 
+static Future<void> get1(getTitle,difficulty)async
+{ response = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio1&${difficulty}'));//cheovzvxbc
+  print("one more 1");
+    StartSong.forPlayer1=response!.bodyBytes;
+    StartSong.player1=await getAudio(StartSong.forPlayer1);
+    player1Receive=response!.statusCode;
+}
+static Future<void> get2(getTitle,difficulty)async
+ {  response11 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio2&${difficulty}'));//cheovzvxbc
+  print("one more 2");
+   StartSong.forPlayer2=response11!.bodyBytes;
+   StartSong.player2=await getAudio(StartSong.forPlayer2);
+   player2Receive=response11!.statusCode;
+}
+static Future<void> get3(getTitle,difficulty)async
+  { response12 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio3&${difficulty}'));//cheovzvxbc
+  print("one more 3");
+   StartSong.forPlayer3=response12!.bodyBytes;
+    StartSong.player3=await getAudio(StartSong.forPlayer3);
+    player3Receive=response12!.statusCode;
+}
   static Future<int> getBlobData(String getTitle,String difficulty,String songName,String singer,String imageLink ) async {
   print("send 1");
   try{
@@ -146,22 +170,30 @@ class StartSong{
      print("lyric1: ${lyric1}");
     print("lyric2: ${lyric2}");
     print("lyric3: ${lyric3}");
-  final response = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio1&${difficulty}'));//cheovzvxbc
+    get1(getTitle,difficulty);
+    get2(getTitle,difficulty);
+    get3(getTitle,difficulty);
+/*
+   response = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio1&${difficulty}'));//cheovzvxbc
   print("one more 1");
-    StartSong.forPlayer1=response.bodyBytes;
+    StartSong.forPlayer1=response!.bodyBytes;
     StartSong.player1=await getAudio(StartSong.forPlayer1);
-    player1Receive=response.statusCode;
-  final response11 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio2&${difficulty}'));//cheovzvxbc
+    player1Receive=response!.statusCode;
+
+   response11 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio2&${difficulty}'));//cheovzvxbc
   print("one more 2");
-   StartSong.forPlayer2=response11.bodyBytes;
+   StartSong.forPlayer2=response11!.bodyBytes;
    StartSong.player2=await getAudio(StartSong.forPlayer2);
-   player2Receive=response11.statusCode;
-  final response12 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio3&${difficulty}'));//cheovzvxbc
+   player2Receive=response11!.statusCode;
+
+   response12 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio3&${difficulty}'));//cheovzvxbc
   print("one more 3");
-   StartSong.forPlayer3=response12.bodyBytes;
+   StartSong.forPlayer3=response12!.bodyBytes;
     StartSong.player3=await getAudio(StartSong.forPlayer3);
-    player3Receive=response12.statusCode;
+    player3Receive=response12!.statusCode;
+*/
   print("receive all");
+  /*
   if (response.statusCode == 200) {
   
   
@@ -173,7 +205,9 @@ class StartSong{
   } else {
     return -1;
     //throw Exception('Failed to load Blob data');
-  }}catch(e){
+  }*/
+  return 1;
+  }catch(e){
     return -1;
   }
 }
