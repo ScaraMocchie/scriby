@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
-import 'package:get/get.dart';
+import 'package:tobagen2/controllers/routes.dart';
 import "./accountPage.dart";
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -28,11 +28,11 @@ void _onItemTapped(int index) {
    // setState(() {
    
     if(index==1){
-      LeaderboardData.getData()!.whenComplete(() {print("lanjut"); Get.off(()=>LeadPage()) ;});
+      LeaderboardData.getData()!.whenComplete(() {print("lanjut"); Routes.off("leaderboard");});
     
     }
     else if(index==2){
-      Get.off(()=>AccountPage());
+      Routes.off("account");
     }
     
       print(index);// = index;
@@ -40,6 +40,7 @@ void _onItemTapped(int index) {
   }
   @override
   Widget build (BuildContext context){
+    Routes.tempContext=context;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(title: Container(
@@ -120,11 +121,11 @@ void _onItemTapped(int index) {
                   print("awak ${AccountData.state}");
                   if(AccountData.state==1){
                  await AccountData.getData();
-                Get.to(()=>ProgressPage());
+                Routes.put("progress");
                
                 
       }else{
-        Get.to(()=>ProgressPage());
+        Routes.put("progress");
         }
                 },
                 child: Text("See More",style: TextStyle(color: Colors.white),),
@@ -206,10 +207,9 @@ Widget songContainer(BuildContext context){
     Navigator.pop(context);
     print("lets 4");
     Level.level="Easy";
-    Get.to(()=>SongSection());}else{
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return HomePage();}));
+    Routes.put("songSection");}else{Routes.off("home");
     }
-    }catch(e){print(e);print("connection error");Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return HomePage();}));
+    }catch(e){print(e);print("connection error");Routes.off("home");
     }},
   child:Container(
     padding: EdgeInsets.all(10) ,
@@ -280,10 +280,9 @@ Widget ieltContainer(){
     Level.level="Easy";
     print("permission");
     print(AccountData.permissionStatus);
-    Get.to(()=>SongSection());}else{
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return HomePage();}));
+    Routes.put("songSection");}else{Routes.off("home");
     }
-    }catch(e){print(e);print("connection error");Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return HomePage();}));
+    }catch(e){print(e);print("connection error");Routes.off("home");
     }},
   child:Container(
     padding: EdgeInsets.all(10) ,

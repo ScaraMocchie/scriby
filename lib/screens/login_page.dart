@@ -1,3 +1,5 @@
+import 'package:tobagen2/controllers/routes.dart';
+
 import '../screens/lockscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -41,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    Routes.tempContext=context;
     return Scaffold(
       body: ListView(
         children: [
@@ -211,9 +214,9 @@ class _LoginPageState extends State<LoginPage> {
                             AccountData.deadlinePermission=data[2];
                             await  AccountData.getData();
                               if (AccountData.permissionStatus == -1){
-                                Navigator.push(context, MaterialPageRoute(builder: (context){return LockScreen();}));
+                                Navigator.push(context, MaterialPageRoute(builder: (context){return LockScreen();}));    
                               } else{
-                                Get.off(HomePage());
+                                Routes.off("home");
                               }
                               }
                             else{setState(() {
@@ -245,7 +248,7 @@ class _LoginPageState extends State<LoginPage> {
                           Text("Not a member?"),
                           TextButton(
                               onPressed: () {
-                                Get.off( RegisterPage());
+                                Routes.off("register");
                               },
                               child: Text(
                                 "Register",

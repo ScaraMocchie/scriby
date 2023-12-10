@@ -1,0 +1,179 @@
+import 'package:flutter/material.dart';
+import '../screens/homePage.dart';
+import '../screens/accountPage.dart';
+import '../screens/lead_page.dart';
+import '../screens/login_page.dart';
+import '../screens/progress.dart';
+import '../screens/register_page.dart';
+import '../screens/songGrade.dart';
+import '../screens/song_ans_page.dart';
+import '../screens/song_ans_page2.dart';
+import '../screens/song_ans_page3.dart';
+import '../screens/songsection.dart';
+import 'dart:io';
+
+class Routes{
+  static BuildContext? tempContext;
+  static List<String> routeList=[];
+  static void getBack(){
+    if(routeList.length==1 || routeList.length==0){
+      exit(0);
+    //  Navigator.pop(tempContext!);
+    }else{
+      int lastSecond=routeList.length-2;
+      off(routeList[lastSecond]);
+      routeList.removeLast();
+    }
+    print(routeList);
+  }
+  static void offAll(){
+    offAll1(tempContext!);
+  }
+  static void offAll1(BuildContext context){
+      Route route = MaterialPageRoute(builder: (context)=>HomePage());
+      Navigator.of(context).pushAndRemoveUntil(route, (Route<dynamic> route) => false);
+  }
+  static void popAllThenOff(String routeName){
+    routeList=[];
+    off(routeName);
+  }
+  static void off(String routeName)
+  {
+    if(routeName=="home"){
+      offHome(tempContext!);
+    }
+    else if(routeName=="account"){
+      offAcc(tempContext!);
+    }
+else if(routeName=="leaderboard"){
+      offLeaderboard(tempContext!);
+    }
+else if(routeName=="login"){
+      offLogin(tempContext!);
+    }
+else if(routeName=="progress"){
+      offStat(tempContext!);
+    }
+else if(routeName=="register"){
+      offRegister(tempContext!);
+    }
+else if(routeName=="songGrade"){
+      offGrade(tempContext!);
+    }
+else if(routeName=="song1"){
+      offSong1(tempContext!);
+    }
+else if(routeName=="song2"){
+      offSong2(tempContext!);
+    }
+else if(routeName=="song3"){
+      offSong3(tempContext!);
+    }
+else if(routeName=="songSection"){
+      offSongSection(tempContext!);
+    }
+    if(routeList.length==0){
+    routeList.add(routeName);}
+    else{
+      routeList.removeLast();
+      routeList.add(routeName);
+    }
+    print(routeList);
+  }
+
+
+  static void put(String routeName)
+  {
+    if(routeName=="home"){
+      offHome(tempContext!);
+    }
+    else if(routeName=="account"){
+      offAcc(tempContext!);
+    }
+else if(routeName=="leaderboard"){
+      offLeaderboard(tempContext!);
+    }
+else if(routeName=="login"){
+      offLogin(tempContext!);
+    }
+else if(routeName=="progress"){
+      offStat(tempContext!);
+    }
+else if(routeName=="register"){
+      offRegister(tempContext!);
+    }
+else if(routeName=="songGrade"){
+      offGrade(tempContext!);
+    }
+else if(routeName=="song1"){
+      offSong1(tempContext!);
+    }
+else if(routeName=="song2"){
+      offSong2(tempContext!);
+    }
+else if(routeName=="song3"){
+      offSong3(tempContext!);
+    }
+else if(routeName=="songSection"){
+      offSongSection(tempContext!);
+    }
+   
+    routeList.add(routeName);
+    print(routeList);
+  }
+  
+  
+  static void addToRouteList(String routeName){
+    routeList.add(routeName);
+  }
+static void offHome(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => HomePage());
+Navigator.pushReplacement(context, route);
+  }
+static void offAcc(BuildContext context){
+  print("acc");
+    Route route = MaterialPageRoute(builder: (context) =>AccountPage() );
+Navigator.pushReplacement(context, route);
+  }
+static void offLeaderboard(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => LeadPage());
+Navigator.pushReplacement(context, route);
+  }
+static void offLogin(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) =>LoginPage());
+Navigator.pushReplacement(context, route);
+  }
+  static void offStat(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => ProgressPage());
+Navigator.push(context, route);
+  }
+static void offRegister(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => RegisterPage());
+Navigator.pushReplacement(context, route);
+  }
+  static void offGrade(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => SongGrade());
+Navigator.pushReplacement(context, route);
+  }
+static void offSong1(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => SongAns());
+Navigator.pushReplacement(context, route);
+  } 
+
+static void offSong2(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => SongAns2());
+Navigator.pushReplacement(context, route);
+  } 
+static void offSong3(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => SongAns3());
+Navigator.pushReplacement(context, route);
+  } 
+static void offSongSection(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => SongSection());
+Navigator.push(context, route);
+  } 
+
+  
+   
+  
+}

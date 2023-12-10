@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'dart:typed_data';
 import 'package:http/http.dart' as http;
+import 'package:tobagen2/controllers/routes.dart';
 import 'dart:convert';
 import 'dart:async';
 import '../screens/songsection.dart';
@@ -212,6 +213,7 @@ static Future<void> get3(getTitle,difficulty)async
   }
 }
 static Future<void> getStatus1(BuildContext context) async{
+  Routes.tempContext=context;
   int time=0;
   print(player1Receive);
   if(player1Receive!=200){
@@ -221,20 +223,21 @@ static Future<void> getStatus1(BuildContext context) async{
       timer.cancel();
       print(time);
       Level.level = "Easy";
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongSection();}));
+      Routes.off("songSection");
     }
     else if(player1Receive==200){
       timer.cancel();
       print("ans1");
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongAns();}));
+      Routes.off("song1");
 
     }
   });}else{
     print("ans11");
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongAns();}));
+    Routes.off("song1");
   }
 }
 static Future<void> getStatus2(BuildContext context) async{
+  Routes.tempContext=context;
   int time=0;
   if(player2Receive!=200){
    Timer.periodic(Duration(milliseconds: 100), (Timer timer) { 
@@ -242,20 +245,21 @@ static Future<void> getStatus2(BuildContext context) async{
     if(time==290 || ( player2Receive!=200&& player2Receive!=0)){
       timer.cancel();
       Level.level = "Easy";
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongSection();}));
+      Routes.off("songSection");
     }
     else if(player2Receive==200){
       timer.cancel();
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongAns2();}));
+      Routes.off("song2");
 
     }
   });}else{
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongAns2();}));
+    Routes.off("song2");
   }
 }
 
 
 static Future<void> getStatus3(BuildContext context) async{
+  Routes.tempContext=context;
   int time=0;
   if(player3Receive!=200){
    Timer.periodic(Duration(milliseconds: 100), (Timer timer) { 
@@ -263,15 +267,15 @@ static Future<void> getStatus3(BuildContext context) async{
     if(time==290 || (player3Receive!=200&& player3Receive!=0)){
       timer.cancel();
       Level.level = "Easy";
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongSection();}));
+      Routes.off("songSection");
     }
     else if(player3Receive==200){
       timer.cancel();
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongAns3();}));
+      Routes.off("song3");
 
     }
   });}else{
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return SongAns3();}));
+    Routes.off("song3");
   }
 }
 

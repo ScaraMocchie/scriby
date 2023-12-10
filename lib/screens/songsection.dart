@@ -1,3 +1,5 @@
+import 'package:tobagen2/controllers/routes.dart';
+
 import '../screens/searchPage.dart';
 import '../screens/seemore_page.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +19,7 @@ class SongSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
+    Routes.tempContext=context;
     var imageList = SongSectionData.imageLink;
     var songList = SongSectionData.titles;
     var singerist = SongSectionData.singer;
@@ -28,7 +30,9 @@ class SongSection extends StatelessWidget {
     var width = size.width;
     String audioTypeTitle=" Section";
     
-    return Scaffold(
+    return WillPopScope(
+      child:
+      Scaffold(
       backgroundColor: Color(0xffE8E8E8),
       body: SizedBox(
         height: height,
@@ -60,10 +64,10 @@ class SongSection extends StatelessWidget {
                     children: <Widget>[
                        Row(
                         children: <Widget>[
-                          Icon(
+                          IconButton(onPressed: (){Navigator.pop(context); Routes.getBack();}, icon: Icon(
                             Icons.arrow_back_ios,
                             color: Colors.white,
-                          ),
+                          ),),
                           SizedBox(
                             width: 10,
                           ),
@@ -247,6 +251,6 @@ class SongSection extends StatelessWidget {
         ),
       ),
       
-    );
+    ), onWillPop: ()async{Routes.getBack();return true;});
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tobagen2/controllers/routes.dart';
 import '../widgets/achiement.dart';
 import '../widgets/chart.dart';
 import '../widgets/target.dart';
@@ -13,7 +14,8 @@ class ProgressPage extends StatelessWidget {
     var height = size.height;
     var width = size.width;
 
-    return Scaffold(
+    return WillPopScope(child:
+    Scaffold(
       backgroundColor: Color(0xffE8E8E8),
       body: SizedBox(
         height: height,
@@ -43,13 +45,12 @@ class ProgressPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  const Row(
+                children: [Row(
                     children: <Widget>[
-                      Icon(
+                      IconButton(onPressed: (){Navigator.pop(context);Routes.getBack();}, icon: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.white,
-                      ),
+                      ),),
                       SizedBox(
                         width: 10,
                       ),
@@ -185,6 +186,6 @@ class ProgressPage extends StatelessWidget {
           ],
         ),
       ),*/
-    );
+    ), onWillPop: ()async{Routes.getBack();return true;});
   }
 }

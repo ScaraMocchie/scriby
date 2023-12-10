@@ -1,3 +1,5 @@
+import 'package:tobagen2/controllers/routes.dart';
+
 import '../controllers/accountMessage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -188,7 +190,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               AccountData.permissionStatus=data[3];
                               AccountData.deadlinePermission=data[2];
                               await  AccountData.getData();
-                                Get.off(HomePage());}
+                                Routes.off("home");}
                               else{
                                 setState(() {
                                   status=data[1];
@@ -220,7 +222,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           Text("Already a member?"),
                           TextButton(
                               onPressed: () {
-                                Get.off(LoginPage());
+                                Routes.off("login");
                               },
                               child: Text(
                                 "Login",

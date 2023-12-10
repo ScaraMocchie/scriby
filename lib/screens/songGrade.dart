@@ -1,3 +1,5 @@
+import 'package:tobagen2/controllers/routes.dart';
+
 import '../screens/persuasive_ad.dart';
 
 import '../screens/homePage.dart';
@@ -115,7 +117,8 @@ void finish()async{
                   print("hu${AccountData.state}");
                  await  AccountData.getData();
                  AccountData.playedAudioToday+=1;
-  Get.offAll(HomePage());
+  Routes.offAll();
+  Routes.getBack();
   }else{
     var    response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","updateDataByIelts"),
                   body:jsonEncode(data));
@@ -143,6 +146,7 @@ String result="Great Job!";
 
 @override
 Widget build(BuildContext context){
+  Routes.tempContext=context;
   print("rebuild");
   return  SafeArea(
       child: Scaffold(

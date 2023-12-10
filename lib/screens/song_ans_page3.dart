@@ -1,6 +1,7 @@
 import 'package:just_audio/just_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tobagen2/controllers/routes.dart';
 import './songGrade.dart';
 import '../controllers/startSongQuiz.dart';
 import '../controllers/songPoint.dart';
@@ -51,6 +52,7 @@ int start=0;
 
   @override
   Widget build(BuildContext context) {
+    Routes.tempContext=context;
     if(SongSectionData.audioType=="Ielts"){
       titleHeadBar="Guess The Subtitles";
     }
@@ -214,7 +216,7 @@ int start=0;
                     print(StartSong.userLyric3);
                     await PointData.getPoints() ;
                     //get point logic
-                    Get.off(()=>SongGrade());
+                    Routes.off("songGrade");
                   },
                   child: const Text("Next"),
                 ),

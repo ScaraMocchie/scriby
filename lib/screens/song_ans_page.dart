@@ -1,6 +1,7 @@
 import 'package:just_audio/just_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tobagen2/controllers/routes.dart';
 import '../screens/song_ans_page2.dart';
 import '../controllers/startSongQuiz.dart';
 import '../controllers/songPoint.dart';
@@ -72,6 +73,8 @@ class _SongAnsState extends State<SongAns> {
 
   @override
   Widget build(BuildContext context) {
+    
+    Routes.tempContext=context;
     if(SongSectionData.audioType=="Ielts"){
       titleHeadBar="Guess The Subtitles";
     }
