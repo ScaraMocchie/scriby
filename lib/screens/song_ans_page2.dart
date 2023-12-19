@@ -1,6 +1,6 @@
 import 'package:just_audio/just_audio.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:tobagen2/controllers/routes.dart';
 import '../screens/song_ans_page3.dart';
 import '../controllers/startSongQuiz.dart';
 import '../controllers/songPoint.dart';
@@ -70,16 +70,19 @@ int start=0;
 
   @override
   Widget build(BuildContext context) {
+    Routes.tempContext=context;
       if(SongSectionData.audioType=="Ielts"){
       titleHeadBar="Guess The Subtitles";
     }
-    return Scaffold(
+    return WillPopScope(child: 
+    Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.arrow_back_ios_new_rounded),
-            color: Colors.black,
-          ),
+          leading: SizedBox(),
+          // IconButton(
+          //   onPressed: () {Routes.getBack();},
+          //   icon: const Icon(Icons.arrow_back_ios_new_rounded),
+          //   color: Colors.black,
+          // ),
           centerTitle: true,
           title:  Text(
             titleHeadBar,
@@ -237,6 +240,6 @@ int start=0;
               ),
             ],
           ),
-        ));
+        )), onWillPop: ()async{Routes.offAll();return true;});
   }
 }

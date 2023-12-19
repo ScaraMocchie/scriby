@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tobagen2/controllers/accountMessage.dart';
 import 'dart:ui' as ui;
-import 'package:get/get.dart';
+import 'package:tobagen2/controllers/routes.dart';
 import './homePage.dart';
 //import './songGrade.dart';
 import './lead_page.dart';
@@ -22,14 +23,14 @@ MediaQueryData mediaQueryData = MediaQueryData.fromWindow(ui.window);
 
 void _onItemTapped(int index) {
    // setState(() {
-   
+    AccountMessage.showLoadingDialog(context);
     if(index==0){
       
-    Get.off(()=>HomePage()) ;
+    Routes.offAll();
     }
     else if(index==1){
     //  await LeaderboardData.getData();
-      LeaderboardData.getData()!.whenComplete(() {print("lanjut"); Get.off(()=>LeadPage()) ;});
+      LeaderboardData.getData()!.whenComplete(() {print("lanjut"); Routes.off("leaderboard");});
     }
     
       print(index);// = index;
@@ -37,6 +38,7 @@ void _onItemTapped(int index) {
   }
   @override
   Widget build (BuildContext context){
+    Routes.tempContext=context;
     return SafeArea(
         child: Scaffold(
           extendBody: true,
@@ -93,8 +95,9 @@ void _onItemTapped(int index) {
                       children: [
                         Text(""),
                         Text(""),
-                        Text(""),
-                        Text(""),
+                        (MediaQuery.of(context).size.height>800)?Text(""):Text(AccountData.username!, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+
+                        (MediaQuery.of(context).size.height>800)?Text(AccountData.username!, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),):Text(""),
                         Container(
                           alignment: Alignment.centerLeft,
                           child:Column(
@@ -118,6 +121,11 @@ void _onItemTapped(int index) {
                     
         ]
       )
+      ),
+      Align(
+        alignment: Alignment.topRight,
+        child: Padding(padding: EdgeInsets.all(10),
+        child: IconButton(onPressed: (){Routes.offAllLogout();}, icon: Icon(Icons.logout_rounded, size: 30,), color: Colors.white,),),
       ),
   
       Positioned(top:mediaQueryData.size.height*1/3-110,
@@ -206,10 +214,10 @@ Widget statOption(MediaQueryData mediaQueryData){
                 AccountData.playedIelts=data[7];
                 AccountData.totalReplay=data[8];
                  AccountData.state=0;
-                  Get.to(()=>ProgressPage());
+                  Routes.off("progress");
                 
       }else{
-      Get.to(()=>ProgressPage());
+      Routes.put("progress");
         }
       },
     child:Container(
@@ -236,7 +244,9 @@ Widget statOption(MediaQueryData mediaQueryData){
 
 Widget myVipOption(MediaQueryData mediaQueryData){
   return InkWell(
-    onTap:(){},
+    onTap:(){if(AccountData.permissionStatus != 1){
+          Routes.put("ads");
+        }},
     child:Container(
     padding: EdgeInsets.all(16),
     width: mediaQueryData.size.width,

@@ -2,7 +2,6 @@ import 'package:tobagen2/controllers/routes.dart';
 
 import '../controllers/accountMessage.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../bar_items/appbar.dart';
 import '../screens/login_page.dart';
 import '../screens/homePage.dart';
@@ -30,11 +29,12 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    Routes.tempContext=context;
     return Scaffold(
       body: ListView(
         children: [
-          const UpBar(),
           Container(
+            padding: EdgeInsets.only(top: 20),
             height: MediaQuery.sizeOf(context).height * 0.92,
             decoration: const BoxDecoration(
               gradient: LinearGradient(

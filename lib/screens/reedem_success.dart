@@ -1,13 +1,15 @@
+import 'package:tobagen2/controllers/routes.dart';
+
 import '../screens/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 
 class SuccessReedem extends StatelessWidget {
   const SuccessReedem({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Routes.tempContext=context;
     var size = MediaQuery.of(context).size;
     var height = size.height;
     var width = size.width;
@@ -29,7 +31,7 @@ class SuccessReedem extends StatelessWidget {
                 ),),
                 SizedBox(height: 70,),
               InkWell(
-                onTap: (){Get.offAll(HomePage());},
+                onTap: (){Routes.offAll();},
                 child: Container(
                   alignment: Alignment.center,
                   width: width,

@@ -10,6 +10,7 @@ class ProgressPage extends StatelessWidget {
   ProgressPage({super.key});
   @override
   Widget build(BuildContext context) {
+    Routes.tempContext=context;
     var size = MediaQuery.of(context).size;
     var height = size.height;
     var width = size.width;
@@ -47,7 +48,7 @@ class ProgressPage extends StatelessWidget {
                 // mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [Row(
                     children: <Widget>[
-                      IconButton(onPressed: (){Navigator.pop(context);Routes.getBack();}, icon: Icon(
+                      IconButton(onPressed: (){Routes.getBack();}, icon: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.white,
                       ),),

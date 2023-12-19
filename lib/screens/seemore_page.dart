@@ -1,3 +1,5 @@
+import 'package:tobagen2/controllers/routes.dart';
+
 import '../screens/searchPage.dart';
 import 'package:flutter/material.dart';
 import '../widgets/searchbar.dart';
@@ -14,7 +16,7 @@ class SeeMore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+     
     var imageList = SongSectionData.imageLink;
     var songList = SongSectionData.titles;
     var singerist = SongSectionData.singer;
@@ -23,9 +25,11 @@ class SeeMore extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     var height = size.height;
     var width = size.width;
+    Routes.tempContext=context; 
     String audioTypeTitle=" Section";
     
-    return Scaffold(
+    return WillPopScope(child:
+    Scaffold(
       backgroundColor: Color(0xffE8E8E8),
       body: SizedBox(
         height: height,
@@ -57,10 +61,15 @@ class SeeMore extends StatelessWidget {
                     children: <Widget>[
                        Row(
                         children: <Widget>[
-                          Icon(
+                          IconButton(onPressed: (){
+                            Routes.tempContext=context;
+                            Routes.getBack();
+                            
+                            
+                          }, icon: Icon(
                             Icons.arrow_back_ios,
                             color: Colors.white,
-                          ),
+                          ),),
                           SizedBox(
                             width: 10,
                           ),
@@ -81,7 +90,7 @@ class SeeMore extends StatelessWidget {
                           const SearchingBar(),
                           InkWell(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context){return SearchPage();}));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) =>SearchPage() ));
                           },
                           child: Container(
                             height: 45,
@@ -116,6 +125,6 @@ class SeeMore extends StatelessWidget {
         ),
       ),
       
-    );
+    ), onWillPop: ()async{Routes.tempContext=context;Routes.getBack();return true;});
   }
 }

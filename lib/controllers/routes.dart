@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tobagen2/screens/persuasive_ad.dart';
+import 'package:tobagen2/screens/searchPage.dart';
+import 'package:tobagen2/screens/seemore_page.dart';
 import '../screens/homePage.dart';
 import '../screens/accountPage.dart';
 import '../screens/lead_page.dart';
@@ -21,6 +24,8 @@ class Routes{
     //  Navigator.pop(tempContext!);
     }else{
       int lastSecond=routeList.length-2;
+      print("back");
+      print(routeList[lastSecond]);
       off(routeList[lastSecond]);
       routeList.removeLast();
     }
@@ -29,12 +34,22 @@ class Routes{
   static void offAll(){
     offAll1(tempContext!);
   }
+    static void offAllLogout(){
+    offAll2(tempContext!);
+  }
   static void offAll1(BuildContext context){
       Route route = MaterialPageRoute(builder: (context)=>HomePage());
       Navigator.of(context).pushAndRemoveUntil(route, (Route<dynamic> route) => false);
+      routeList.clear();
+      routeList.add("home");
+  }
+  static void offAll2(BuildContext context){
+      Route route = MaterialPageRoute(builder: (context)=>LoginPage());
+      Navigator.of(context).pushAndRemoveUntil(route, (Route<dynamic> route) => false);
+      routeList.clear();
   }
   static void popAllThenOff(String routeName){
-    routeList=[];
+    routeList.clear;
     off(routeName);
   }
   static void off(String routeName)
@@ -44,6 +59,9 @@ class Routes{
     }
     else if(routeName=="account"){
       offAcc(tempContext!);
+    }
+    else if(routeName=="ads"){
+      offAds(tempContext!);
     }
 else if(routeName=="leaderboard"){
       offLeaderboard(tempContext!);
@@ -86,6 +104,15 @@ else if(routeName=="songSection"){
   {
     if(routeName=="home"){
       offHome(tempContext!);
+    }
+    else if(routeName=="seeMore"){
+      offSeeMore(tempContext!);
+    }
+    else if(routeName=="search"){
+      offSearch(tempContext!);
+    }
+    else if(routeName=="ads"){
+      offAds(tempContext!);
     }
     else if(routeName=="account"){
       offAcc(tempContext!);
@@ -135,8 +162,20 @@ static void offAcc(BuildContext context){
     Route route = MaterialPageRoute(builder: (context) =>AccountPage() );
 Navigator.pushReplacement(context, route);
   }
+static void offAds(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) =>PersuasiveAd() );
+Navigator.pushReplacement(context, route);
+  }
+static void offSearch(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) =>SearchPage() );
+Navigator.pushReplacement(context, route);
+  }
 static void offLeaderboard(BuildContext context){
     Route route = MaterialPageRoute(builder: (context) => LeadPage());
+Navigator.pushReplacement(context, route);
+  }
+static void offSeeMore(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => SeeMore());
 Navigator.pushReplacement(context, route);
   }
 static void offLogin(BuildContext context){
@@ -145,7 +184,7 @@ Navigator.pushReplacement(context, route);
   }
   static void offStat(BuildContext context){
     Route route = MaterialPageRoute(builder: (context) => ProgressPage());
-Navigator.push(context, route);
+Navigator.pushReplacement(context, route);
   }
 static void offRegister(BuildContext context){
     Route route = MaterialPageRoute(builder: (context) => RegisterPage());
@@ -170,7 +209,7 @@ Navigator.pushReplacement(context, route);
   } 
 static void offSongSection(BuildContext context){
     Route route = MaterialPageRoute(builder: (context) => SongSection());
-Navigator.push(context, route);
+Navigator.pushReplacement(context, route);
   } 
 
   

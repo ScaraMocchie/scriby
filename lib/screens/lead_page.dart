@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:tobagen2/controllers/routes.dart';
 import '../widgets/rankbox.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import './homePage.dart';
 import './accountPage.dart';
 import '../controllers/leaderboardData.dart';
@@ -11,10 +10,10 @@ class LeadPage extends StatelessWidget {
 void _onItemTapped(int index) {
    // setState(() {
     if(index==0){
-    Get.off(()=>HomePage()) ;
+    Routes.offAll();
     }
     else if(index==2){
-      Get.off(()=>AccountPage());
+      Routes.off("account");
     }
     
       print(index);// = index;
@@ -22,6 +21,7 @@ void _onItemTapped(int index) {
   }
   @override
   Widget build(BuildContext context) {
+    Routes.tempContext=context;
     var size = MediaQuery.of(context).size;
     var height = size.height;
     var width = size.width;

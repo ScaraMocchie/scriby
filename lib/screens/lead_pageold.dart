@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tobagen2/controllers/routes.dart';
 import './homePage.dart';
 import './accountPage.dart';
 class LeadPage extends StatefulWidget {
@@ -14,7 +15,7 @@ class _LeadPageState extends State<LeadPage> {
   void _onItemTapped(int index) {
    // setState(() {
     if(index==0){
-    Get.off(()=>HomePage()) ;
+    Routes.off("home");
     }
     else if(index==2){
       Get.off(()=>AccountPage());

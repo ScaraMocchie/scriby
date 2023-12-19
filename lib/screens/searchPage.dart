@@ -1,4 +1,6 @@
 
+import 'package:tobagen2/controllers/routes.dart';
+
 import '../controllers/songSectionData.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:string_similarity/string_similarity.dart';
@@ -63,7 +65,9 @@ class _SearchPageState extends State<SearchPage> {
     var size = MediaQuery.of(context).size;
     var height = size.height;
     var width = size.width;
-    return Scaffold(
+    Routes.tempContext=context;  
+    return WillPopScope(child: 
+    Scaffold(
         backgroundColor: Color(0xffE8E8E8),
         body: SizedBox(
             height: height,
@@ -132,7 +136,7 @@ class _SearchPageState extends State<SearchPage> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     SizedBox(height: 10*height/100,),
-                                    SvgPicture.asset("assets/images/search_img.svg", width: 70*width/100,),
+                                    SvgPicture.asset("assets/images/search_img.svg", width: (width>height)?height/3:70*width/100,),
                                     SizedBox(height: 50,),
                                     Text("We couldn't found any matches data", textAlign: TextAlign.center, style: TextStyle(color: Color(0xff528DE7), fontSize: 30, fontWeight: FontWeight.bold),),
                                     SizedBox(height: 10,),
@@ -147,6 +151,6 @@ class _SearchPageState extends State<SearchPage> {
                                 },
 
                               ))
-                            ]))))));
+                            ])))))), onWillPop: ()async{Navigator.pop(context);return true;});
   }
 }

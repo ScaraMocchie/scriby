@@ -1,3 +1,4 @@
+import 'package:tobagen2/controllers/accountMessage.dart';
 import 'package:tobagen2/controllers/routes.dart';
 
 import '../screens/persuasive_ad.dart';
@@ -29,6 +30,7 @@ MediaQueryData mediaQueryData = MediaQueryData.fromWindow(ui.window);
 int option=0;
 
 Widget wrapper(int options){
+  Routes.tempContext=context;
 //  print("tes");
 if(options==0){
   return InkWell(
@@ -117,8 +119,13 @@ void finish()async{
                   print("hu${AccountData.state}");
                  await  AccountData.getData();
                  AccountData.playedAudioToday+=1;
-  Routes.offAll();
-  Routes.getBack();
+  if (AccountData.playedAudioToday%3==0 && AccountData.permissionStatus!=1){
+    Routes.off("ads");
+  }
+  else{
+    Routes.tempContext=context;
+    Routes.offAll();
+  }
   }else{
     var    response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","updateDataByIelts"),
                   body:jsonEncode(data));
@@ -130,10 +137,10 @@ void finish()async{
                     await  AccountData.getData();
                      AccountData.playedAudioToday+=1;
   if (AccountData.playedAudioToday%3==0 && AccountData.permissionStatus!=1){
-    Navigator.push(context, MaterialPageRoute(builder: (context){return PersuasiveAd();}));
+    Routes.off("ads");
   }
   else{
-    Get.offAll(HomePage());
+    Routes.offAll();
   }
   }
     
@@ -238,7 +245,7 @@ Widget build(BuildContext context){
     minimumSize: Size(mediaQueryData.size.width*9/11 , 46), // Set the width and height as needed
   ),
                 onPressed: () {
-                  
+                  AccountMessage.showLoadingDialog(context);
                   finish();
                   
                   },

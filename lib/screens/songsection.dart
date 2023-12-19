@@ -64,7 +64,7 @@ class SongSection extends StatelessWidget {
                     children: <Widget>[
                        Row(
                         children: <Widget>[
-                          IconButton(onPressed: (){Navigator.pop(context); Routes.getBack();}, icon: Icon(
+                          IconButton(onPressed: (){Routes.getBack();}, icon: Icon(
                             Icons.arrow_back_ios,
                             color: Colors.white,
                           ),),
@@ -88,7 +88,7 @@ class SongSection extends StatelessWidget {
                           const SearchingBar(),
                           InkWell(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context){return SearchPage();}));
+                            Routes.put("search");
                           },
                           child: Container(
                             height: 45,
@@ -199,28 +199,11 @@ class SongSection extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              TextButton(
-                                  onPressed: () {},
-                                  child: const Row(
-                                    children: [
-                                      Icon(
-                                        Icons.sort_rounded,
-                                        color: Colors.black,
-                                      ),
-                                      SizedBox(
-                                        width: 5,
-                                      ),
-                                      Text(
-                                        "Sort",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                        ),
-                                      )
-                                    ],
-                                  )),
+                              
                               TextButton(
                                   onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context){return SeeMore();}));
+                                    Routes.put("seeMore");
+                                    
                                   },
                                   child: const Text(
                                     "See More",

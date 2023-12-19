@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobagen2/controllers/accountMessage.dart';
 import 'dart:ui' as ui;
 import 'package:tobagen2/controllers/routes.dart';
 import "./accountPage.dart";
@@ -25,6 +26,7 @@ String pageName = "HomePage";
 MediaQueryData mediaQueryData = MediaQueryData.fromWindow(ui.window);
 double progres=0.75;
 void _onItemTapped(int index) {
+  AccountMessage.showLoadingDialog(context);
    // setState(() {
    
     if(index==1){
@@ -51,7 +53,10 @@ void _onItemTapped(int index) {
       alignment: Alignment.centerRight,
       child: InkWell(
         child:Image(image:AssetImage("assets/images/vip_home.png")),
-        onTap:(){print("1");}
+        onTap:(){print("1");
+        if(AccountData.permissionStatus != 1){
+          Routes.put("ads");
+        }}
         
         ),
     ))])),shadowColor: Color.fromARGB(255, 0, 0, 0),elevation: 1.5,backgroundColor: Colors.white,),
