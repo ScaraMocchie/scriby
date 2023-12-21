@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tobagen2/controllers/accountData.dart';
 
 Container VIPCard(double width, String vipStat) {
@@ -13,12 +14,14 @@ Container VIPCard(double width, String vipStat) {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                      CircleAvatar(
-                        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-                        backgroundImage:
-                            AssetImage("assets/images/img_ellipse_8.png"),
-                        radius: 45,
-                      ),
+        CircleAvatar(
+          backgroundColor: Color.fromARGB(255, 34, 143, 231),
+          child: SvgPicture.asset(
+            AccountData.avatarList[AccountData.avatarIndex],
+            width: 80,
+          ),
+          radius: 45,
+        ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

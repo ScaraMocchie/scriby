@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tobagen2/screens/account_infos.dart';
+import 'package:tobagen2/screens/image_page.dart';
 import 'package:tobagen2/screens/persuasive_ad.dart';
 import 'package:tobagen2/screens/searchPage.dart';
 import 'package:tobagen2/screens/seemore_page.dart';
@@ -22,7 +24,7 @@ class Routes{
   static void getBack(){
     if(routeList.length==1 || routeList.length==0){
       exit(0);
-    //  Navigator.pop(tempContext!);
+    //  Navigator.of(tempContext!).pop(true);
     }else{
       int lastSecond=routeList.length-2;
       print("back");
@@ -34,6 +36,7 @@ class Routes{
   }
   static void offAll(){
     offAll1(tempContext!);
+    print(routeList);
   }
     static void offAllLogout(){
     offAll2(tempContext!);
@@ -108,6 +111,12 @@ else if(routeName=="songSection"){
     }
     else if(routeName=="seeMore"){
       offSeeMore(tempContext!);
+    }
+    else if(routeName=="imagePage"){
+      offImagePage(tempContext!);
+    }
+    else if(routeName=="MyAcc"){
+      offMyAcc(tempContext!);
     }
     else if(routeName=="vipPage"){
       offVIP(tempContext!);
@@ -184,6 +193,14 @@ Navigator.pushReplacement(context, route);
   }
 static void offSeeMore(BuildContext context){
     Route route = MaterialPageRoute(builder: (context) => SeeMore());
+Navigator.pushReplacement(context, route);
+  }
+static void offImagePage(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => const ImagePage());
+Navigator.pushReplacement(context, route);
+  }
+static void offMyAcc(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => AccountInfos());
 Navigator.pushReplacement(context, route);
   }
 static void offLogin(BuildContext context){

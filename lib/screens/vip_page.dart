@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tobagen2/controllers/accountData.dart';
@@ -27,18 +29,21 @@ class VIPPage extends StatelessWidget {
             children: [
               SizedBox(height: 10,),
               VIPCard(width, vipStat),
-              SizedBox(height: 20,),
+              SizedBox(height: 90,),
               SvgPicture.asset("assets/images/congrats_VIP.svg", width: (width>height)?width/3:width*7/10,),
               SizedBox(height: 20,),
               SizedBox(width: width, child:
                 Text("CONGRATULATION!", textAlign: TextAlign.center, style: TextStyle(color: Color(0xff528DE7), fontWeight: FontWeight.bold, fontSize: 20),),),
                 SizedBox(
                   width: width*7/10,
-                  child: Text("You are have full access to all premium features in this app", textAlign: TextAlign.center, style: TextStyle(fontSize: 18),))
+                  child: Text("You are have full access to all premium features in this app", textAlign: TextAlign.center, style: TextStyle(fontSize: 18),)),
+                  SizedBox(height: 30,)
             ],
           ),
         ),
       ),
-    ), onWillPop: ()async{Routes.getBack();return true;});
+    ), onWillPop: ()async{
+      Routes.getBack();
+      return true;});
   }
 }
