@@ -43,145 +43,150 @@ void _onItemTapped(int index) {
   @override
   Widget build (BuildContext context){
     Routes.tempContext=context;
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(title: Container(
+    return WillPopScope(
+      onWillPop: ()async{
+      Routes.getBack();
+      return true;},
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(title: Container(
+            
+            child:
+          Row(children:[Image.asset("assets/images/img_logo_1.png",height: 32,)
+          ,Expanded(child: Container( //Expanded
+        alignment: Alignment.centerRight,
+        child: InkWell(
+          child:Image(image:AssetImage("assets/images/vip_home.png")),
+          onTap:(){print("1");
+          if(AccountData.permissionStatus != 1){
+            Routes.put("ads");
+          } else{
+            Routes.put("vipPage");
+          }
+          }
           
-          child:
-        Row(children:[Image.asset("assets/images/img_logo_1.png",height: 32,)
-        ,Expanded(child: Container( //Expanded
-      alignment: Alignment.centerRight,
-      child: InkWell(
-        child:Image(image:AssetImage("assets/images/vip_home.png")),
-        onTap:(){print("1");
-        if(AccountData.permissionStatus != 1){
-          Routes.put("ads");
-        } else{
-          Routes.put("vipPage");
-        }
-        }
-        
-        ),
-    ))])),shadowColor: Color.fromARGB(255, 0, 0, 0),elevation: 1.5,backgroundColor: Colors.white,),
-
-        body:  Row(
-          children: [
-             Container(
-              width: mediaQueryData.size.width/11,
-              color: Colors.white,
-             )
-             ,Expanded(child:Container(
-              alignment: Alignment.topCenter,
-              decoration: BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
-              child: SingleChildScrollView(child: 
-              Column(children:  //makanan utama
-              [
-                SizedBox(
-              
-              height: 30,
-             ),
-             Text("My Progress",
-    style: TextStyle(fontSize: 25,fontFamily: "Poppins"),),SizedBox(
-              height: 20,
-             )
-    ,Container(
-          width: mediaQueryData.size.width*9/11,
-          decoration: BoxDecoration(
-            border: Border.all(color: Color(0xFF0FD3D5)),
-            borderRadius: BorderRadius.circular(15),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+      ))])),shadowColor: Color.fromARGB(255, 0, 0, 0),elevation: 1.5,backgroundColor: Colors.white,),
+    
+          body:  Row(
             children: [
-              SizedBox(
-              height: 20,
-             ),
-              CircularPercentIndicator(
-                radius: 80.0,
-                lineWidth: 8.0,
-                percent: AccountData.weeklyProgresPercentage!/100, // Adjust the percentage as needed
-                center:
-                 Text("${AccountData.weeklyProgresPercentage!}%",style: TextStyle(fontSize: 40,fontFamily: 
-                "Poppins",fontWeight: FontWeight.w600,color: Color(0xFF527EE7)),),
-
-                progressColor: Color(0xFF527EE7),
-              ),SizedBox(
-              
-              height: 10,
-             ),AutoSizeText(
-            textAlign:TextAlign.left,
-              "You have achived ${AccountData.weeklyProgresPercentage!}% of your weekly goal",
-              style: TextStyle(fontFamily: "Poppins",fontWeight: FontWeight.bold,),
-              maxLines: 2,
-            ),
-              
-              SizedBox(
-              
-              height: 10,
-             ),
-              ElevatedButton(
-                 style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF527EE7),
-    minimumSize: Size(mediaQueryData.size.width*9/11 -50, 43), // Set the width and height as needed
-  ),
-                onPressed: () async{
-                  print("proges");
-                  // Add your button's action here
-                  print("awak ${AccountData.state}");
-                  if(AccountData.state==1){
-                 await AccountData.getData();
-                Routes.put("progress");
-               
+               Container(
+                width: mediaQueryData.size.width/11,
+                color: Colors.white,
+               )
+               ,Expanded(child:Container(
+                alignment: Alignment.topCenter,
+                decoration: BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
+                child: SingleChildScrollView(child: 
+                Column(children:  //makanan utama
+                [
+                  SizedBox(
                 
-      }else{
-        Routes.put("progress");
-        }
-                },
-                child: Text("See More",style: TextStyle(color: Colors.white),),
+                height: 30,
+               ),
+               Text("My Progress",
+      style: TextStyle(fontSize: 25,fontFamily: "Poppins"),),SizedBox(
+                height: 20,
+               )
+      ,Container(
+            width: mediaQueryData.size.width*9/11,
+            decoration: BoxDecoration(
+              border: Border.all(color: Color(0xFF0FD3D5)),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                height: 20,
+               ),
+                CircularPercentIndicator(
+                  radius: 80.0,
+                  lineWidth: 8.0,
+                  percent: AccountData.weeklyProgresPercentage!/100, // Adjust the percentage as needed
+                  center:
+                   Text("${AccountData.weeklyProgresPercentage!}%",style: TextStyle(fontSize: 40,fontFamily: 
+                  "Poppins",fontWeight: FontWeight.w600,color: Color(0xFF527EE7)),),
+    
+                  progressColor: Color(0xFF527EE7),
+                ),SizedBox(
+                
+                height: 10,
+               ),AutoSizeText(
+              textAlign:TextAlign.left,
+                "You have achived ${AccountData.weeklyProgresPercentage!}% of your weekly goal",
+                style: TextStyle(fontFamily: "Poppins",fontWeight: FontWeight.bold,),
+                maxLines: 2,
               ),
-              SizedBox(
-              height: 24,
-              
-             )
+                
+                SizedBox(
+                
+                height: 10,
+               ),
+                ElevatedButton(
+                   style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF527EE7),
+      minimumSize: Size(mediaQueryData.size.width*9/11 -50, 43), // Set the width and height as needed
+      ),
+                  onPressed: () async{
+                    print("proges");
+                    // Add your button's action here
+                    print("awak ${AccountData.state}");
+                    if(AccountData.state==1){
+                   await AccountData.getData();
+                  Routes.put("progress");
+                 
+                  
+        }else{
+          Routes.put("progress");
+          }
+                  },
+                  child: Text("See More",style: TextStyle(color: Colors.white),),
+                ),
+                SizedBox(
+                height: 24,
+                
+               )
+              ],
+            ),
+          ),SizedBox(
+                height: 7,
+                
+               ),songContainer(context),SizedBox(
+                height: 7,
+                
+               ),ieltContainer()
+                ],)
+                ),
+               ))
+               ,Container(
+                width: mediaQueryData.size.width/11,
+                color: Colors.white,
+               )
             ],
-          ),
-        ),SizedBox(
-              height: 7,
-              
-             ),songContainer(context),SizedBox(
-              height: 7,
-              
-             ),ieltContainer()
-              ],)
-              ),
-             ))
-             ,Container(
-              width: mediaQueryData.size.width/11,
-              color: Colors.white,
-             )
+          )
+          
+        ,bottomNavigationBar: BottomNavigationBar(backgroundColor: Color.fromARGB(255, 255, 255, 255),
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+    
+              icon: Icon(Icons.leaderboard),
+              label: 'Leaderboard',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle),
+              label: 'Account',
+            ),
           ],
-        )
-        
-      ,bottomNavigationBar: BottomNavigationBar(backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-
-            icon: Icon(Icons.leaderboard),
-            label: 'Leaderboard',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'Account',
-          ),
-        ],
-        currentIndex: 0,
-        selectedItemColor: Color.fromARGB(255, 34, 143, 231), 
-        unselectedItemColor: Colors.grey, 
-      onTap: _onItemTapped,
-    )),
+          currentIndex: 0,
+          selectedItemColor: Color.fromARGB(255, 34, 143, 231), 
+          unselectedItemColor: Colors.grey, 
+        onTap: _onItemTapped,
+      )),
+      ),
     );
   }
   void showLoadingDialog(BuildContext context) {
