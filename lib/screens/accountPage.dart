@@ -105,7 +105,7 @@ void _onItemTapped(int index) {
                             children: [
                               accountOption(mediaQueryData),
                               statOption(mediaQueryData),
-                              myVipOption(mediaQueryData),
+                              myVipOption(mediaQueryData, context),
                               helpOption(mediaQueryData),
                               otherAppOption( mediaQueryData)
                           ],
@@ -242,10 +242,12 @@ Widget statOption(MediaQueryData mediaQueryData){
   ));
 }
 
-Widget myVipOption(MediaQueryData mediaQueryData){
+Widget myVipOption(MediaQueryData mediaQueryData, context){
   return InkWell(
     onTap:(){if(AccountData.permissionStatus != 1){
           Routes.put("ads");
+        } else{
+          Routes.put("vipPage");
         }},
     child:Container(
     padding: EdgeInsets.all(16),

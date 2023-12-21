@@ -56,7 +56,10 @@ void _onItemTapped(int index) {
         onTap:(){print("1");
         if(AccountData.permissionStatus != 1){
           Routes.put("ads");
-        }}
+        } else{
+          Routes.put("vipPage");
+        }
+        }
         
         ),
     ))])),shadowColor: Color.fromARGB(255, 0, 0, 0),elevation: 1.5,backgroundColor: Colors.white,),

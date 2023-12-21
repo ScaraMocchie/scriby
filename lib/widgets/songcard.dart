@@ -5,7 +5,7 @@ import '../widgets/songlevel.dart';
 import '../controllers/startSongQuiz.dart';
 import '../controllers/songSectionData.dart';
 import '../screens/songsection.dart';
-Widget SongCard(String imageLink, String songName, String singer,String getTitle, BuildContext context) {
+Widget SongCard(String imageLink, String songName, String singer,String getTitle, context) {
     void showLoadingDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -36,7 +36,7 @@ Widget SongCard(String imageLink, String songName, String singer,String getTitle
       if(SongSectionData.audioType=="Ielts"){difficulty="ielts"+difficulty;}
          StartSong.getBlobData2(getTitle,difficulty,songName,singer,imageLink);
          print("status 1");
-        await StartSong. getStatus1(context);
+        await StartSong.getStatus1(context);
         print("status 1 end");
     }
     

@@ -95,6 +95,7 @@ flutter:
     - assets/images/logomark.png
     - assets/images/search_img.svg
     - assets/images/succes_reed.svg
+    - assets/images/congrats_VIP.svg
   fonts: 
     - family: Poppins
       fonts: 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tobagen2/screens/persuasive_ad.dart';
 import 'package:tobagen2/screens/searchPage.dart';
 import 'package:tobagen2/screens/seemore_page.dart';
+import 'package:tobagen2/screens/vip_page.dart';
 import '../screens/homePage.dart';
 import '../screens/accountPage.dart';
 import '../screens/lead_page.dart';
@@ -108,6 +109,9 @@ else if(routeName=="songSection"){
     else if(routeName=="seeMore"){
       offSeeMore(tempContext!);
     }
+    else if(routeName=="vipPage"){
+      offVIP(tempContext!);
+    }
     else if(routeName=="search"){
       offSearch(tempContext!);
     }
@@ -164,6 +168,10 @@ Navigator.pushReplacement(context, route);
   }
 static void offAds(BuildContext context){
     Route route = MaterialPageRoute(builder: (context) =>PersuasiveAd() );
+Navigator.pushReplacement(context, route);
+  }
+  static void offVIP(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) =>VIPPage() );
 Navigator.pushReplacement(context, route);
   }
 static void offSearch(BuildContext context){
