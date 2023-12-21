@@ -87,7 +87,6 @@ class PersuasiveAd extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      benefits("Get access to Progress Feature", width),
                       SizedBox(
                         height: 10,
                       ),
