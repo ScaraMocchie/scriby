@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tobagen2/controllers/routes.dart';
+import 'package:tobagen2/widgets/set_target.dart';
 import '../widgets/achiement.dart';
 import '../widgets/chart.dart';
 import '../widgets/target.dart';
@@ -77,20 +78,29 @@ class ProgressPage extends StatelessWidget {
                             fontSize: 18,
                             color: Colors.white),
                       ),
-                      InkWell(
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: height * 25 / 800,
-                          width: 83,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              color: const Color(0xff528DE7)),
-                          child: const Text(
-                            "Set Target",
-                            style: TextStyle(color: Colors.white),
-                          ),
+                      Container(
+                        height: 35,
+                        padding: EdgeInsetsDirectional.symmetric(horizontal: 10),
+                        decoration: BoxDecoration(
+                          color: Color(0xff527ee7),
+                          borderRadius: BorderRadius.circular(10)
                         ),
+                        child: SetTarget(),
                       )
+                      // InkWell(
+                      //   child: Container(
+                      //     alignment: Alignment.center,
+                      //     height: height * 25 / 800,
+                      //     width: 83,
+                      //     decoration: BoxDecoration(
+                      //         borderRadius: BorderRadius.circular(5),
+                      //         color: const Color(0xff528DE7)),
+                      //     child: const Text(
+                      //       "Set Target",
+                      //       style: TextStyle(color: Colors.white),
+                      //     ),
+                      //   ),
+                      // )
                     ],
                   ),
                   const SizedBox(

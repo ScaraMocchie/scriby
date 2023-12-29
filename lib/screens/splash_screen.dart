@@ -1,0 +1,96 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+import 'package:tobagen2/controllers/accountData.dart';
+import 'dart:convert';
+
+import 'package:tobagen2/controllers/routes.dart';
+import 'package:tobagen2/screens/lockscreen.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    Routes.tempContext=context;
+    super.initState();
+
+    isLogin();
+  }
+
+  void isLogin() async{
+    Routes.tempContext=context;
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    bool? isLogin = sp.getBool('isLogin') ?? false;
+
+    if (isLogin){
+      Timer(const Duration(seconds: 3), ()async{String username = sp.getString("email")!;
+      String password = sp.getString("pass")!;
+      AccountData.avatarIndex = sp.getInt("avatarIndex")!;
+
+      var response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","login"), body:jsonEncode([username,password]));
+
+      var code=response.statusCode;
+                           
+                            if(code==200){
+                               var data=jsonDecode(response.body);
+                              AccountData.email=data[1];
+                              AccountData.userId=data[0];
+                              AccountData.username=username;
+                              response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","premium")
+                            ,body:jsonEncode([data[0],data[1]]));
+                             code=response.statusCode;
+                            data=jsonDecode(response.body);
+                            AccountData.isPrem=data[0];
+                            AccountData.permissionStatus=data[3];
+                            AccountData.deadlinePermission=data[2];
+                            await  AccountData.getData();
+                              if (AccountData.permissionStatus == -1){
+                                Routes.off("lock");    
+                              } else{
+                                Routes.off("home");
+                              }
+                              }
+                            else{
+                              Routes.off("login");
+                            }
+      });
+    } else{
+      Timer(const Duration(seconds: 2), () {
+        print("Login duluu");
+      Routes.off("login");});
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    var height = size.height;
+    var width = size.width;
+    return Scaffold(
+      body: Container(
+        height: height,
+        width: width,
+        alignment: Alignment.bottomCenter,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset("assets/images/logomark.png", width: 100,),
+            SizedBox(height: 10,),
+            Text("TOBA APP", style: TextStyle(color: const Color(0xff528DE7), fontSize: 30,
+            fontWeight: FontWeight.bold
+            ),)
+          ],
+
+        ),
+      ),
+    );
+  }
+}

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tobagen2/screens/account_infos.dart';
 import 'package:tobagen2/screens/image_page.dart';
+import 'package:tobagen2/screens/lockscreen.dart';
 import 'package:tobagen2/screens/persuasive_ad.dart';
 import 'package:tobagen2/screens/searchPage.dart';
 import 'package:tobagen2/screens/seemore_page.dart';
+import 'package:tobagen2/screens/tos_page.dart';
 import 'package:tobagen2/screens/vip_page.dart';
 import '../screens/homePage.dart';
 import '../screens/accountPage.dart';
@@ -67,6 +69,9 @@ class Routes{
     else if(routeName=="ads"){
       offAds(tempContext!);
     }
+    else if(routeName=="lock"){
+      offLock(tempContext!);
+    }
 else if(routeName=="leaderboard"){
       offLeaderboard(tempContext!);
     }
@@ -117,7 +122,9 @@ else if(routeName=="songSection"){
     }
     else if(routeName=="MyAcc"){
       offMyAcc(tempContext!);
-    }
+    } else if(routeName=="ToS"){
+      offToS(tempContext!);
+    } 
     else if(routeName=="vipPage"){
       offVIP(tempContext!);
     }
@@ -179,6 +186,10 @@ static void offAds(BuildContext context){
     Route route = MaterialPageRoute(builder: (context) =>PersuasiveAd() );
 Navigator.pushReplacement(context, route);
   }
+  static void offToS(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) =>TosPage() );
+Navigator.pushReplacement(context, route);
+  }
   static void offVIP(BuildContext context){
     Route route = MaterialPageRoute(builder: (context) =>VIPPage() );
 Navigator.pushReplacement(context, route);
@@ -189,6 +200,10 @@ Navigator.pushReplacement(context, route);
   }
 static void offLeaderboard(BuildContext context){
     Route route = MaterialPageRoute(builder: (context) => LeadPage());
+Navigator.pushReplacement(context, route);
+  }
+  static void offLock(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => LockScreen());
 Navigator.pushReplacement(context, route);
   }
 static void offSeeMore(BuildContext context){

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tobagen2/controllers/accountData.dart';
 import 'package:tobagen2/controllers/routes.dart';
 import 'package:tobagen2/screens/accountPage.dart';
@@ -55,10 +56,12 @@ class _ImagePageState extends State<ImagePage> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xff528DE7),
-        onPressed: () {
+        onPressed: () async{
           // Perform the action when the confirm button is clicked
           print('Selected avatar index: $selectedImageIndex');
           AccountData.avatarIndex = selectedImageIndex;
+          SharedPreferences sp = await SharedPreferences.getInstance();
+          sp.setInt("avatarIndex", selectedImageIndex);
           // Routes.tempContext=context;
           Routes.getBack();
         },

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tobagen2/screens/lockscreen.dart';
+import 'package:tobagen2/screens/splash_screen.dart';
 import "./screens/login_page.dart";
 import 'package:get/get.dart';
 
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         // colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 255, 255, 255)),
         useMaterial3: true,
       ),
-      home: LoginPage(),
+      home: SplashScreen(),
     );
   }
 }

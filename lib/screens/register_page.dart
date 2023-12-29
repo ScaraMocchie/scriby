@@ -1,3 +1,4 @@
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tobagen2/controllers/routes.dart';
 
 import '../controllers/accountMessage.dart';
@@ -82,7 +83,10 @@ class _RegisterPageState extends State<RegisterPage> {
                           Text(" Account"),
                           
                         ],
-                      ),Text(status),
+                      ),Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Text(status, style: TextStyle(color: Colors.red),),
+                      ),
                       Container(
                         height: 60,
                         padding: EdgeInsets.only(top: 10, right: 10, left: 10),
@@ -182,6 +186,11 @@ class _RegisterPageState extends State<RegisterPage> {
                                 AccountData.email=emailValue;
                                 AccountData.userId=data[0];
                                 AccountData.username=usernameValue;
+                                SharedPreferences sp = await SharedPreferences.getInstance();
+                                sp.setString('email', usernameValue.toString());
+                                sp.setString('pass',passwordValue.toString());
+                                sp.setBool('isLogin', true);
+                                sp.setInt("avatarIndex", 0);
                                 response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","premium")
                               ,body:jsonEncode([data[0],emailValue]));
                               code=response.statusCode;

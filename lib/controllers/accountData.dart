@@ -27,6 +27,7 @@ class AccountData{
   static int? playedSongs;
   static int? playedIelts;
   static int? weeklyProgresPercentage;
+  static int selectedTarget = 20;
   
 static Future<void> getData()async{
   var    response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","getMyData"),

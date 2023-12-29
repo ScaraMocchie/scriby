@@ -1,3 +1,4 @@
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tobagen2/controllers/accountMessage.dart';
 import 'package:tobagen2/controllers/routes.dart';
 
@@ -21,7 +22,24 @@ class _LoginPageState extends State<LoginPage> {
   bool ok = true;
   bool flag = true;
   bool? isChecked = false;
-
+  void showLoadingDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CircularProgressIndicator(),
+              SizedBox(height: 10),
+              Text("Loading..."),
+            ],
+          ),
+        );
+      },
+    );
+  }
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   String status="";
@@ -193,6 +211,7 @@ class _LoginPageState extends State<LoginPage> {
                         padding: EdgeInsets.only(left: 10, right: 10),
                         child: ElevatedButton(
                           onPressed: () async{
+                            showLoadingDialog(context);
                             // signIn();
                             String usernameValue=usernameController.text;
                             String passwordValue=passwordController.text;
@@ -201,6 +220,12 @@ class _LoginPageState extends State<LoginPage> {
                             var code=response.statusCode;
                            
                             if(code==200){
+                              SharedPreferences sp = await SharedPreferences.getInstance();
+                              sp.setString('email', usernameValue.toString());
+                              sp.setString('pass',passwordValue.toString());
+                              sp.setBool('isLogin', true);
+                              sp.setInt("avatarIndex", 0);
+
                                var data=jsonDecode(response.body);
                               AccountData.email=data[1];
                               AccountData.userId=data[0];
@@ -214,7 +239,7 @@ class _LoginPageState extends State<LoginPage> {
                             AccountData.deadlinePermission=data[2];
                             await  AccountData.getData();
                               if (AccountData.permissionStatus == -1){
-                                Navigator.push(context, MaterialPageRoute(builder: (context){return LockScreen();}));    
+                                Routes.off("lock");    
                               } else{
                                 Routes.off("home");
                               }

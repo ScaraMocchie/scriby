@@ -49,7 +49,9 @@ void _onItemTapped(int index) {
       return true;},
       child: SafeArea(
         child: Scaffold(
-          appBar: AppBar(title: Container(
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: Container(
             
             child:
           Row(children:[Image.asset("assets/images/img_logo_1.png",height: 32,)

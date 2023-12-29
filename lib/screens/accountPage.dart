@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tobagen2/controllers/accountMessage.dart';
 import 'dart:ui' as ui;
 import 'package:tobagen2/controllers/routes.dart';
@@ -111,7 +112,7 @@ void _onItemTapped(int index) {
                                 accountOption(mediaQueryData),
                                 statOption(mediaQueryData),
                                 myVipOption(mediaQueryData, context),
-                                helpOption(mediaQueryData),
+                                ToS(mediaQueryData),
                                 otherAppOption( mediaQueryData)
                             ],
                             )
@@ -130,7 +131,10 @@ void _onItemTapped(int index) {
         Align(
           alignment: Alignment.topRight,
           child: Padding(padding: EdgeInsets.all(10),
-          child: IconButton(onPressed: (){Routes.offAllLogout();}, icon: Icon(Icons.logout_rounded, size: 30,), color: Colors.white,),),
+          child: IconButton(onPressed: () async{
+            SharedPreferences sp = await SharedPreferences.getInstance();
+            sp.clear();
+            Routes.offAllLogout();}, icon: Icon(Icons.logout_rounded, size: 30,), color: Colors.white,),),
         ),
       
         Positioned(top:mediaQueryData.size.height*1/3-110,
@@ -242,7 +246,7 @@ Widget statOption(MediaQueryData mediaQueryData){
     ),
     Text("      "),
     Text(" "),
-    Text("stat"),
+    Text("My Progress"),
     Expanded(child: Container( //expanded
       alignment: Alignment.centerRight,
       child: Image(image:AssetImage("assets/images/arrowAcc.png")),
@@ -271,7 +275,7 @@ Widget myVipOption(MediaQueryData mediaQueryData, context){
     ),
     Text("      "),
     Text(" "),
-    Text("myVip"),
+    Text("VIP"),
    Expanded(child: Container( //expanded
       alignment: Alignment.centerRight,
       child: Image(image:AssetImage("assets/images/arrowAcc.png")),
@@ -282,9 +286,9 @@ Widget myVipOption(MediaQueryData mediaQueryData, context){
   ));
 }
 
-Widget helpOption(MediaQueryData mediaQueryData){
+Widget ToS(MediaQueryData mediaQueryData){
   return InkWell(
-    onTap:(){},
+    onTap:(){Routes.put("ToS");},
     child:Container(
     padding: EdgeInsets.all(16),
     width: mediaQueryData.size.width,
@@ -296,7 +300,7 @@ Widget helpOption(MediaQueryData mediaQueryData){
     ),
     Text("      "),
     Text(" "),
-    Text("help"),
+    Text("Terms of Service"),
     Expanded(child: Container( //expanded
       alignment: Alignment.centerRight,
       child: Image(image:AssetImage("assets/images/arrowAcc.png")),
