@@ -27,7 +27,24 @@ class _RegisterPageState extends State<RegisterPage> {
   final passwordController = TextEditingController();
 
   // void signUp() {}
-
+  void showLoadingDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CircularProgressIndicator(),
+              SizedBox(height: 10),
+              Text("Loading..."),
+            ],
+          ),
+        );
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     Routes.tempContext=context;
@@ -171,6 +188,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         padding: EdgeInsets.only(left: 10, right: 10),
                         child: ElevatedButton(
                           onPressed: () async{
+                            showLoadingDialog(context);
                             if(emailStatus==''){
                               String usernameValue=usernameController.text;
                               String passwordValue=passwordController.text;

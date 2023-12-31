@@ -113,22 +113,9 @@ class SongSection extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
-                              FavCard(
-                                  'https://i1.sndcdn.com/artworks-000393932631-f2l978-t500x500.jpg',
-                                  "Love Mysfelf",
-                                  "BTS"),
-                              FavCard(
-                                  'https://i1.sndcdn.com/artworks-000393932631-f2l978-t500x500.jpg',
-                                  "Love Mysfelf",
-                                  "BTS"),
-                              FavCard(
-                                  'https://i1.sndcdn.com/artworks-000393932631-f2l978-t500x500.jpg',
-                                  "Love Mysfelf",
-                                  "BTS"),
-                              FavCard(
-                                  'https://i1.sndcdn.com/artworks-000393932631-f2l978-t500x500.jpg',
-                                  "Love Mysfelf",
-                                  "BTS"),
+                              for (int i = 0; i < songList!.length; i++)
+                              FavCard(imageList![i], songList[i], singerist![i]),
+                              
                             ],
                           ),
                         ),

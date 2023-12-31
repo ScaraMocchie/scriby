@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobagen2/controllers/songSectionData.dart';
 
   Card FavCard(String imageLink, String song, String singer) {
     return Card(
@@ -11,16 +12,23 @@ import 'package:flutter/material.dart';
             borderRadius: BorderRadius.circular(10), // Image border
             child: SizedBox.fromSize(
               size: const Size.fromRadius(50), // Image radius
-              child: Image.network(
+              child: (SongSectionData.audioType!="Ielts")?Image.network(
                   imageLink,
-                  fit: BoxFit.cover),
+                  fit: BoxFit.cover)
+                  :Image(image: AssetImage("assets/images/ieltHome.png"), fit: BoxFit.cover,),
             ),
           ),
-          Text(
-            song,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+          SizedBox(
+            width: 100,
+            child: Text(
+              song,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
           ),
-          Text(singer),
+          SizedBox(
+            width: 100,
+            child: Text(singer, overflow: TextOverflow.ellipsis,)),
         ],
       ),
     );
