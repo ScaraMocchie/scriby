@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'httpHelp.dart';
 class AccountData{
   static List avatarList = ['assets/images/avatars/Avatar01.svg', 'assets/images/avatars/Avatar03.svg', 'assets/images/avatars/Avatar04.svg', 'assets/images/avatars/Avatar05.svg', 'assets/images/avatars/Avatar06.svg', 'assets/images/avatars/Avatar07.svg', 'assets/images/avatars/Avatar08.svg', 'assets/images/avatars/Avatar09.svg', 'assets/images/avatars/Avatar10.svg', 'assets/images/avatars/Avatar11.svg', 'assets/images/avatars/Avatar12.svg', 'assets/images/avatars/Avatar13.svg', 'assets/images/avatars/Avatar14.svg', 'assets/images/avatars/Avatar15.svg', 'assets/images/avatars/Avatar16.svg', 'assets/images/avatars/Avatar17.svg', 'assets/images/avatars/Avatar18.svg', 'assets/images/avatars/Avatar19.svg', 'assets/images/avatars/Avatar20.svg', 'assets/images/avatars/Avatar21.svg'];
-  static int avatarIndex = 0;
+  static int avatarIndex = 1;
   //basic accound data
   static int? isPrem;
   static String? username;
@@ -12,6 +12,9 @@ class AccountData{
   static int? permissionStatus;
   static String? deadlinePermission;
   static int playedAudioToday=0;
+ 
+  static String statusProfile="basic";//default
+  static String pathProfile="";
 
   static int state=1; //when changed
   static int sendingScoreState=0; 
@@ -51,5 +54,27 @@ static Future<void> getData()async{
                 AccountData.totalReplay=data[8];
                  AccountData.state=0;
 }
-  
+  static Future<void> getProfile()async{
+     var    response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"getImageProfile"),
+                  body:jsonEncode([AccountData.userId]));
+                  var data=jsonDecode(response.body);
+                  String type=data["type"];
+
+                  AccountData.statusProfile=type;
+                    //default
+                    if(AccountData.statusProfile=="basic"){
+                          AccountData. avatarIndex=data["path"];
+                    }else{
+                      AccountData.pathProfile=data["path"];
+                    }
+                  
+
+  }
+  static Future<void> updateProfileBasic()async{
+     var    response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"updatePhoto"),
+                  body:jsonEncode([AccountData.userId,jsonEncode({"type":"basic","path":AccountData.avatarIndex})]));
+                
+                  
+
+  }
 }

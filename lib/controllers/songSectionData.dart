@@ -12,6 +12,10 @@ class SongSectionData{
   static  List<String>? singer;
   static  List<String>? imageLink;
   static List<String>? getTitle;
+  static  List<String>? recTitles;
+  static  List<String>? recSinger;
+  static  List<String>? recImageLink;
+  static List<String>? recGetTitle;
   static bool fillBasicSongListStatus=false;
   static void makeNull1(){
     SongSectionData.titles = null;
@@ -37,12 +41,13 @@ class SongSectionData{
     SongSectionData.singer = [];
     SongSectionData.imageLink = [];
     SongSectionData.getTitle = [];
+  
   }
   static void itemPrepare2(){
-    SongSectionData.titles2 = [];
-    SongSectionData.singer2 = [];
-    SongSectionData.imageLink2 = [];
-    SongSectionData.getTitle2 = [];
+    SongSectionData. recTitles= [];
+  SongSectionData.recSinger= [];
+  SongSectionData.recImageLink= [];
+  SongSectionData. recGetTitle= [];
   }
   static Future<int> storeApi() async{
     /*
@@ -125,7 +130,53 @@ class SongSectionData{
   }
 
 
+static Future<int> storeApiRec() async{
+ 
+    audioType="Song";
+      var response=await http.get(Uri.https(Helper.baseUrl,Helper.baseApi+"recomendSongList")).timeout(
+                                          const Duration(seconds: 13),
+                      onTimeout: (){
 
+                                          return http.Response("nope", 500);});
+      List<dynamic> listBody=jsonDecode(response.body);
+     itemPrepare2();
+    for(int i=0;i<listBody.length;i++){
+      List<dynamic> tempList=listBody[i];
+      SongSectionData. recTitles?.add(tempList[1]);
+  SongSectionData.recSinger?.add(tempList[2]);
+  SongSectionData.recImageLink?.add(tempList[3]);
+  SongSectionData. recGetTitle?.add(tempList[4]);
+       
+      
+    }
+     SongSectionData.fillBasicSongListStatus=true;
+    print("lets go 5 ");
+    print(response.statusCode);
+    return response.statusCode;
+  }
+  static Future<int> storeApiIeltsRec() async{
+ 
+   SongSectionData.audioType="Ielts";
+      var response=await http.get(Uri.https(Helper.baseUrl,Helper.baseApi+"recomendIeltsList")).timeout(
+                                          const Duration(seconds: 13),
+                      onTimeout: (){
+
+                                          return http.Response("nope", 500);});
+      List<dynamic> listBody=jsonDecode(response.body);
+     itemPrepare2();
+    for(int i=0;i<listBody.length;i++){
+      List<dynamic> tempList=listBody[i];
+      
+      SongSectionData. recTitles?.add(tempList[1]);
+  SongSectionData.recSinger?.add(tempList[2]);
+  SongSectionData.recImageLink?.add(tempList[3]);
+  SongSectionData. recGetTitle?.add(tempList[4]);
+      
+    }
+     SongSectionData.fillBasicSongListStatus=true;
+    print("lets go 5 ");
+    return response.statusCode;
+  }
 
 
 }

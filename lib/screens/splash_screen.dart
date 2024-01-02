@@ -40,10 +40,12 @@ class _SplashScreenState extends State<SplashScreen> {
       var code=response.statusCode;
                            
                             if(code==200){
+                              
                                var data=jsonDecode(response.body);
                               AccountData.email=data[1];
                               AccountData.userId=data[0];
                               AccountData.username=username;
+                              AccountData.getProfile();
                               response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"premium")
                             ,body:jsonEncode([data[0],data[1]]));
                              code=response.statusCode;

@@ -221,6 +221,7 @@ class _LoginPageState extends State<LoginPage> {
                             var code=response.statusCode;
                            
                             if(code==200){
+                               
                               SharedPreferences sp = await SharedPreferences.getInstance();
                               sp.setString('email', usernameValue.toString());
                               sp.setString('pass',passwordValue.toString());
@@ -230,6 +231,7 @@ class _LoginPageState extends State<LoginPage> {
                                var data=jsonDecode(response.body);
                               AccountData.email=data[1];
                               AccountData.userId=data[0];
+                              AccountData.getProfile();
                               AccountData.username=usernameValue;
                               response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"premium")
                             ,body:jsonEncode([data[0],data[1]]));
@@ -246,6 +248,7 @@ class _LoginPageState extends State<LoginPage> {
                               }
                               }
                             else{setState(() {
+                              Navigator.of(context).pop();
                               status="Account not found!";
                             });}
                             

@@ -5,7 +5,7 @@ import '../widgets/songlevel.dart';
 import '../controllers/startSongQuiz.dart';
 import '../controllers/songSectionData.dart';
 import '../screens/songsection.dart';
-Widget SongCard(String imageLink, String songName, String singer,String getTitle, context) {
+Widget SongCard(String imageLink, String songName, String singer,String getTitle,BuildContext context) {
     void showLoadingDialog(BuildContext context) {
     showDialog(
       context: context,

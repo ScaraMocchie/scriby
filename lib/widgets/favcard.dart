@@ -1,8 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:tobagen2/controllers/songSectionData.dart';
-
-  Card FavCard(String imageLink, String song, String singer) {
-    return Card(
+import '../screens/song_ans_page.dart';
+import '../widgets/songlevel.dart';
+import '../controllers/startSongQuiz.dart';
+import '../screens/songsection.dart';
+  Widget FavCard(String imageLink, String song, String singer,String getTitle,BuildContext context) {
+    void showLoadingDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CircularProgressIndicator(),
+              SizedBox(height: 10),
+              Text("Loading..."),
+            ],
+          ),
+        );
+      },
+    );
+  }
+    return InkWell(
+    onTap:
+    
+    ()async{
+       StartSong.player1Receive=0;
+    StartSong.player2Receive=0;
+    StartSong.player3Receive=0;
+    showLoadingDialog(context);
+      String difficulty = Level.level;
+      if(SongSectionData.audioType=="Ielts"){difficulty="ielts"+difficulty;}
+         StartSong.getBlobData2(getTitle,difficulty,song,singer,imageLink);
+         print("status 1");
+        await StartSong.getStatus1(context);
+        print("status 1 end");
+    },child:Card(
       color: Colors.transparent,
       shadowColor: Colors.transparent,
       child: Column(
@@ -31,5 +66,5 @@ import 'package:tobagen2/controllers/songSectionData.dart';
             child: Text(singer, overflow: TextOverflow.ellipsis,)),
         ],
       ),
-    );
+    ));
   }

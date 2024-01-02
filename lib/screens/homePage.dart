@@ -219,6 +219,7 @@ Widget songContainer(BuildContext context){
     print("lets 2");
     try{
       int statcode=await SongSectionData.storeApi() ;
+      await  SongSectionData.storeApiRec();
       if(statcode==200){print("lets 3");
     Navigator.pop(context);
     print("lets 4");
@@ -290,6 +291,8 @@ Widget ieltContainer(){
     print("lets 2");
     try{
       int statcode=await SongSectionData.storeApiIelts() ;
+      
+      await SongSectionData.storeApiIeltsRec();
       if(statcode==200){print("lets 3");
     Navigator.pop(context);
     print("lets 4 aw");

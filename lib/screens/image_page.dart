@@ -13,6 +13,24 @@ class ImagePage extends StatefulWidget {
 }
 
 class _ImagePageState extends State<ImagePage> {
+    void showLoadingDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CircularProgressIndicator(),
+              SizedBox(height: 10),
+              Text("Loading..."),
+            ],
+          ),
+        );
+      },
+    );
+  }
   List<bool> selectedImages = List.generate(AccountData.avatarList.length, (index) => false);
   int selectedImageIndex = AccountData.avatarIndex;
   @override
@@ -60,8 +78,8 @@ class _ImagePageState extends State<ImagePage> {
           // Perform the action when the confirm button is clicked
           print('Selected avatar index: $selectedImageIndex');
           AccountData.avatarIndex = selectedImageIndex;
-          SharedPreferences sp = await SharedPreferences.getInstance();
-          sp.setInt("avatarIndex", selectedImageIndex);
+          showLoadingDialog(context);
+          await AccountData.updateProfileBasic();
           // Routes.tempContext=context;
           Routes.getBack();
         },

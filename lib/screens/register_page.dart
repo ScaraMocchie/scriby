@@ -201,9 +201,11 @@ class _RegisterPageState extends State<RegisterPage> {
                               print(data);
                               print(code);
                               if(code==200){
+                                 
                                 print(data);
                                 AccountData.email=emailValue;
                                 AccountData.userId=data[0];
+                                AccountData.getProfile(); 
                                 AccountData.username=usernameValue;
                                 SharedPreferences sp = await SharedPreferences.getInstance();
                                 sp.setString('email', usernameValue.toString());
@@ -221,6 +223,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 Routes.off("home");}
                               else{
                                 setState(() {
+                                  Navigator.of(context).pop();
                                   status=data[1];
                                 });
                               }

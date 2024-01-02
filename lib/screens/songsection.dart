@@ -25,6 +25,11 @@ class SongSection extends StatelessWidget {
     var singerist = SongSectionData.singer;
     var getTitleList = SongSectionData.getTitle;
 
+    var recImageList = SongSectionData.recImageLink;
+    var recSongList = SongSectionData.recTitles;
+    var recSingerList = SongSectionData.recSinger;
+    var recGetTitleList = SongSectionData.recGetTitle;
+
     var size = MediaQuery.of(context).size;
     var height = size.height;
     var width = size.width;
@@ -113,8 +118,8 @@ class SongSection extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
-                              for (int i = 0; i < songList!.length; i++)
-                              FavCard(imageList![i], songList[i], singerist![i]),
+                              for (int i = 0; i < recSongList!.length; i++)
+                              FavCard(recImageList![i], recSongList![i], recSingerList![i],recGetTitleList![i],context),
                               
                             ],
                           ),
