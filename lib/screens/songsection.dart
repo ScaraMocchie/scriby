@@ -1,5 +1,5 @@
 import 'package:tobagen2/controllers/routes.dart';
-
+import 'dart:math';
 import '../screens/searchPage.dart';
 import '../screens/seemore_page.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,24 @@ class SongSection extends StatelessWidget {
   String pageName = "SongSection";
   SongSection({super.key});
   static var level = Level.level;
- 
+ void showLoadingDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CircularProgressIndicator(),
+              SizedBox(height: 10),
+              Text("Loading..."),
+            ],
+          ),
+        );
+      },
+    );
+  }
   
 
   @override
@@ -156,7 +173,22 @@ class SongSection extends StatelessWidget {
                               ),
 
                               InkWell(
-                                onTap: () {},
+                                onTap:  ()async{
+
+                                 
+
+                                  int tempIndex=Random().nextInt(songList!.length);
+       StartSong.player1Receive=0;
+    StartSong.player2Receive=0;
+    StartSong.player3Receive=0;
+    showLoadingDialog(context);
+      String difficulty = Level.level;
+      if(SongSectionData.audioType=="Ielts"){difficulty="ielts"+difficulty;}
+         StartSong.getBlobData2(getTitleList![tempIndex],difficulty,songList[tempIndex],singerist![tempIndex],imageList![tempIndex]);
+         print("status 1");
+        await StartSong.getStatus1(context);
+        print("status 1 end");
+    },
                                 child: Container(
                                   alignment: Alignment.center,
                                   height: height * (34 / 800),

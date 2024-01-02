@@ -263,6 +263,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               ))
                         ],
                       ),
+                    /*
                       Padding(
                         padding: const EdgeInsets.only(
                             left: 10, right: 10, bottom: 10),
@@ -316,6 +317,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                         ),
                       ),
+                      */
                     ]),
                   ),
                 ),
