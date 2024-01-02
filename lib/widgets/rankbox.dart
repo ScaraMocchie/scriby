@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
+import '../controllers/accountData.dart';
 class RankBox extends StatelessWidget {
   final String rank;
-  final String profile;
+  final int profile;
   final String username;
   final String exp;
   const RankBox({
@@ -62,8 +63,8 @@ class RankBox extends StatelessWidget {
                 backgroundColor: color,
                 child: CircleAvatar(
                   radius: 24,
-                  backgroundImage: NetworkImage(
-                      "https://images.saymedia-content.com/.image/t_share/MTk2NzY3MjA5ODc0MjY5ODI2/top-10-cutest-cat-photos-of-all-time.jpg"),
+                  
+                  child: SvgPicture.asset(AccountData.avatarList[profile])
                 ),
               ),
               SizedBox(

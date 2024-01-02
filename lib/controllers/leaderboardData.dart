@@ -10,17 +10,20 @@ class LeaderboardData{
   static List<int>? scores;
   static List<String>? usernames;
   static List<int>? userId;
+  static List<int>? profileIndex;
   static int lengths=21;
   static Future<void>? getData() async{
     var response= await http.get(Uri.https(Helper.baseUrl,Helper.baseApi+"giveTop20"));
     scores=[];
     usernames=[];
     userId=[];
+    profileIndex=[];
     var data=jsonDecode(response.body);
     
   //  print(data.length);
   print(data);
     for(int x=0;x<data.length;x++){
+      profileIndex!.add(data[x][3]);
       scores!.add(data[x][2]);
       usernames!.add(data[x][1]);
       userId!.add(data[x][0]);

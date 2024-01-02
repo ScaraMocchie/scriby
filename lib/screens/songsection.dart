@@ -174,6 +174,8 @@ class SongSection extends StatelessWidget {
 
                               InkWell(
                                 onTap:  ()async{
+                                  if(songList!=null || songList!.length>0)
+                                  {
 
                                  
 
@@ -188,7 +190,7 @@ class SongSection extends StatelessWidget {
          print("status 1");
         await StartSong.getStatus1(context);
         print("status 1 end");
-    },
+    }},
                                 child: Container(
                                   alignment: Alignment.center,
                                   height: height * (34 / 800),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobagen2/controllers/accountData.dart';
 import 'package:tobagen2/controllers/routes.dart';
 import '../widgets/rankbox.dart';
 import './homePage.dart';
@@ -78,7 +79,7 @@ void _onItemTapped(int index) {
                          RankBox(
                               rank: i.toString(),
                               profile:
-                                  "https://images.saymedia-content.com/.image/t_share/MTk2NzY3MjA5ODc0MjY5ODI2/top-10-cutest-cat-photos-of-all-time.jpg",
+                                  LeaderboardData.profileIndex![i-1],
                                   
                               username: LeaderboardData.usernames![i-1],
                               exp: LeaderboardData.scores![i-1].toString()),
@@ -106,7 +107,7 @@ void _onItemTapped(int index) {
                    */
                     rank: LeaderboardData.tempdefaultuserposition!.toString(),
                     profile:
-                        "https://images.saymedia-content.com/.image/t_share/MTk2NzY3MjA5ODc0MjY5ODI2/top-10-cutest-cat-photos-of-all-time.jpg",
+                        AccountData.avatarIndex,
                     username: LeaderboardData.tempdefaultusernames!.toString(),
                     exp:  LeaderboardData.tempdefaultscores!.toString()),
               ),
