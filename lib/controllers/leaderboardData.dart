@@ -23,7 +23,7 @@ class LeaderboardData{
   //  print(data.length);
   print(data);
     for(int x=0;x<data.length;x++){
-      profileIndex!.add(data[x][3]);
+      profileIndex!.add(jsonDecode(data[x][3])["path"]);
       scores!.add(data[x][2]);
       usernames!.add(data[x][1]);
       userId!.add(data[x][0]);
