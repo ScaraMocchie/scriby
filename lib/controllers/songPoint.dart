@@ -2,6 +2,7 @@ import 'dart:typed_data';
 import 'startSongQuiz.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'httpHelp.dart';
 
 
 class PointData{
@@ -21,7 +22,7 @@ class PointData{
   }
 
   static Future<void> getPoints() async{
-    var url = Uri.https('bicaraai12.risalahqz.repl.co', 'getComparisonAnswerPoint');
+    var url = Uri.https(Helper.baseUrl,Helper.baseApi+'getComparisonAnswerPoint');
     var response = await http.post(url, body: jsonEncode
                                ([[StartSong.lyric1!
                                   ,StartSong.lyric2!

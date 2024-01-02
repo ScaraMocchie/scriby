@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'httpHelp.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -62,8 +63,7 @@ class SongSectionData{
     ]
     */
     audioType="Song";
-      var response=await http.get(Uri.https("bicaraai12.risalahqz.repl.co"
-                                        ,"getBasicSongList")).timeout(
+      var response=await http.get(Uri.https(Helper.baseUrl,Helper.baseApi+"getBasicSongList")).timeout(
                                           const Duration(seconds: 13),
                       onTimeout: (){
 
@@ -103,8 +103,7 @@ class SongSectionData{
     ]
     */
    SongSectionData.audioType="Ielts";
-      var response=await http.get(Uri.https("bicaraai12.risalahqz.repl.co"
-                                        ,"getBasicIeltsList")).timeout(
+      var response=await http.get(Uri.https(Helper.baseUrl,Helper.baseApi+"getBasicIeltsList")).timeout(
                                           const Duration(seconds: 13),
                       onTimeout: (){
 

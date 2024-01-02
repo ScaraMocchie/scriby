@@ -11,6 +11,7 @@ import '../screens/song_ans_page2.dart';
 import '../screens/song_ans_page3.dart';
 import '../screens/songGrade.dart ';
 import '../widgets/songlevel.dart';
+import 'httpHelp.dart';
 class MyJABytesSource extends StreamAudioSource {
   final Uint8List? _buffer;
 
@@ -87,21 +88,21 @@ class StartSong{
 }
 
 static Future<void> get1(getTitle,difficulty)async
-{ response = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio1&${difficulty}'));//cheovzvxbc
+{ response = await http.get(Uri.https(Helper.baseUrl,Helper.baseApi+'getAudio/${getTitle}&audio1&${difficulty}'));//cheovzvxbc
   print("one more 1");
     StartSong.forPlayer1=response!.bodyBytes;
     StartSong.player1=await getAudio(StartSong.forPlayer1);
     player1Receive=response!.statusCode;
 }
 static Future<void> get2(getTitle,difficulty)async
- {  response11 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio2&${difficulty}'));//cheovzvxbc
+ {  response11 = await http.get(Uri.https(Helper.baseUrl,Helper.baseApi+'getAudio/${getTitle}&audio2&${difficulty}'));//cheovzvxbc
   print("one more 2");
    StartSong.forPlayer2=response11!.bodyBytes;
    StartSong.player2=await getAudio(StartSong.forPlayer2);
    player2Receive=response11!.statusCode;
 }
 static Future<void> get3(getTitle,difficulty)async
-  { response12 = await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getAudio/${getTitle}&audio3&${difficulty}'));//cheovzvxbc
+  { response12 = await http.get(Uri.https(Helper.baseUrl,Helper.baseApi+'getAudio/${getTitle}&audio3&${difficulty}'));//cheovzvxbc
   print("one more 3");
    StartSong.forPlayer3=response12!.bodyBytes;
     StartSong.player3=await getAudio(StartSong.forPlayer3);
@@ -157,7 +158,7 @@ static Future<void> get3(getTitle,difficulty)async
       StartSong.singer=singer;
       StartSong.imageLink=imageLink;
       print("lyric jaidi");
-    final response13=await http.get(Uri.https('bicaraai12.risalahqz.repl.co', 'getLyric/${getTitle}&${difficulty}'));
+    final response13=await http.get(Uri.https(Helper.baseUrl,Helper.baseApi+'getLyric/${getTitle}&${difficulty}'));
     print(response13.statusCode);
     if(response13.statusCode!=200){
       player1Receive=404;

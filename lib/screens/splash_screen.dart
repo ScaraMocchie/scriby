@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:tobagen2/controllers/accountData.dart';
 import 'dart:convert';
-
+import '../controllers/httpHelp.dart';
 import 'package:tobagen2/controllers/routes.dart';
 import 'package:tobagen2/screens/lockscreen.dart';
 
@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
       String password = sp.getString("pass")!;
       AccountData.avatarIndex = sp.getInt("avatarIndex")!;
 
-      var response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","login"), body:jsonEncode([username,password]));
+      var response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"login"), body:jsonEncode([username,password]));
 
       var code=response.statusCode;
                            
@@ -44,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
                               AccountData.email=data[1];
                               AccountData.userId=data[0];
                               AccountData.username=username;
-                              response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","premium")
+                              response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"premium")
                             ,body:jsonEncode([data[0],data[1]]));
                              code=response.statusCode;
                             data=jsonDecode(response.body);

@@ -9,6 +9,7 @@ import '../screens/homePage.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../controllers/accountData.dart';
+import '../controllers/httpHelp.dart';
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
@@ -193,7 +194,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               String usernameValue=usernameController.text;
                               String passwordValue=passwordController.text;
                               String emailValue=emailController.text;
-                              var response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","register")
+                              var response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"register")
                               ,body:jsonEncode([emailValue,usernameValue,passwordValue]));
                               var code=response.statusCode;
                               var data=jsonDecode(response.body);
@@ -209,7 +210,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 sp.setString('pass',passwordValue.toString());
                                 sp.setBool('isLogin', true);
                                 sp.setInt("avatarIndex", 0);
-                                response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","premium")
+                                response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"premium")
                               ,body:jsonEncode([data[0],emailValue]));
                               code=response.statusCode;
                               data=jsonDecode(response.body);

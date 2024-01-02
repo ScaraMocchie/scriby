@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../controllers/accountData.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import '../controllers/httpHelp.dart';
 class ReedemPage extends StatefulWidget {
   const ReedemPage({super.key});
 
@@ -41,7 +42,7 @@ class _ReedemPageState extends State<ReedemPage> {
                   alignment: Alignment.bottomCenter,
                   child: InkWell(
                     onTap: ()async {
-                      var response1=await http.post(Uri.https("bicaraai12.risalahqz.repl.co","validateRedeemCode"),
+                      var response1=await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"validateRedeemCode"),
                                 body:jsonEncode({"email":AccountData.email!,"redeem":reecodeController.text})
                                );
                       var data1=jsonDecode(response1.body);

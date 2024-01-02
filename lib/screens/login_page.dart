@@ -10,6 +10,7 @@ import '../screens/register_page.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../controllers/accountData.dart';
+import '../controllers/httpHelp.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -215,7 +216,7 @@ class _LoginPageState extends State<LoginPage> {
                             // signIn();
                             String usernameValue=usernameController.text;
                             String passwordValue=passwordController.text;
-                            var response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","login")
+                            var response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"login")
                             ,body:jsonEncode([usernameValue,passwordValue]));
                             var code=response.statusCode;
                            
@@ -230,7 +231,7 @@ class _LoginPageState extends State<LoginPage> {
                               AccountData.email=data[1];
                               AccountData.userId=data[0];
                               AccountData.username=usernameValue;
-                              response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","premium")
+                              response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"premium")
                             ,body:jsonEncode([data[0],data[1]]));
                              code=response.statusCode;
                             data=jsonDecode(response.body);

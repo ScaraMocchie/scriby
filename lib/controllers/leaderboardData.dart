@@ -1,6 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../controllers/accountData.dart';
+import 'httpHelp.dart';
 class LeaderboardData{
   static int tempdefaultid=AccountData.userId!;
   static int? tempdefaultscores;
@@ -11,7 +12,7 @@ class LeaderboardData{
   static List<int>? userId;
   static int lengths=21;
   static Future<void>? getData() async{
-    var response= await http.get(Uri.https("bicaraai12.risalahqz.repl.co","giveTop20"));
+    var response= await http.get(Uri.https(Helper.baseUrl,Helper.baseApi+"giveTop20"));
     scores=[];
     usernames=[];
     userId=[];
@@ -29,7 +30,7 @@ class LeaderboardData{
     if(data.length<21){
       lengths=data.length;
     }
-    response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","giveWhereAmI"),body:tempdefaultid.toString());
+    response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"giveWhereAmI"),body:tempdefaultid.toString());
     data=jsonDecode(response.body);
 tempdefaultscores=data[2];
 tempdefaultusernames=data[1];

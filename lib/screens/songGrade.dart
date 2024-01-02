@@ -17,6 +17,7 @@ import 'dart:convert';
 import '../controllers/accountData.dart';
 import '../controllers/songSectionData.dart';
 import '../widgets/songlevel.dart';
+import '../controllers/httpHelp.dart';
 class SongGrade extends StatefulWidget{
   SongGrade({super.key});
 
@@ -110,7 +111,7 @@ void finish()async{
     List<int> data=[AccountData.userId!,PointData. points,PointData.replays];
     if(SongSectionData.audioType!="Ielts")
     {
-      var    response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","updateDataBySong"),
+      var    response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"updateDataBySong"),
                   body:jsonEncode(data));
                   PointData.replays=0;
                  PointData. points=0;
@@ -127,7 +128,7 @@ void finish()async{
     Routes.offAll();
   }
   }else{
-    var    response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","updateDataByIelts"),
+    var    response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"updateDataByIelts"),
                   body:jsonEncode(data));
                   PointData.replays=0;
                   PointData.points=0;

@@ -12,6 +12,8 @@ import '../controllers/leaderboardData.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../controllers/accountData.dart';
+import '../controllers/httpHelp.dart';
+//Helper.baseUrl,Helper.baseApi+
 class AccountPage extends StatefulWidget{
   AccountPage({super.key});
 
@@ -213,7 +215,7 @@ Widget statOption(MediaQueryData mediaQueryData){
   return InkWell(
     onTap:()async{
        if(AccountData.state==1){
-                  var    response= await http.post(Uri.https("bicaraai12.risalahqz.repl.co","getMyData"),
+                  var    response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"getMyData"),
                   body:AccountData.userId.toString());
                   var data=jsonDecode(response.body);
                   
