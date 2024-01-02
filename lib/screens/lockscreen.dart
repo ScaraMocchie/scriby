@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tobagen2/controllers/routes.dart';
-
+//import 'package:url_launcher/url_launcher.dart';
 import '../screens/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -123,7 +123,16 @@ class LockScreen extends StatelessWidget {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: ()
+                    {},
+                  //    async {
+                  //   String url = '/basic-first-aid-procedures-1298578';
+                  //   await launchUrl(Uri(
+                  //     scheme: "https",
+                  //     host: "www.verywellhealth.com",
+                  //     path: url,
+                  //   ));
+                  // },
                     child: Container(
                       alignment: Alignment.center,
                       height: 45,
