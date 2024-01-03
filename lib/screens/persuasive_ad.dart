@@ -3,7 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../screens/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import '../controllers/httpHelp.dart';
 class PersuasiveAd extends StatelessWidget {
   const PersuasiveAd({super.key});
 
@@ -106,10 +106,10 @@ class PersuasiveAd extends StatelessWidget {
                   onTap: ()
                 //  {},
                   async {
-                    String url = '/basic-first-aid-procedures-1298578';
+                    String url = '';
                     await launchUrl(Uri(
                       scheme: "https",
-                      host: "www.verywellhealth.com",
+                      host: Helper.baseWeb,
                       path: url,
                     ));
                   },

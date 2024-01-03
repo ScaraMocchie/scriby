@@ -18,7 +18,7 @@ class _SetTargetState extends State<SetTarget> {
         onChanged: (value){
           setState(() {
             selected = value!;
-            AccountData.selectedTarget = 
+            AccountData.weeklyTarget = 
             (value=="Easy : 10 audio")?10:(value=="Medium : 20 audio")?20:40;
           });
         },

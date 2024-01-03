@@ -3,7 +3,8 @@ import '../screens/songsection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
+import '../controllers/httpHelp.dart';
+import 'package:url_launcher/url_launcher.dart';
 class FeatureInfo extends StatelessWidget {
   final String title;
   final String desc;
@@ -69,7 +70,14 @@ class FeatureInfo extends StatelessWidget {
                 ],
               ),
               InkWell(
-                onTap: () {},
+                onTap: ()  async {
+                    String url = '';
+                    await launchUrl(Uri(
+                      scheme: "https",
+                      host: Helper.baseWeb,
+                      path: url,
+                    ));
+                  },
                 child: Container(
                   alignment: Alignment.center,
                   height: 45,

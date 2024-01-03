@@ -5,8 +5,14 @@ import 'package:tobagen2/widgets/set_target.dart';
 import '../widgets/achiement.dart';
 import '../widgets/chart.dart';
 import '../widgets/target.dart';
-
+import 'package:http/http.dart' as http;
+import '../controllers/httpHelp.dart';
+import "dart:convert";
+import "../controllers/accountData.dart";
 class ProgressPage extends StatelessWidget {
+  Future<void> updateWeeklyTarget()async{
+    var response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"updateWeeklyTarget"),body:jsonEncode([AccountData.userId,AccountData.weeklyTarget]));
+  }
   String pageName = "ProgressPage";
   ProgressPage({super.key});
   @override
@@ -197,6 +203,6 @@ class ProgressPage extends StatelessWidget {
           ],
         ),
       ),*/
-    ), onWillPop: ()async{Routes.getBack();return true;});
+    ), onWillPop: ()async{updateWeeklyTarget();Routes.getBack();return true;});
   }
 }
