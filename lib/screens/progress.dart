@@ -55,7 +55,12 @@ class ProgressPage extends StatelessWidget {
                 // mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [Row(
                     children: <Widget>[
-                      IconButton(onPressed: (){Routes.getBack();}, icon: Icon(
+                      IconButton(onPressed: ()
+                      {
+                        updateWeeklyTarget();
+                      AccountData.state=1;
+                      Routes.getBack();
+                      }, icon: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.white,
                       ),),
@@ -203,6 +208,6 @@ class ProgressPage extends StatelessWidget {
           ],
         ),
       ),*/
-    ), onWillPop: ()async{updateWeeklyTarget();Routes.getBack();return true;});
+    ), onWillPop: ()async{updateWeeklyTarget();AccountData.state=1;Routes.getBack();return true;});
   }
 }

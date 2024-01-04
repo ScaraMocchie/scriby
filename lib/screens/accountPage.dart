@@ -27,12 +27,13 @@ MediaQueryData mediaQueryData = MediaQueryData.fromWindow(ui.window);
 
 void _onItemTapped(int index) {
    // setState(() {
-    AccountMessage.showLoadingDialog(context);
+    
     if(index==0){
       
     Routes.offAll();
     }
     else if(index==1){
+      AccountMessage.showLoadingDialog(context);
     //  await LeaderboardData.getData();
       LeaderboardData.getData()!.whenComplete(() {print("lanjut"); Routes.off("leaderboard");});
     }
@@ -215,25 +216,28 @@ Widget statOption(MediaQueryData mediaQueryData){
   return InkWell(
     onTap:()async{
        if(AccountData.state==1){
-                  var    response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"getMyData"),
-                  body:AccountData.userId.toString());
-                  var data=jsonDecode(response.body);
+        print("1");
+                //   var    response= await http.post(Uri.https(Helper.baseUrl,Helper.baseApi+"getMyData"),
+                //   body:AccountData.userId.toString());
+                //   var data=jsonDecode(response.body);
                   
-                  AccountData.weeklyTarget=data[0];
-                  AccountData.weeklyProgress=data[1];
-                  AccountData.weeklyStat=jsonDecode(data[2]);
+                //   AccountData.weeklyTarget=data[0];
+                //   AccountData.weeklyProgress=data[1];
+                //   AccountData.weeklyStat=jsonDecode(data[2]);
   
             
-                  AccountData.activeDays=data[3];
-                AccountData.activeDaystreaks=data[4];
-                    AccountData.points=data[5];
-                    AccountData.playedSongs=data[6];
-                AccountData.playedIelts=data[7];
-                AccountData.totalReplay=data[8];
-                 AccountData.state=0;
-                  Routes.off("progress");
+                //   AccountData.activeDays=data[3];
+                // AccountData.activeDaystreaks=data[4];
+                //     AccountData.points=data[5];
+                //     AccountData.playedSongs=data[6];
+                // AccountData.playedIelts=data[7];
+                // AccountData.totalReplay=data[8];
+                //  AccountData.state=0;
+                await AccountData.getData();
+                  Routes.put("progress");
                 
       }else{
+        print("2");
       Routes.put("progress");
         }
       },

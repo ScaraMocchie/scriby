@@ -9,9 +9,10 @@ class SetTarget extends StatefulWidget {
 }
 
 class _SetTargetState extends State<SetTarget> {
-  String selected = (AccountData.selectedTarget==10)?"Easy : 10 audio":(AccountData.selectedTarget==20)?"Medium : 20 audio":"Hard  : 40 audio";
+
   @override
   Widget build(BuildContext context) {
+      String selected = (AccountData.weeklyTarget==10)?"Easy : 10 audio":(AccountData.weeklyTarget==20)?"Medium : 20 audio":"Hard  : 40 audio";
     return DropdownButton<String>(
 
         value: selected,

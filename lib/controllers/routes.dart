@@ -58,8 +58,8 @@ class Routes{
     routeList.clear;
     off(routeName);
   }
-  static void off(String routeName)
-  {
+  static Future<void> off(String routeName)
+  async{
     if(routeName=="home"){
       offHome(tempContext!);
     }
@@ -109,8 +109,8 @@ else if(routeName=="songSection"){
   }
 
 
-  static void put(String routeName)
-  {
+  static Future<void> put(String routeName)
+  async{
     if(routeName=="home"){
       offHome(tempContext!);
     }
@@ -222,9 +222,9 @@ static void offLogin(BuildContext context){
     Route route = MaterialPageRoute(builder: (context) =>LoginPage());
 Navigator.pushReplacement(context, route);
   }
-  static void offStat(BuildContext context){
+  static Future<void> offStat(BuildContext context)async{
     Route route = MaterialPageRoute(builder: (context) => ProgressPage());
-Navigator.pushReplacement(context, route);
+await Navigator.pushReplacement(context, route);
   }
 static void offRegister(BuildContext context){
     Route route = MaterialPageRoute(builder: (context) => RegisterPage());

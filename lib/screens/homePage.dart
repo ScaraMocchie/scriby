@@ -27,10 +27,11 @@ String pageName = "HomePage";
 MediaQueryData mediaQueryData = MediaQueryData.fromWindow(ui.window);
 double progres=0.75;
 void _onItemTapped(int index) {
-  AccountMessage.showLoadingDialog(context);
+
    // setState(() {
    
     if(index==1){
+        AccountMessage.showLoadingDialog(context);
       LeaderboardData.getData()!.whenComplete(() {print("lanjut"); Routes.off("leaderboard");});
     
     }
@@ -136,12 +137,15 @@ void _onItemTapped(int index) {
                     print("awak ${AccountData.state}");
                     if(AccountData.state==1){
                    await AccountData.getData();
-                  Routes.put("progress");
+                  await Routes.put("progress");
                  
-                  
+                  print("howwwwwwwwwwwwwww");
         }else{
-          Routes.put("progress");
+       await   Routes.put("progress");
+       print("bagaimanawwwwwwwwwwwwwwwwwwwwww");
           }
+                    //setState((){});
+                    
                   },
                   child: Text("See More",style: TextStyle(color: Colors.white),),
                 ),
