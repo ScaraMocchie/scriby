@@ -151,6 +151,6 @@ class _SearchPageState extends State<SearchPage> {
                                 },
 
                               ))
-                            ])))))), onWillPop: ()async{Navigator.pop(context);return true;});
+                            ])))))), onWillPop: ()async{Routes.getBack();return true;});
   }
 }
