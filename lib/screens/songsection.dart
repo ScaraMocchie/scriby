@@ -1,4 +1,4 @@
-import 'package:tobagen2/controllers/routes.dart';
+import '../controllers/routes.dart';
 import 'dart:math';
 import '../screens/searchPage.dart';
 import '../screens/seemore_page.dart';

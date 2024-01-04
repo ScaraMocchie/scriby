@@ -1,4 +1,4 @@
-import 'package:tobagen2/controllers/routes.dart';
+import '../controllers/routes.dart';
 
 import '../screens/searchPage.dart';
 import 'package:flutter/material.dart';

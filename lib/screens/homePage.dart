@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tobagen2/controllers/accountMessage.dart';
+import '../controllers/accountMessage.dart';
 import 'dart:ui' as ui;
-import 'package:tobagen2/controllers/routes.dart';
+import '../controllers/routes.dart';
 import "./accountPage.dart";
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:auto_size_text/auto_size_text.dart';

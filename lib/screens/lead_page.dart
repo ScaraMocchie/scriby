@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tobagen2/controllers/accountData.dart';
-import 'package:tobagen2/controllers/routes.dart';
+import '../controllers/accountData.dart';
+import '../controllers/routes.dart';
 import '../widgets/rankbox.dart';
 import './homePage.dart';
 import './accountPage.dart';

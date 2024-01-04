@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tobagen2/controllers/accountData.dart';
-import 'package:tobagen2/controllers/routes.dart';
-import 'package:tobagen2/screens/accountPage.dart';
+import '../controllers/accountData.dart';
+import '../controllers/routes.dart';
+import '../screens/accountPage.dart';
 
 class ImagePage extends StatefulWidget {
   const ImagePage({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tobagen2/controllers/accountData.dart';
+import '../controllers/accountData.dart';
 
 Container VIPCard(double width, String vipStat) {
     return Container(

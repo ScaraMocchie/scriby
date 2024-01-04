@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tobagen2/controllers/routes.dart';
-import 'package:tobagen2/widgets/set_target.dart';
+import '../controllers/routes.dart';
+import '../widgets/set_target.dart';
 import '../widgets/achiement.dart';
 import '../widgets/chart.dart';
 import '../widgets/target.dart';

@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tobagen2/controllers/accountMessage.dart';
-import 'package:tobagen2/controllers/routes.dart';
+import '../controllers/accountMessage.dart';
+import '../controllers/routes.dart';
 
 import '../screens/lockscreen.dart';
 import 'package:flutter/material.dart';

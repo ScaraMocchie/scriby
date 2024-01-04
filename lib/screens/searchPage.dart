@@ -1,5 +1,5 @@
 
-import 'package:tobagen2/controllers/routes.dart';
+import '../controllers/routes.dart';
 
 import '../controllers/songSectionData.dart';
 import 'package:flutter_svg/flutter_svg.dart';

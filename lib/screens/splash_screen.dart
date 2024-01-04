@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
-import 'package:tobagen2/controllers/accountData.dart';
+import '../controllers/accountData.dart';
 import 'dart:convert';
 import '../controllers/httpHelp.dart';
-import 'package:tobagen2/controllers/routes.dart';
-import 'package:tobagen2/screens/lockscreen.dart';
+import '../controllers/routes.dart';
+import '../screens/lockscreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

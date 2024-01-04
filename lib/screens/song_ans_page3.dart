@@ -1,6 +1,6 @@
 import 'package:just_audio/just_audio.dart';
 import 'package:flutter/material.dart';
-import 'package:tobagen2/controllers/routes.dart';
+import '../controllers/routes.dart';
 import './songGrade.dart';
 import '../controllers/startSongQuiz.dart';
 import '../controllers/songPoint.dart';

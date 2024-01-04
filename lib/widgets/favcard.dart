@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobagen2/controllers/songSectionData.dart';
+import '../controllers/songSectionData.dart';
 import '../screens/song_ans_page.dart';
 import '../widgets/songlevel.dart';
 import '../controllers/startSongQuiz.dart';

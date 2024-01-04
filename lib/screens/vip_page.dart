@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tobagen2/controllers/accountData.dart';
-import 'package:tobagen2/controllers/routes.dart';
-import 'package:tobagen2/widgets/vipcard.dart';
+import '../controllers/accountData.dart';
+import '../controllers/routes.dart';
+import '../widgets/vipcard.dart';
 
 class VIPPage extends StatelessWidget {
   const VIPPage({super.key});

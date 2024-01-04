@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobagen2/controllers/accountData.dart';
+import '../controllers/accountData.dart';
 
 class SetTarget extends StatefulWidget {
   const SetTarget({super.key});

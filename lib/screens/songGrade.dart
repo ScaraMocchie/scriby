@@ -1,5 +1,5 @@
-import 'package:tobagen2/controllers/accountMessage.dart';
-import 'package:tobagen2/controllers/routes.dart';
+import '../controllers/accountMessage.dart';
+import '../controllers/routes.dart';
 
 import '../screens/persuasive_ad.dart';
 

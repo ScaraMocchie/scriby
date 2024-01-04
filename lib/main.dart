@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tobagen2/screens/lockscreen.dart';
-import 'package:tobagen2/screens/splash_screen.dart';
+import '../screens/lockscreen.dart';
+import '../screens/splash_screen.dart';
 import "./screens/login_page.dart";
 import 'package:get/get.dart';
 

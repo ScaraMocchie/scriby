@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tobagen2/controllers/accountMessage.dart';
+import '../controllers/accountMessage.dart';
 import 'dart:ui' as ui;
-import 'package:tobagen2/controllers/routes.dart';
+import '../controllers/routes.dart';
 import './homePage.dart';
 //import './songGrade.dart';
 import './lead_page.dart';

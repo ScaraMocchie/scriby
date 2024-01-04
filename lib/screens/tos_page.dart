@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobagen2/controllers/routes.dart';
+import '../controllers/routes.dart';
 
 class TosPage extends StatelessWidget {
   const TosPage({super.key});

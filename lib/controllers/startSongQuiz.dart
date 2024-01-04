@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'dart:typed_data';
 import 'package:http/http.dart' as http;
-import 'package:tobagen2/controllers/routes.dart';
+import '../controllers/routes.dart';
 import 'dart:convert';
 import 'dart:async';
 import '../screens/songsection.dart';

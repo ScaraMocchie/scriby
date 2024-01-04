@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tobagen2/controllers/accountData.dart';
-import 'package:tobagen2/controllers/routes.dart';
+import '../controllers/accountData.dart';
+import '../controllers/routes.dart';
 
 class AccountInfos extends StatelessWidget {
   const AccountInfos({super.key});
