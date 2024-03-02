@@ -7,6 +7,8 @@ import 'package:http/http.dart' as http;
 
 //SongSectionData.audioType
 class SongSectionData{
+  static int songReceivedFlag=0;
+  static int ieltsReceivedFlag=0;
    static String? audioType;
   static  List<String>? titles;
   static  List<String>? singer;

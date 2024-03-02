@@ -3,6 +3,7 @@ import 'dart:convert';
 import '../controllers/accountData.dart';
 import 'httpHelp.dart';
 class LeaderboardData{
+  static int dataReceivedFlag=0;
   static int tempdefaultid=AccountData.userId!;
   static int? tempdefaultscores;
   static String? tempdefaultusernames;
@@ -13,6 +14,10 @@ class LeaderboardData{
   static List<int>? profileIndex;
   static int lengths=21;
   static Future<void>? getData() async{
+
+    if(dataReceivedFlag==0){
+     
+
     var response= await http.get(Uri.https(Helper.baseUrl,Helper.baseApi+"giveTop20"));
     scores=[];
     usernames=[];
@@ -38,7 +43,8 @@ class LeaderboardData{
 tempdefaultscores=data[2];
 tempdefaultusernames=data[1];
   tempdefaultuserposition=data[3];
-
+  dataReceivedFlag=1;
+    }
   }
 
 
