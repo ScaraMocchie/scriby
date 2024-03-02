@@ -229,7 +229,7 @@ Widget songContainer(BuildContext context){
     Navigator.pop(context);
     print("lets 4");
     Level.level="Easy";
-
+    SongSectionData.ieltsReceivedFlag=0;
     SongSectionData.songReceivedFlag=1;
     Routes.put("songSection");}
     else{Routes.off("home");
@@ -299,7 +299,7 @@ Widget ieltContainer(){
     showLoadingDialog(context);
     print("lets 2");
     try{
-      if(SongSectionData.songReceivedFlag==0){
+      if(SongSectionData.ieltsReceivedFlag==0){
       int statcode=await SongSectionData.storeApiIelts() ;
       
       await SongSectionData.storeApiIeltsRec();
@@ -309,6 +309,7 @@ Widget ieltContainer(){
     Level.level="Easy";
     print("permission");
     print(AccountData.permissionStatus);
+    SongSectionData.songReceivedFlag=0;
     SongSectionData.ieltsReceivedFlag=1;
     Routes.put("songSection");}else{Routes.off("home");
     }
