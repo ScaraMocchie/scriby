@@ -56,7 +56,12 @@ void _onItemTapped(int index) {
             title: Container(
             
             child:
-          Row(children:[Image.asset("assets/images/img_logo_1.png",height: 32,)
+          Row(children:[Row(
+            children: [
+              Image.asset("assets/images/scriby_icon_trsprnt.png",height: 29,),
+              Text("Scriby", style: TextStyle( fontFamily: "Poppins", letterSpacing: 1),)
+            ],
+          )
           ,Expanded(child: Container( //Expanded
         alignment: Alignment.centerRight,
         child: InkWell(

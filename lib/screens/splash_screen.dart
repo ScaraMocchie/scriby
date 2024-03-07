@@ -84,10 +84,12 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("assets/images/logomark.png", width: 100,),
+            Image.asset("assets/images/scriby_icon.jpeg", width: 100,),
             SizedBox(height: 10,),
-            Text("TOBA APP", style: TextStyle(color: const Color(0xff528DE7), fontSize: 30,
-            fontWeight: FontWeight.bold
+            Text("Scriby", style: TextStyle(fontSize: 35,
+          
+            fontFamily: "Poppins",
+            letterSpacing: 1
             ),)
           ],
 

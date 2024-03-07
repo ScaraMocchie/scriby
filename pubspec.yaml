@@ -51,7 +51,8 @@ dependencies:
   
 flutter_icons:
   android: "launcher_icon"
-  image_path: "assets/icons/app_icon1.png"
+  image_path: "assets/images/scriby_icon.jpeg"
+  ios: true
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -100,6 +101,7 @@ flutter:
     - assets/images/search_img.svg
     - assets/images/succes_reed.svg
     - assets/images/congrats_VIP.svg
+    - assets/images/scriby_icon_trsprnt.png
 
     - assets/images/avatars/Avatar01.svg
     - assets/images/avatars/Avatar03.svg
