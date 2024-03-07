@@ -185,6 +185,7 @@ class _LoginPageState extends State<LoginPage> {
                                   onChanged: (newValue) {
                                     setState(() {
                                       isChecked = newValue;
+                                      print(newValue);
                                     });
                                   },
                                 ),
@@ -194,12 +195,12 @@ class _LoginPageState extends State<LoginPage> {
                                 )
                               ],
                             ),
-                            const Text(
-                              "Forgot Password?",
-                              style: TextStyle(
-                                  color: Color(0xFF527EE7),
-                                  fontWeight: FontWeight.w500),
-                            )
+                            // const Text(
+                            //   "Forgot Password?",
+                            //   style: TextStyle(
+                            //       color: Color(0xFF527EE7),
+                            //       fontWeight: FontWeight.w500),
+                            // )
                           ],
                         ),
                       ),
@@ -221,12 +222,14 @@ class _LoginPageState extends State<LoginPage> {
                             var code=response.statusCode;
                            
                             if(code==200){
-                               
-                              SharedPreferences sp = await SharedPreferences.getInstance();
+                               if(isChecked==true){
+                                SharedPreferences sp = await SharedPreferences.getInstance();
                               sp.setString('email', usernameValue.toString());
                               sp.setString('pass',passwordValue.toString());
                               sp.setBool('isLogin', true);
                               sp.setInt("avatarIndex", 0);
+                                }
+                              
 
                                var data=jsonDecode(response.body);
                               AccountData.email=data[1];
