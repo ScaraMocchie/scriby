@@ -240,8 +240,8 @@ class _LoginPageState extends State<LoginPage> {
                             ,body:jsonEncode([data[0],data[1]]));
                              code=response.statusCode;
                             data=jsonDecode(response.body);
-                            AccountData.isPrem=data[0];
-                            AccountData.permissionStatus=data[3];
+                            AccountData.isPrem=1;
+                            AccountData.permissionStatus=1;
                             AccountData.deadlinePermission=data[2];
                             await  AccountData.getData();
                               if (AccountData.permissionStatus == -1){

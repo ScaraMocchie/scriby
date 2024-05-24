@@ -52,7 +52,7 @@ class _AchievementCardState extends State<AchievementCard> {
         BoxAchv(name: "Highest Streak", value: activeStreak.toString(), endText: "days"),
         BoxAchv(name: "Average Replays", value: averageReplay.toString(), endText: "times"),
         BoxAchv(name: "Played Songs", value: playedSong.toString(), endText: "audio"),
-        BoxAchv(name: "Played Dialogues", value: playeDialogue.toString(), endText: "audio"),
+        //BoxAchv(name: "Played Dialogues", value: playeDialogue.toString(), endText: "audio"),
           
         ],
       ),

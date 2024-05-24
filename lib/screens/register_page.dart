@@ -216,8 +216,8 @@ class _RegisterPageState extends State<RegisterPage> {
                               ,body:jsonEncode([data[0],emailValue]));
                               code=response.statusCode;
                               data=jsonDecode(response.body);
-                              AccountData.isPrem=data[0];
-                              AccountData.permissionStatus=data[3];
+                              AccountData.isPrem=1;
+                              AccountData.permissionStatus=1;
                               AccountData.deadlinePermission=data[2];
                               await  AccountData.getData();
                                 Routes.off("home");}
