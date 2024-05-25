@@ -102,6 +102,10 @@ flutter:
     - assets/images/succes_reed.svg
     - assets/images/congrats_VIP.svg
     - assets/images/scriby_icon_trsprnt.png
+    - assets/images/vocab_icon.png
+    - assets/images/tenses.png
+    - assets/images/Adv_adj.png
+    - assets/images/modals.png
 
     - assets/images/avatars/Avatar01.svg
     - assets/images/avatars/Avatar03.svg

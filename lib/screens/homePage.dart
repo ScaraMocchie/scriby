@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobaapp/widgets/TitleCustom.dart';
 import '../controllers/accountMessage.dart';
 import 'dart:ui' as ui;
 import '../controllers/routes.dart';
@@ -163,7 +164,32 @@ void _onItemTapped(int index) {
           ),SizedBox(
                 height: 7,
                 
-               ),songContainer(context),SizedBox(
+               ),SizedBox( height: 10,),
+               TitleCustom(textIsi: "Learn From the Basics", width: MediaQuery.of(context).size.width),
+               SizedBox(height: 10,),
+               SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Container(
+                    width: 330,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                      HomeMenu(name: "Vocabulary", image: "assets/images/vocab_icon.png"), 
+                      HomeMenu(name: "Tenses", image: "assets/images/tenses.png"),
+                      HomeMenu(name: "Modals", image: "assets/images/modals.png"),
+                      HomeMenu(name: "Adverb & Adjectiva", image: "assets/images/Adv_adj.png")
+                    ]),
+                  ),
+                ),
+               ),
+               SizedBox( height: 8,),
+               TitleCustom(textIsi: "Start Your Journey", width: MediaQuery.of(context).size.width),
+               SizedBox( height: 10,),
+
+               songContainer(context),SizedBox(
                 height: 7,
                 
                ),
@@ -374,4 +400,38 @@ Widget ieltContainer(){
     ),
   ));
 }
+}
+
+class HomeMenu extends StatelessWidget {
+  final String name;
+  final String image;
+  const HomeMenu({
+    required this.name,
+    required this.image,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container( //col di bwh nanti diextarct, ini widget isinya icon sama tulisan
+    width: 75,
+      child: Column(
+        children: [
+          Container(
+            width: 70,
+            height: 70,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10)
+            ),
+            child: Image.asset(image),
+          ),
+          SizedBox(height: 5,),
+          SizedBox(
+            width: 75,
+            child: Text(name, textAlign: TextAlign.center, style: TextStyle(fontSize: 12),),
+          )
+        ],
+      ),
+    );
+  }
 }

@@ -108,16 +108,17 @@ class _LoginPageState extends State<LoginPage> {
                       Image.asset(
                           "assets/images/undraw_Ordinary_day_re_v5hy_1.png",
                           height: 120),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset("assets/images/logo_1.png"),
-                          Text(
-                            " Account",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),Padding(
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: [
+                      //     Image.asset("assets/images/logo_1.png"),
+                      //     Text(
+                      //       " Account",
+                      //       style: TextStyle(fontWeight: FontWeight.bold),
+                      //     ),
+                      //   ],
+                      // ),
+                      Padding(
                         padding: const EdgeInsets.only(left: 10, top: 10),
                         child: Text(status, style: TextStyle(color: Colors.red, fontSize: 12),),
                       ),

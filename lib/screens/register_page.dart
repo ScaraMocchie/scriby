@@ -94,14 +94,15 @@ class _RegisterPageState extends State<RegisterPage> {
                       SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset("assets/images/logo_1.png"),
-                          Text(" Account"),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: [
+                      //     Image.asset("assets/images/logo_1.png"),
+                      //     Text(" Account"),
                           
-                        ],
-                      ),Padding(
+                      //   ],
+                      // ),
+                      Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Text(status, style: TextStyle(color: Colors.red),),
                       ),
