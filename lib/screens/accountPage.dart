@@ -114,9 +114,9 @@ void _onItemTapped(int index) {
                               children: [
                                 accountOption(mediaQueryData),
                                 statOption(mediaQueryData),
-                                myVipOption(mediaQueryData, context),
-                                ToS(mediaQueryData),
-                                otherAppOption( mediaQueryData)
+                                // myVipOption(mediaQueryData, context),
+                                // ToS(mediaQueryData),
+                                // otherAppOption( mediaQueryData)
                             ],
                             )
                           )

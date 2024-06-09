@@ -84,9 +84,9 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset("assets/images/scriby_icon.jpeg", width: 100,),
-            SizedBox(height: 10,),
-            Text("Scriby", style: TextStyle(fontSize: 35,
+            Image.asset("assets/icons/fluentscrib_logo.png", width: 150,),
+            // SizedBox(height: 10,),
+            Text("FluentScrib", style: TextStyle(fontSize: 35,
           
             fontFamily: "Poppins",
             letterSpacing: 1

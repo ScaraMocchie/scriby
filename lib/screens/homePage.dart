@@ -61,8 +61,8 @@ void _onItemTapped(int index) {
             child:
           Row(children:[Row(
             children: [
-              Image.asset("assets/images/scriby_icon_trsprnt.png",height: 29,),
-              Text("Scriby", style: TextStyle( fontFamily: "Poppins", letterSpacing: 1),)
+              Image.asset("assets/icons/fluentscrib_logo.png",height: 45,),
+              Text("FluentScrib", style: TextStyle( fontFamily: "Poppins", letterSpacing: 1),)
             ],
           ),])),shadowColor: Color.fromARGB(255, 0, 0, 0),elevation: 1.5,backgroundColor: Colors.white,),
     
@@ -101,6 +101,7 @@ void _onItemTapped(int index) {
                 CircularPercentIndicator(
                   radius: 80.0,
                   lineWidth: 8.0,
+                  circularStrokeCap: CircularStrokeCap.round,
                   percent: AccountData.weeklyProgresPercentage!/100, // Adjust the percentage as needed
                   center:
                    Text("${AccountData.weeklyProgresPercentage!}%",style: TextStyle(fontSize: 40,fontFamily: 
@@ -111,9 +112,9 @@ void _onItemTapped(int index) {
                 
                 height: 10,
                ),AutoSizeText(
-              textAlign:TextAlign.left,
+              textAlign:TextAlign.center,
                 "You have achived ${AccountData.weeklyProgresPercentage!}% of your weekly goal",
-                style: TextStyle(fontFamily: "Poppins",fontWeight: FontWeight.bold,),
+                style: TextStyle(fontFamily: "Poppins",fontWeight: FontWeight.w600,),
                 maxLines: 2,
               ),
                 

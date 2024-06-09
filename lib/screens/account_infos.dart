@@ -36,7 +36,7 @@ class AccountInfos extends StatelessWidget {
               SizedBox(height: 40,),
               ProfileCard(width, "Username", AccountData.username!, Icon(Icons.person, size: 33,)),
               ProfileCard(width, "Email", AccountData.email!, Icon(Icons.email, size: 30,)),
-              ProfileCard(width, vipdate, AccountData.deadlinePermission!, Icon(Icons.date_range, size: 30,)),
+              // ProfileCard(width, vipdate, AccountData.deadlinePermission!, Icon(Icons.date_range, size: 30,)),
             ],
           )
         ),),
