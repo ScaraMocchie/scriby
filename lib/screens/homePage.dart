@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tobaapp/controllers/dataMateri.dart';
 import 'package:tobaapp/widgets/TitleCustom.dart';
 import '../controllers/accountMessage.dart';
 import 'dart:ui' as ui;
@@ -62,21 +64,7 @@ void _onItemTapped(int index) {
               Image.asset("assets/images/scriby_icon_trsprnt.png",height: 29,),
               Text("Scriby", style: TextStyle( fontFamily: "Poppins", letterSpacing: 1),)
             ],
-          )
-          ,Expanded(child: Container( //Expanded
-        alignment: Alignment.centerRight,
-        child: InkWell(
-          child:Image(image:AssetImage("assets/images/vip_home.png")),
-          onTap:(){print("1");
-          if(AccountData.permissionStatus != 1){
-            Routes.put("ads");
-          } else{
-            Routes.put("vipPage");
-          }
-          }
-          
-          ),
-      ))])),shadowColor: Color.fromARGB(255, 0, 0, 0),elevation: 1.5,backgroundColor: Colors.white,),
+          ),])),shadowColor: Color.fromARGB(255, 0, 0, 0),elevation: 1.5,backgroundColor: Colors.white,),
     
           body:  Row(
             children: [
@@ -177,10 +165,10 @@ void _onItemTapped(int index) {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                      HomeMenu(name: "Vocabulary", image: "assets/images/vocab_icon.png"), 
-                      HomeMenu(name: "Tenses", image: "assets/images/tenses.png"),
-                      HomeMenu(name: "Modals", image: "assets/images/modals.png"),
-                      HomeMenu(name: "Adverb & Adjectiva", image: "assets/images/Adv_adj.png")
+                      HomeMenu(name: "Vocabulary", image: "assets/images/vocab_icon.png", thiscontex: context,), 
+                      HomeMenu(name: "Tenses", image: "assets/images/tenses.png", thiscontex: context),
+                      HomeMenu(name: "Modals", image: "assets/images/modals.png", thiscontex: context),
+                      HomeMenu(name: "Adverbs & Adjective", image: "assets/images/Adv_adj.png", thiscontex: context)
                     ]),
                   ),
                 ),
@@ -403,34 +391,48 @@ Widget ieltContainer(){
 }
 
 class HomeMenu extends StatelessWidget {
+  final BuildContext thiscontex;
   final String name;
   final String image;
   const HomeMenu({
     required this.name,
     required this.image,
+    required this.thiscontex,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container( //col di bwh nanti diextarct, ini widget isinya icon sama tulisan
-    width: 75,
-      child: Column(
-        children: [
-          Container(
-            width: 70,
-            height: 70,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10)
+    Routes.tempContext = thiscontex;
+    return InkWell(
+      onTap: () {
+        (name == "Vocabulary")?
+        DataMateri.materialType = "Vocabulary"
+        :(name == "Tenses")? DataMateri.materialType = "Tenses"
+        :(name == "Modals")? DataMateri.materialType = "Modals"
+        :DataMateri.materialType = "Adverbs & Adjective";
+        Routes.put("matrialsPage");
+        // print(DataMateri.materialType);
+      },
+      child: Container( //col di bwh nanti diextarct, ini widget isinya icon sama tulisan
+      width: 75,
+        child: Column(
+          children: [
+            Container(
+              width: 70,
+              height: 70,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10)
+              ),
+              child: Image.asset(image),
             ),
-            child: Image.asset(image),
-          ),
-          SizedBox(height: 5,),
-          SizedBox(
-            width: 75,
-            child: Text(name, textAlign: TextAlign.center, style: TextStyle(fontSize: 12),),
-          )
-        ],
+            SizedBox(height: 5,),
+            SizedBox(
+              width: 75,
+              child: Text(name, textAlign: TextAlign.center, style: TextStyle(fontSize: 12),),
+            )
+          ],
+        ),
       ),
     );
   }

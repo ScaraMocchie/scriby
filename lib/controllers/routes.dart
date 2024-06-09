@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tobaapp/screens/matrials_page.dart';
+import 'package:tobaapp/screens/quiz_page.dart';
+import 'package:tobaapp/screens/vocabulary_page.dart';
 import '../screens/account_infos.dart';
 import '../screens/image_page.dart';
 import '../screens/lockscreen.dart';
@@ -23,6 +26,13 @@ import 'dart:io';
 class Routes{
   static BuildContext? tempContext;
   static List<String> routeList=[];
+  static Future<void> newPut (String routeName, var page) async{
+    if(routeName=="detailMateri"){
+      offdetailMateri(tempContext!, page);
+    }
+    routeList.add(routeName);
+    print(routeList);
+  }
   static void getBack(){
     if(routeList.length==1 || routeList.length==0){
       exit(0);
@@ -62,6 +72,15 @@ class Routes{
   async{
     if(routeName=="home"){
       offHome(tempContext!);
+    }
+    else if(routeName=="matrialsPage"){
+      offMaterialPage(tempContext!);
+    }
+    else if(routeName=="quiz"){
+      offQuiz(tempContext!);
+    }
+    else if(routeName=="vocabPage"){
+      offVocabPage(tempContext!);
     }
     else if(routeName=="account"){
       offAcc(tempContext!);
@@ -114,8 +133,17 @@ else if(routeName=="songSection"){
     if(routeName=="home"){
       offHome(tempContext!);
     }
+    else if(routeName=="quiz"){
+      offQuiz(tempContext!);
+    }
+    else if(routeName=="vocabPage"){
+      offVocabPage(tempContext!);
+    }
     else if(routeName=="seeMore"){
       offSeeMore(tempContext!);
+    }
+    else if(routeName=="matrialsPage"){
+      offMaterialPage(tempContext!);
     }
     else if(routeName=="imagePage"){
       offImagePage(tempContext!);
@@ -177,6 +205,18 @@ static void offHome(BuildContext context){
     Route route = MaterialPageRoute(builder: (context) => HomePage());
 Navigator.pushReplacement(context, route);
   }
+static void offdetailMateri(BuildContext context, var page){
+    Route route = MaterialPageRoute(builder: (context) => page);
+Navigator.pushReplacement(context, route);
+  }
+static void offMaterialPage(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => const MaterialsPage());
+Navigator.pushReplacement(context, route);
+  }
+static void offQuiz(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) => QuizPage());
+Navigator.pushReplacement(context, route);
+  }
 static void offAcc(BuildContext context){
   print("acc");
     Route route = MaterialPageRoute(builder: (context) =>AccountPage() );
@@ -196,6 +236,10 @@ Navigator.pushReplacement(context, route);
   }
 static void offSearch(BuildContext context){
     Route route = MaterialPageRoute(builder: (context) =>SearchPage() );
+Navigator.pushReplacement(context, route);
+  }
+static void offVocabPage(BuildContext context){
+    Route route = MaterialPageRoute(builder: (context) =>VocabularyPage() );
 Navigator.pushReplacement(context, route);
   }
 static void offLeaderboard(BuildContext context){

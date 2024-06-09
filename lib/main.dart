@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tobaapp/screens/vocabulary_page.dart';
 import '../screens/lockscreen.dart';
 import '../screens/splash_screen.dart';
-import "./screens/login_page.dart";
 import 'package:get/get.dart';
 
 //import './screens/homePage.dart';
