@@ -32,7 +32,7 @@ class ContentMateri extends StatelessWidget {
       Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: Text(title, overflow: TextOverflow.ellipsis,),
+          title: Text(title),
           leading: IconButton(onPressed: (){Routes.getBack();}, icon: Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
@@ -66,7 +66,10 @@ class ContentMateri extends StatelessWidget {
                         )
                   ],
                 )
-                : (isi[i].type == "paragraf")? Text(isi[i].content, textAlign: TextAlign.justify,)
+                : (isi[i].type == "paragraf")? SizedBox(width: width-60,
+                child: Text(isi[i].content, textAlign: TextAlign.justify, style: TextStyle(fontFamily: 'Poppins'),),)
+                :(isi[i].type == "title")? SizedBox(width: width-60,
+                child: Text(isi[i].content, textAlign: TextAlign.left, style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.w600),),)
                 : (isi[i].type == "image")? Container(
                   height: 200,
                   width: width,
@@ -79,7 +82,7 @@ class ContentMateri extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     for (int k = 0; k<isi[i].content.split("\n").length;k++)
-                    Text('\t\t\t• ${isi[i].content.split("\n")[k]}')
+                    Text('\t\t\t• ${isi[i].content.split("\n")[k]}', style: TextStyle(fontFamily: 'Poppins'),)
                   ],
                 )
                 :Text("tipe lain onprogress"),

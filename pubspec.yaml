@@ -108,6 +108,8 @@ flutter:
     - assets/images/modals.png
     - assets/images/what-image.jpg
     - assets/icons/fluentscrib_logo.png
+    - assets/images/award 1.svg
+    - assets/images/award 1.png
 
     - assets/images/avatars/Avatar01.svg
     - assets/images/avatars/Avatar03.svg

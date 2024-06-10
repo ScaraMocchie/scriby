@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'dart:math'; 
 import 'package:tobaapp/controllers/dataMateri.dart';
 import 'package:tobaapp/controllers/routes.dart';
@@ -14,6 +15,7 @@ class _VocabularyPageState extends State<VocabularyPage> {
   int currentIndex = 0;
   late PageController _controller;
   bool isBack = true;
+  bool isTap = false;
   double angle = 0;
 
   Materi thismateriVocab = DataMateri.materiVocab;
@@ -31,12 +33,14 @@ class _VocabularyPageState extends State<VocabularyPage> {
   }
   void _flip() {
     setState(() {
+      
       angle = (angle + pi) % (2 * pi);
     });
   }
   void nextPage() {
-    if (currentIndex < thismateriVocab.vocab.length - 1) {
+    if (currentIndex < thismateriVocab.vocab.length - 1 && isTap == true) {
       setState(() {
+        isTap = false;
         if(isBack == false){
           _flip();
         };
@@ -47,7 +51,8 @@ class _VocabularyPageState extends State<VocabularyPage> {
           curve: Curves.easeInOut,
         );
       });
-    } else {
+    } else if (isTap == false){}
+    else {
       Routes.getBack(); // Navigate back to home or another specified route
     }
   }
@@ -139,7 +144,9 @@ class _VocabularyPageState extends State<VocabularyPage> {
                       children: [
                         // Flip card content
                         GestureDetector(
-                onTap: _flip,
+                onTap: (){
+                  _flip(); isTap = true;
+                },
                 child: TweenAnimationBuilder(
                     tween: Tween<double>(begin: 0, end: angle),
                     duration: Duration(seconds: 1),
@@ -191,11 +198,20 @@ class _VocabularyPageState extends State<VocabularyPage> {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
-                                          CircleAvatar(
-                                            radius: width/4,
-                                            backgroundImage:  NetworkImage(thismateriVocab.vocab[i][2])
-                                          ),
+                                          Container(
+                                                height: 200,
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(20)
+                                                ),
+                                                child: Image.network(thismateriVocab.vocab[i][2]),
+                                              ),
                                           SizedBox(height: 10,),
+                                          Opacity(
+                                                opacity: 0.5,
+                                                child: Text(thismateriVocab.vocab[i][3], textAlign: TextAlign.center, style: TextStyle(fontSize: 7, fontFamily: "Poppins"),)
+                                                ),
+                                          
+                                          SizedBox(height: 20,),
                                           SizedBox(width: width-60,
                                             child: 
                                             Text(thismateriVocab.vocab[i][1],
@@ -225,7 +241,7 @@ class _VocabularyPageState extends State<VocabularyPage> {
                   height: 45,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Color(0xff5974e9),
+                    color: (isTap==false)?Color(0xff5974e9).withOpacity(0.5):Color(0xff5974e9),
                   ),
                   child: Text(
                     'Next',

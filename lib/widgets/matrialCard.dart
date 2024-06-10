@@ -4,7 +4,7 @@ import 'package:tobaapp/controllers/routes.dart';
 import 'package:tobaapp/screens/contentMateri_page.dart';
 import 'package:tobaapp/screens/quiz_page.dart';
 
-Widget MaterialCard(String imageLink, String title, BuildContext context, int index, String type){
+Widget MaterialCard(double width, String imageLink, String title, BuildContext context, int index, String type){
   Routes.tempContext = context;
   return InkWell(
     onTap: () {
@@ -58,9 +58,12 @@ Widget MaterialCard(String imageLink, String title, BuildContext context, int in
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                SizedBox(
+                  width: width-141,
+                  child: Text(
                   title,
                   style:  TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                ),
                 ),
                 
               ],

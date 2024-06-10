@@ -98,7 +98,7 @@ class _MaterialsPageState extends State<MaterialsPage> {
                     itemCount: displayedMaterials.length,
                     itemBuilder: (context, index) {
                       var data = displayedMaterials[index];
-                      return MaterialCard(data.image, data.judulMateri, context, index, DataMateri.materialType!);
+                      return MaterialCard(width,data.image, data.judulMateri, context, index, DataMateri.materialType!);
                     },
                   ))
                 ]

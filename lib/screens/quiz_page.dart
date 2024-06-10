@@ -55,7 +55,7 @@ class _QuizPageState extends State<QuizPage> {
       });
     } else {
       print(benar/quiz.length);
-      Navigator.push(context,  MaterialPageRoute(builder: (context) => GradePage2())); // Navigate back to home or another specified route
+      Navigator.push(context,  MaterialPageRoute(builder: (context) => GradePage2(nilai: benar/quiz.length,))); // Navigate back to home or another specified route
     }
   }
 
