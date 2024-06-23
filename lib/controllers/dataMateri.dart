@@ -117,7 +117,151 @@ class DataMateri{
       ['Pecinta makanan', 'Foodie (informal)', 'https://cdn-icons-png.flaticon.com/512/1886/1886807.png', 'Woman icon created by Freepik - Flaticon']
     ]
 ),
-    // Materi(judulMateri: judulMateri, image: image)
+    Materi(judulMateri: 'Hobbies', image: 'https://img.freepik.com/free-vector/hand-drawn-flat-people-hobbies_23-2149053953.jpg?size=626&ext=jpg',
+    vocab: [
+      ['Waktu luang', 'Leisure ', 'https://cdn-icons-png.flaticon.com/512/2084/2084211.png', 'Bench icons created by Eucalyp - Flaticon'],
+      ['Penggemar', 'Enthusiast ', 'https://cdn-icons-png.flaticon.com/512/5862/5862240.png', 'Passion icons created by Eucalyp - Flaticon'],
+      ['Rekreasi', 'Recreation ', 'https://cdn-icons-png.flaticon.com/512/2797/2797887.png', 'Camper icons created by iconixar - Flaticon'],
+      ['Merajut', 'Knitting ', 'https://cdn-icons-png.flaticon.com/512/2870/2870706.png', 'Crochet icons created by Konkapp - Flaticon'],
+      ['Menulis lagu', 'Songwriting ', 'https://cdn-icons-png.flaticon.com/512/1753/1753439.png', 'Writer icons created by Flat Icons - Flaticon'],
+      ['Puisi', 'Poetry ', 'https://cdn-icons-png.flaticon.com/512/9087/9087118.png', 'Poetry icons created by Freepik - Flaticon'],
+      ['Berkemah', 'Camping ', 'https://cdn-icons-png.flaticon.com/512/1020/1020535.png', 'Camping icons created by Freepik - Flaticon'],
+      ['Fotografi', 'Photography ', 'https://cdn-icons-png.flaticon.com/512/461/461823.png', 'Photography icons created by Freepik - Flaticon'],
+      ['Menyelam', 'Diving ', 'https://cdn-icons-png.flaticon.com/512/6750/6750499.png', 'Diving icons created by Flat Icons - Flaticon'],
+      ['Observasi satwa liar', 'Wildlife observation ', 'https://cdn-icons-png.flaticon.com/512/13505/13505689.png', 'Bird watching icons created by bsd - Flaticon']
+    ]
+),
+    Materi(judulMateri: 'Interview', image: 'https://static.vecteezy.com/system/resources/thumbnails/003/032/078/small/job-interview-conversation-hr-manager-and-job-candidate-vector.jpg',
+    vocab: [
+      ['Pelamar', 'Applicant', 'https://cdn-icons-png.flaticon.com/512/9436/9436966.png', 'Developer icons created by Flaticon'],
+      ['Pewawancara', 'Interviewer', 'https://cdn-icons-png.flaticon.com/512/2179/2179306.png', 'Interview icons created by Flaticon'],
+      ['Umpan Balik', 'Feedback', 'https://cdn-icons-png.flaticon.com/512/2839/2839172.png', 'Feedback icons created by Flaticon'],
+      ['Pengalaman', 'Experience', 'https://cdn-icons-png.flaticon.com/512/10936/10936451.png', 'Customer experience icons created by Flaticon'],
+      ['Sertifikasi', 'Certification', 'https://cdn-icons-png.flaticon.com/512/3000/3000777.png', 'Certificate icons created by Flaticon'],
+      ['Keterampilan', 'Skillset', 'https://cdn-icons-png.flaticon.com/512/12105/12105237.png', 'Skillset icons created by Flaticon'],
+      ['Budaya', 'Culture', 'https://cdn-icons-png.flaticon.com/512/3490/3490884.png', 'Corporate culture icons created by Flaticon'],
+      ['Pemangku Kepentingan', 'Stakeholder', 'https://cdn-icons-png.flaticon.com/512/1875/1875700.png', 'Stakeholder icons created by Flaticon'],
+      ['Kepercayaan Diri', 'Confidence', 'https://cdn-icons-png.flaticon.com/512/8712/8712063.png', 'Confidence icons created by Flaticon'],
+      ['Manajemen Waktu', 'Time Management', 'https://cdn-icons-png.flaticon.com/512/3842/3842536.png', 'Time management icons created by Flaticon']
+    ]
+    ),
+    Materi(judulMateri: 'Job Occupation', image: 'https://png.pngtree.com/png-clipart/20190520/original/pngtree-cartoon-cartoon-occupation-business-business-career-png-image_3920174.jpg',
+    vocab: [
+      ['Dokter', 'Doctor', 'https://cdn-icons-png.flaticon.com/512/3952/3952988.png', 'Doctor icons created by Flaticon'],
+      ['Insinyur', 'Engineer', 'https://cdn-icons-png.flaticon.com/512/9321/9321656.png', 'Engineer icons created by Flaticon'],
+      ['Pilot', 'Pilot', 'https://cdn-icons-png.flaticon.com/512/1995/1995504.png', 'Pilot icons created by Flaticon'],
+      ['Wawancara', 'Interview', 'https://cdn-icons-png.flaticon.com/512/3135/3135714.png', 'Job interview icons created by Flaticon'],
+      ['Tawaran kerja', 'Job offer', 'https://cdn-icons-png.flaticon.com/512/2303/2303913.png', 'Email icons created by Flaticon'],
+      ['Ekspektasi gaji', 'Salary expectations', 'https://cdn-icons-png.flaticon.com/512/3790/3790140.png', 'Salary icons created by Flaticon'],
+      ['Tenggat', 'Deadline', 'https://cdn-icons-png.flaticon.com/512/1599/1599809.png', 'Deadline icons created by Flaticon'],
+      ['Kerja tim', 'Teamwork', 'https://cdn-icons-png.flaticon.com/512/4859/4859784.png', 'Teamwork icons created by Flaticon'],
+      ['Pekerja penuh waktu', 'Full-time', 'https://cdn-icons-png.flaticon.com/512/6171/6171650.png', 'Full-time job icons created by Flaticon'],
+      ['Pensiunan', 'Retired', 'https://cdn-icons-png.flaticon.com/512/4072/4072872.png', 'Retirement icons created by Flaticon']
+    ]
+    ),
+    Materi(judulMateri: 'Negotiation', image: 'https://img.freepik.com/free-vector/partnership-concept-illustration_114360-5954.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718928000&semt=sph',
+    vocab: [
+      ['Negosiator', 'Negotiator', 'https://cdn-icons-png.flaticon.com/512/1376/1376407.png', 'Meeting icons created by Flaticon'],
+      ['Pihak', 'Party', 'https://cdn-icons-png.flaticon.com/512/3281/3281378.png', 'Management icons created by Flaticon'],
+      ['Kepentingan', 'Interest', 'https://cdn-icons-png.flaticon.com/512/1475/1475165.png', 'Politician icons created by Flaticon'],
+      ['Taktik negosiator yang dianggap tidak biasa misalnya dengan melalui tekanan', 'Hardball', 'https://cdn-icons-png.flaticon.com/512/1239/1239726.png', 'Meeting icons created by Flaticon'],
+      ['penawaran awal yang jauh di atas atau di bawah nilai sebenarnya pada lawan negosiasi', 'Lowball – Highball', 'https://cdn-icons-png.flaticon.com/512/9167/9167077.png', 'Negotiation icons created by Flaticon'],
+      ['Tegas', 'Assertive', 'https://cdn-icons-png.flaticon.com/512/16448/16448096.png', 'Laptop icons created by Flaticon'],
+      ['Pengungkit', 'Leverage', 'https://cdn-icons-png.flaticon.com/512/9286/9286068.png', 'Leverage icons created by Flaticon'],
+      ['Tawar-menawar', 'Bargaining', 'https://cdn-icons-png.flaticon.com/512/5347/5347789.png', 'Bargaining icons created by Flaticon'],
+      ['Kebuntuan', 'Deadlock', 'https://cdn-icons-png.flaticon.com/512/2854/2854004.png', 'Shaking hands icons created by Flaticon'],
+      ['Kesepakatan', 'Agreement', 'https://cdn-icons-png.flaticon.com/512/2838/2838110.png', 'Agreement icons created by Flaticon']
+    ]
+    ),
+    Materi(judulMateri: 'Family', image: 'https://static.vecteezy.com/system/resources/thumbnails/002/380/191/small_2x/happy-family-character-concept-free-vector.jpg',
+    vocab: [
+      ['Ayah', 'Father', 'https://cdn-icons-png.flaticon.com/512/8115/8115376.png', 'Father icons created by Flaticon'],
+      ['Ibu', 'Mother', 'https://cdn-icons-png.flaticon.com/512/2871/2871918.png', 'Mother icons created by Flaticon'],
+      ['Saudara laki-laki', 'Brother', 'https://cdn-icons-png.flaticon.com/512/7223/7223689.png', 'Brother icons created by Flaticon'],
+      ['Saudara perempuan', 'Sister', 'https://cdn-icons-png.flaticon.com/512/7223/7223758.png', 'Sister icons created by Flaticon'],
+      ['Anak laki-laki', 'Son', 'https://cdn-icons-png.flaticon.com/512/2829/2829758.png', 'Son icons created by Flaticon'],
+      ['Anak perempuan', 'Daughter', 'https://cdn-icons-png.flaticon.com/512/2880/2880501.png', 'Daughter icons created by Flaticon'],
+      ['Kakek', 'Grandfather', 'https://cdn-icons-png.flaticon.com/512/1320/1320912.png', 'Grandfather icons created by Flaticon'],
+      ['Nenek', 'Grandmother', 'https://cdn-icons-png.flaticon.com/512/3554/3554891.png', 'Old woman icons created by Flaticon'],
+      ['Paman', 'Uncle', 'https://cdn-icons-png.flaticon.com/512/4598/4598871.png', 'Uncle icons created by Flaticon'],
+      ['Bibi', 'Aunt', 'https://cdn-icons-png.flaticon.com/512/7223/7223728.png', 'Aunt icons created by Flaticon'],
+      ['Sepupu', 'Cousin', 'https://cdn-icons-png.flaticon.com/512/7223/7223764.png', 'Cousin icons created by Flaticon']
+    ]
+    ),
+    Materi(judulMateri: 'Places', image: 'https://cdni.iconscout.com/illustration/free/thumb/free-location-4085815-3385484.png',
+    vocab: [
+      ['Rumah sakit', 'Hospital', 'https://cdn-icons-png.flaticon.com/512/3063/3063176.png', 'Hospital icons created by Flaticon'],
+      ['Sekolah', 'School', 'https://cdn-icons-png.flaticon.com/512/2602/2602414.png', 'School icons created by Flaticon'],
+      ['Kebun binatang', 'Zoo', 'https://cdn-icons-png.flaticon.com/512/5190/5190782.png', 'Zoo icons created by Flaticon'],
+      ['Taman hiburan', 'Amusement park', 'https://cdn-icons-png.flaticon.com/512/7385/7385434.png', 'Fair icons created by Flaticon'],
+      ['Apotek', 'Pharmacy', 'https://cdn-icons-png.flaticon.com/512/4320/4320337.png', 'Drugstore icons created by Flaticon'],
+      ['Toko roti', 'Bakery', 'https://cdn-icons-png.flaticon.com/512/1772/1772770.png', 'Bakery icons created by Flaticon'],
+      ['Kebun raya', 'Botanical garden', 'https://cdn-icons-png.flaticon.com/512/3194/3194570.png', 'Park icons created by Flaticon'],
+      ['Cagar alam', 'Nature reserve', 'https://cdn-icons-png.flaticon.com/512/3289/3289407.png', 'Forest icons created by Flaticon'],
+      ['Studio seni', 'Art studio', 'https://cdn-icons-png.flaticon.com/512/1375/1375822.png', 'Studio icons created by Flaticon'],
+      ['Alun-alun', 'Public square', 'https://cdn-icons-png.flaticon.com/512/15871/15871312.png', 'Market icons created by Flaticon']
+    ]
+    ),
+    Materi(judulMateri: 'Plants', image: 'https://static.vecteezy.com/system/resources/thumbnails/001/952/567/small/tropical-plant-with-light-green-background-free-vector.jpg',
+    vocab: [
+      ['Mawar', 'Rose', 'https://cdn-icons-png.flaticon.com/512/765/765848.png', 'Rose icons created by Flaticon'],
+      ['Lili', 'Lily', 'https://cdn-icons-png.flaticon.com/512/4139/4139438.png', 'Lily icons created by Flaticon'],
+      ['Aster', 'Daisy', 'https://cdn-icons-png.flaticon.com/512/2559/2559315.png', 'Flower icons created by Flaticon'],
+      ['Bunga Matahari', 'Sunflower', 'https://cdn-icons-png.flaticon.com/512/1424/1424102.png', 'Sunflower icons created by Flaticon'],
+      ['Anggrek', 'Orchid', 'https://cdn-icons-png.flaticon.com/512/4842/4842317.png', 'Orchid icons created by Flaticon'],
+      ['Selada', 'Lettuce', 'https://cdn-icons-png.flaticon.com/512/8411/8411352.png', 'Lettuce icons created by Flaticon'],
+      ['Bayam', 'Spinach', 'https://cdn-icons-png.flaticon.com/512/1652/1652124.png', 'Spinach icons created by Flaticon'],
+      ['Brokoli', 'Broccoli', 'https://cdn-icons-png.flaticon.com/512/4056/4056975.png', 'Broccoli icons created by Flaticon'],
+      ['Ketumbar', 'Cilantro', 'https://cdn-icons-png.flaticon.com/512/7013/7013845.png', 'Cilantro icons created by Flaticon'],
+      ['Peterseli', 'Parsley', 'https://cdn-icons-png.flaticon.com/512/1919/1919495.png', 'Parsley icons created by Flaticon']
+    ]
+    ),
+    Materi(judulMateri: 'Pop Culture', image: 'https://static.vecteezy.com/system/resources/thumbnails/000/273/378/small/Young_Girl_Watching_TV.jpg',
+    vocab: [
+    ['Menonton maraton', 'Binge-watch', 'https://cdn-icons-png.flaticon.com/512/4221/4221484.png', 'Watching a movie icons created by Flaticon'],
+    ['Daftar putar', 'Playlist', 'https://cdn-icons-png.flaticon.com/512/7615/7615049.png', 'Music icons created by Flaticon'],
+    ['Penampilan singkat', 'Cameo', 'https://cdn-icons-png.flaticon.com/512/2787/2787950.png', 'Movie icons created by Flaticon'],
+    ['Pemberi Pengaruh', 'Influencer', 'https://cdn-icons-png.flaticon.com/512/7327/7327759.png', 'Influencer icons created by Flaticon'],
+    ['Tren', 'Trending', 'https://cdn-icons-png.flaticon.com/512/3391/3391039.png', 'Trending topic icons created by Flaticon'],
+    ['Tagar', 'Hashtag', 'https://cdn-icons-png.flaticon.com/512/6633/6633296.png', 'Hashtag icons created by Flaticon'],
+    ['Siaran Audio', 'Podcast', 'https://cdn-icons-png.flaticon.com/512/3742/3742679.png', 'Podcaster icons created by Flaticon'],
+    ['Pesan Langsung', 'DM', 'https://cdn-icons-png.flaticon.com/512/5679/5679715.png', 'DM icons created by Flaticon'],
+    ['Swafoto', 'Selfie', 'https://cdn-icons-png.flaticon.com/512/6081/6081880.png', 'Selfie icons created by Flaticon'],
+    ['Video Blog', 'Vlog', 'https://cdn-icons-png.flaticon.com/512/3271/3271187.png', 'Vlog icons created by Flaticon']
+]
+    ),
+    Materi(judulMateri: 'Presentation', image: 'https://www.freevector.com/uploads/vector/preview/6986/FreeVector-Presentation.jpg',
+    vocab: [
+      ['Presentasi Informatif', 'Informative Presentations', 'https://cdn-icons-png.flaticon.com/512/1064/1064587.png', 'Presentation icons created by Flaticon'],
+      ['Presentasi Persuasif', 'Persuasive Presentations', 'https://cdn-icons-png.flaticon.com/512/3534/3534083.png', 'Presentation icons created by Flaticon'],
+      ['Pengantar', 'Introduction', 'https://cdn-icons-png.flaticon.com/512/6596/6596919.png', 'Training icons created by Flaticon'],
+      ['Isi', 'Body', 'https://cdn-icons-png.flaticon.com/512/6171/6171536.png', 'Letter icons created by Flaticon'],
+      ['Kesimpulan', 'Conclusion', 'https://cdn-icons-png.flaticon.com/512/6863/6863897.png', 'Conclusion icons created by Flaticon'],
+      ['Grafik', 'Graph', 'https://cdn-icons-png.flaticon.com/512/404/404672.png', 'Bar graph icons created by Flaticon'],
+      ['Bagan', 'Chart', 'https://cdn-icons-png.flaticon.com/512/423/423847.png', 'Pie chart icons created by Flaticon'],
+      ['Nada', 'Tone', 'https://cdn-icons-png.flaticon.com/512/9288/9288862.png', 'Music icons created by Flaticon'],
+      ['Artikulasi', 'Articulation', 'https://cdn-icons-png.flaticon.com/512/4710/4710801.png', 'Speaking icons created by Flaticon'],
+      ['Antusiasme', 'Enthusiasm', 'https://cdn-icons-png.flaticon.com/512/8509/8509855.png', 'Imagination icons created by Flaticon']
+  ]
+    ),
+    Materi(judulMateri: 'Technology', image: 'https://cdni.iconscout.com/illustration/premium/thumb/wireless-technology-4152285-3457276.png?f=webp',
+    vocab: [
+      ['Komputer', 'Computer', 'https://cdn-icons-png.flaticon.com/512/2292/2292038.png', 'PC icons created by Flaticon'],
+      ['Perangkat Lunak', 'Software', 'https://cdn-icons-png.flaticon.com/512/16486/16486248.png', 'Application icons created by Flaticon'],
+      ['Perangkat Keras', 'Hardware', 'https://cdn-icons-png.flaticon.com/512/4292/4292785.png', 'PC icons created by Flaticon'],
+      ['Sistem Operasi', 'Operating System', 'https://cdn-icons-png.flaticon.com/512/7655/7655685.png', 'System integration icons created by Flaticon'],
+      ['Jejaring Sosial', 'Social Network', 'https://cdn-icons-png.flaticon.com/512/2622/2622191.png', 'Network icons created by Flaticon'],
+      ['Tagar (#)', 'Hashtag (#)', 'https://cdn-icons-png.flaticon.com/512/7438/7438771.png', 'Hashtag icons created by Flaticon'],
+      ['DM (Pesan Langsung)', 'DM (Direct Message)', 'https://cdn-icons-png.flaticon.com/512/8640/8640318.png', 'Mail icons created by Flaticon'],
+      ['Pengikut', 'Followers', 'https://cdn-icons-png.flaticon.com/512/4149/4149882.png', 'Rating icons created by Flaticon'],
+      ['Tren', 'Trending', 'https://cdn-icons-png.flaticon.com/512/3391/3391039.png', 'Trending topic icons created by Flaticon'],
+      ['Keterlibatan', 'Engagement', 'https://cdn-icons-png.flaticon.com/512/16504/16504350.png', 'Upload icons created by Flaticon']
+  ]
+    ),
+    // Materi(judulMateri: 'Time', image: 'https://img.freepik.com/free-vector/time-management-concept_52683-63895.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1719014400&semt=sph',
+    // vocab: 
+    // ),
+    // Materi(judulMateri: judulMateri, image: image),
   ];
 
 //QUIZ DUTULIS DI JUDUL MATERI SEBAGAI Quiz
