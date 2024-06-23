@@ -40,12 +40,84 @@ class DataMateri{
     ),
     Materi(
       image: "https://img.freepik.com/free-psd/3d-icon-weather-conditions-with-rain-sun_23-2150108737.jpg",
-      judulMateri: "General Weather",
+      judulMateri: "Weather",
       vocab: [
-        ["Iklim", "Climate", "https://static.vecteezy.com/system/resources/previews/003/447/447/original/climate-change-destroying-earth-illustration-vector.jpg"],
-        ["Cerah", "Sunny", "https://www.shutterstock.com/image-vector/sunny-cartoon-vector-weather-icon-260nw-1459600367.jpg"],
+        ['Cerah', 'Sunny', 'https://cdn-icons-png.flaticon.com/512/366/366999.png', 'Agriculture icons created by Freepik - Flaticon'],
+        ['Berawan', 'Cloudy', 'https://cdn-icons-png.flaticon.com/512/7774/7774324.png', 'Foggy icons created by Freepik - Flaticon'],
+        ['Hujan', 'Rainy', 'https://cdn-icons-png.flaticon.com/512/1146/1146797.png', 'Rain icons created by Freepik - Flaticon'],
+        ['Prakiraan', 'Forecast', 'https://cdn-icons-png.flaticon.com/512/2272/2272221.png', 'Weather icons created by Freepik - Flaticon'],
+        ['Suhu', 'Temperature', 'https://cdn-icons-png.flaticon.com/512/2100/2100100.png', 'Temperature icons created by Freepik - Flaticon'],
+        ['Kelembaban', 'Humidity', 'https://cdn-icons-png.flaticon.com/512/4148/4148460.png', 'Humidity icons created by Freepik - Flaticon'],
+        ['Gempa', 'Earthquake', 'https://cdn-icons-png.flaticon.com/512/3242/3242693.png', 'Earthquake icons created by Konkapp - Flaticon'],
+        ['Badai', 'Thunderstorm', 'https://cdn-icons-png.flaticon.com/512/9755/9755312.png', 'Thunderstorm icons created by Freepik - Flaticon'],
+        ['Tropis', 'Tropical', 'https://cdn-icons-png.flaticon.com/512/4215/4215414.png', 'Tropical icons created by Flat Icons - Flaticon'],
+        ['Kutub', 'Polar', 'https://cdn-icons-png.flaticon.com/512/1886/1886461.png', 'Polar bear icons created by max.icons - Flaticon']
+    ]
+
+    ),
+    Materi(judulMateri: 'Animals', image: 'https://img.lovepik.com/photo/40242/6752.jpg_wh860.jpg',
+    vocab: [
+      ['Mamalia', 'Mammals', 'https://img.freepik.com/free-vector/group-wild-animal_1308-44821.jpg', 'Image by Freepik'],
+      ['Burung', 'Birds', 'https://cdn-icons-png.flaticon.com/512/3069/3069186.png', 'Bird icons created by Freepik - Flaticon'],
+      ['Reptil', 'Reptiles', 'https://cdn-icons-png.flaticon.com/512/3196/3196017.png', 'Animals icons created by Freepik - Flaticon'],
+      ['Amfibi', 'Amphibians', 'https://cdn-icons-png.flaticon.com/512/8099/8099067.png', 'Frog icons created by Freepik - Flaticon'],
+      ['Ikan', 'Fish', 'https://cdn-icons-png.flaticon.com/512/875/875011.png', 'Ocean icons created by Freepik - Flaticon'],
+      ['Serangga', 'Insects', 'https://cdn-icons-png.flaticon.com/512/1497/1497605.png', 'Bug icons created by Freepik - Flaticon'],
+      ['Melata', 'Slither', 'https://cdn-icons-png.flaticon.com/512/1447/1447876.png', 'Snake icons created by Freepik - Flaticon'],
+      ['Berhibernasi', 'Hibernate', 'https://cdn-icons-png.flaticon.com/512/661/661333.png', 'Winter icons created by Freepik - Flaticon'],
+      ['Bermigrasi', 'Migrate', 'https://cdn-icons-png.flaticon.com/512/2482/2482783.png', 'Migration icons created by Freepik - Flaticon'],
+      ['Menggonggong', 'Bark', 'https://cdn-icons-png.flaticon.com/512/5869/5869167.png', 'Bark icons created by Freepik - Flaticon']
       ]
     ),
+    Materi(judulMateri: 'Business', image: 'https://img.freepik.com/free-vector/people-analyzing-growth-charts_23-2148866843.jpg?w=900&t=st=1719129951~exp=1719130551~hmac=d24ff34ce5d4ae867c879579c40117ee5286b9e0ca98ffc7ca1e51a7c0de7b80', vocab:
+    [
+      ['Surat', 'Letter', 'https://cdn-icons-png.flaticon.com/512/2593/2593648.png', 'Writing icon created by Freepik - Flaticon'],
+      ['Laporan', 'Report', 'https://cdn-icons-png.flaticon.com/512/2912/2912794.png', 'Report icon created by Freepik - Flaticon'],
+      ['Pemberitahuan', 'Notice', 'https://cdn-icons-png.flaticon.com/512/10098/10098221.png', 'Notifications icon created by Freepik - Flaticon'],
+      ['Faktur', 'Invoice', 'https://cdn-icons-png.flaticon.com/512/2474/2474460.png', 'Invoice icon created by Freepik - Flaticon'],
+      ['Notulen', 'Minutes', 'https://cdn-icons-png.flaticon.com/512/10236/10236227.png', 'Scheme icon created by Freepik - Flaticon'],
+      ['Tanda Tangan', 'Signature', 'https://cdn-icons-png.flaticon.com/512/1358/1358656.png', 'Contract icon created by Freepik - Flaticon'],
+      ['Lampiran', 'Attachment', 'https://cdn-icons-png.flaticon.com/512/1979/1979226.png', 'Attached icon created by Freepik - Flaticon'],
+      ['Tindak Lanjut', 'Follow-Up', 'https://img.freepik.com/free-vector/choice-worker-concept_23-2148626333.jpg', 'Choice worker concept image created by Freepik'],
+      ['Nota Kesepahaman', 'MOU (Memorandum of Understanding)', 'https://cdn-icons-png.flaticon.com/512/13997/13997265.png', 'File icon created by Freepik - Flaticon'],
+      ['Secepat Mungkin', 'ASAP (As Soon As Possible)', 'https://cdn-icons-png.flaticon.com/512/3770/3770847.png', 'ASAP icon created by Freepik - Flaticon']
+    ]
+    ),
+    Materi(judulMateri: 'Contact', image: 'https://img.freepik.com/free-vector/business-man-shaking-hands-signed-contract_3446-646.jpg?w=740&t=st=1719130876~exp=1719131476~hmac=7172f9620f936fef1def0e115a74a9f95cdac6db9dc5ecb4cea8bfc54b83c408',
+    vocab: 
+    [
+      ['Penawaran', 'Offer', 'https://cdn-icons-png.flaticon.com/512/2303/2303913.png', 'Email icon created by Freepik - Flaticon'],
+      ['Penerimaan', 'Acceptance', 'https://cdn-icons-png.flaticon.com/512/8898/8898412.png', 'Agreement icon created by Freepik - Flaticon'],
+      ['Pertimbangan', 'Consideration', 'https://cdn-icons-png.flaticon.com/512/10012/10012471.png', 'Moral icon created by Freepik - Flaticon'],
+      ['Legalitas', 'Legality', 'https://cdn-icons-png.flaticon.com/512/4252/4252360.png', 'Compliant icon created by Freepik - Flaticon'],
+      ['Perjanjian', 'Agreement', 'https://cdn-icons-png.flaticon.com/512/2838/2838110.png', 'Agreement icon created by Freepik - Flaticon'],
+      ['Pelanggaran', 'Breach', 'https://cdn-icons-png.flaticon.com/512/11503/11503140.png', 'Contract icon created by Freepik - Flaticon'],
+      ['Ganti Rugi', 'Damages', 'https://cdn-icons-png.flaticon.com/512/12002/12002015.png', 'Damages icon created by Freepik - Flaticon'],
+      ['Batal', 'Void', 'https://cdn-icons-png.flaticon.com/512/2570/2570147.png', 'Cross icon created by Freepik - Flaticon'],
+      ['Dapat Dibatalkan', 'Voidable', 'https://cdn-icons-png.flaticon.com/512/4628/4628947.png', 'Rejected icon created by Freepik - Flaticon'],
+      ['Sah', 'Valid', 'https://cdn-icons-png.flaticon.com/512/2519/2519393.png', 'Accuracy icon created by Freepik - Flaticon'],
+      ['Pihak-Pihak', 'Parties', 'https://cdn-icons-png.flaticon.com/512/648/648287.png', 'Network icon created by Freepik - Flaticon'],
+      ['Kerahasiaan', 'Confidentiality', 'https://cdn-icons-png.flaticon.com/512/2716/2716654.png', 'Secret file icon created by Freepik - Flaticon'],
+      ['Batas Waktu Hukum', 'Statute of Limitations', 'https://cdn-icons-png.flaticon.com/512/10227/10227196.png', 'Denied icon created by Freepik - Flaticon'],
+      ['Perjanjian Kerahasiaan', 'Non-Disclosure Agreement (NDA)', 'https://cdn-icons-png.flaticon.com/512/10316/10316630.png', 'Trade icon created by Freepik - Flaticon'],
+      ['Kewajiban Bersama', 'Mutuality of Obligation', 'https://cdn-icons-png.flaticon.com/512/9882/9882461.png', 'Obligation icon created by Freepik - Flaticon']
+    ]),
+    Materi(judulMateri: 'Foods', image: 'https://i.pinimg.com/564x/8d/f5/e7/8df5e7263eb6f96e9d426da98b3b8d80.jpg',
+    vocab: 
+    [
+      ['Buah', 'Fruit', 'https://cdn-icons-png.flaticon.com/512/3194/3194591.png', 'Fruit icons created by Freepik - Flaticon'],
+      ['Sayuran', 'Vegetable', 'https://cdn-icons-png.flaticon.com/512/5346/5346400.png', 'Vegetables icon created by Freepik - Flaticon'],
+      ['Goreng', 'Fry', 'https://cdn-icons-png.flaticon.com/512/1027/1027128.png', 'Cooking icon created by Freepik - Flaticon'],
+      ['Panggang', 'Grill', 'https://cdn-icons-png.flaticon.com/512/8043/8043424.png', 'Roast icon created by Freepik - Flaticon'],
+      ['Sendok', 'Spoon', 'https://cdn-icons-png.flaticon.com/512/2447/2447668.png', 'Spoon icon created by Freepik - Flaticon'],
+      ['Garpu', 'Fork', 'https://cdn-icons-png.flaticon.com/512/2872/2872537.png', 'Fork icon created by Freepik - Flaticon'],
+      ['Mentega', 'Butter', 'https://cdn-icons-png.flaticon.com/512/4729/4729898.png', 'Butter icon created by Freepik - Flaticon'],
+      ['Telur', 'Eggs', 'https://cdn-icons-png.flaticon.com/512/2713/2713474.png', 'Eggs icon created by Freepik - Flaticon'],
+      ['Kari', 'Curry', 'https://cdn-icons-png.flaticon.com/512/3894/3894669.png', 'Curry icon created by Freepik - Flaticon'],
+      ['Pecinta makanan', 'Foodie (informal)', 'https://cdn-icons-png.flaticon.com/512/1886/1886807.png', 'Woman icon created by Freepik - Flaticon']
+    ]
+),
+    // Materi(judulMateri: judulMateri, image: image)
   ];
 
 //QUIZ DUTULIS DI JUDUL MATERI SEBAGAI Quiz
@@ -155,11 +227,37 @@ class DataMateri{
   ];
   static List<Materi> adjadvMaterials = [
     Materi(judulMateri: 'Apa itu "Adverbs"?', subJudul: [
-      Isi(content: "cuma contoh", type: "paragraf")
-    ], image: "no"),
-    Materi(judulMateri: 'Apa itu "Adjective"?', subJudul: [
-      Isi(content: "cuma contoh", type: "paragraf")
-    ], image: "no"),
+      Isi(content: '\n\t\t\t\t\tKerap kali penggunaan Adjective maupun Adverbs membingungkan dalam Bahasa Inggris. Hal tersebut dapat terjadi karena keduanya merupakan kata yang mendeskripsikan atau menjelaskan kata lainnya.', type: 'paragraf'),
+
+      Isi(content: '\n\t\t\t\t\t4.1 Adjective (Kata Sifat)', type: 'title'),
+      Isi(content: 'Adjective adalah kata yang mendeskripsikan atau menerangkan noun (kata benda) atau pronoun (kata ganti).', type: 'li'),
+      Isi(content: 'Adjective dapat mengekspresikan berbagai hal seperti ukuran, usia, warna, asal, dan lain-lain.', type: 'li'),
+      Isi(content: 'Adjective dapat diletakkan sebelum noun (contoh: big house) atau setelah kata penghubung seperti "to be" (contoh: The house is big).', type: 'li'),
+      Isi(content: 'Adjective juga dapat digunakan sebagai subjek komplemen atau objek komplemen (contoh: He looks happy. I find him intelligent).', type: 'li'),
+      Isi(content: 'Beberapa adjective berakhiran -ly seperti friendly, elderly, curly, namun tidak semua kata yang berakhiran -ly adalah adjective.', type: 'li'),
+
+      Isi(content: '\n\t\t\t\t\t4.2 Adverb (Kata Keterangan)', type: 'title'),
+      Isi(content: 'Adverb berfungsi untuk mendeskripsikan atau menerangkan verb (kata kerja), adjective, atau adverb lain.', type: 'li'),
+      Isi(content: 'Adverb dapat mengekspresikan cara (how), waktu (when), tempat (where), dan sebab (why) dari suatu tindakan.', type: 'li'),
+      Isi(content: 'Kebanyakan adverb dibentuk dengan menambahkan akhiran "-ly" pada adjective (contoh: quick → quickly).', type: 'li'),
+      Isi(content: 'Adverb juga dapat menerangkan adjective lain, biasanya menunjukkan tingkat intensitas (contoh: The very large man).', type: 'li'),
+      Isi(content: 'Adverb dapat diletakkan di awal kalimat untuk memberi penekanan (contoh: Surprisingly, she won).', type: 'li'),
+
+      Isi(content: '\n\t\t\t\t\t4.3 Perbedaan Utama', type: 'title'),
+      Isi(content: 'Adjective mendeskripsikan noun/pronoun, adverb mendeskripsikan verb.', type: 'li'),
+      Isi(content: 'Adjective dapat digunakan sebelum noun, adverb tidak bisa.', type: 'li'),
+      Isi(content: 'Kebanyakan adverb berakhiran -ly, meskipun tidak semuanya dan ada pengecualian.', type: 'li'),
+
+      Isi(content: '\n\t\t\t\t\t4.4 Cara Mengubah Adjective ke Adverb', type: 'title'),
+      Isi(content: 'Menambahkan -ly di akhir (mis. loud → loudly)', type: 'li'),
+      Isi(content: 'Jika berakhiran -y, ganti -y dengan -ily (mis. easy → easily)', type: 'li'),
+      Isi(content: 'Jika berakhiran -le/-ble, ganti -e dengan -y (mis. terrible → terribly)', type: 'li'),
+      Isi(content: 'Jika berakhiran -ic, tambahkan -ally (mis. tragic → tragically)', type: 'li')
+    ]
+
+,
+    image: "no"),
+
     Materi(judulMateri: "Quiz", subJudul: [], image: "https://raw.githubusercontent.com/ScaraMocchie/images/main/Ellipse%2011.png")
   ];
 }

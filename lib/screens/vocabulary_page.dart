@@ -164,12 +164,13 @@ class _VocabularyPageState extends State<VocabularyPage> {
                           ..setEntry(3, 2, 0.001)
                           ..rotateY(val),
                         child: Container(
+                            padding: EdgeInsets.all(10),
                             width: 309,
-                            height: 474,
+                            height: height/2,
                             child: isBack
                                 ? Container(
                                     alignment: Alignment.center,
-                                    height: height/3,
+                                    // height: height/3,
                                     width: width-40,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10.0),
@@ -187,7 +188,7 @@ class _VocabularyPageState extends State<VocabularyPage> {
                                           pi), // it will flip horizontally the container
                                     child: Container(
                                       alignment: Alignment.center,
-                                      height: height/3,
+                                      // height: height/3,
                                       width: width-40,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
@@ -199,11 +200,11 @@ class _VocabularyPageState extends State<VocabularyPage> {
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
                                           Container(
-                                                height: 200,
+                                                height: height/2/3,
                                                 decoration: BoxDecoration(
                                                   borderRadius: BorderRadius.circular(20)
                                                 ),
-                                                child: Image.network(thismateriVocab.vocab[i][2]),
+                                                child: Image.network(thismateriVocab.vocab[i][2],),
                                               ),
                                           SizedBox(height: 10,),
                                           Opacity(

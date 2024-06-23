@@ -22,5 +22,10 @@ List<Quizz> quizModals =[
 ];
 
 List<Quizz> quizAdjadv = [
-  Quizz(quest: 'Cuma contoh"', answer: 2, options: ['a. will run', 'b. ran','c. run','d. have run'])
+  Quizz(quest: 'Manakah kata yang merupakan adjective dalam kalimat: "The quick brown fox jumps over the lazy dog."?', answer: 0, options: ['a. quick', 'b. jumps', 'c. over', 'd. lazy']),
+  Quizz(quest: 'Lengkapilah kalimat berikut dengan adverb yang tepat: "She spoke _____ during the meeting."', answer: 1, options: ['a. patient', 'b. patiently', 'c. patience', 'd. patiences']),
+  Quizz(quest: 'Kata manakah yang merupakan adverb dalam kalimat: “The student answered the question correctly.”?', answer: 3, options: ['a. student', 'b. answered', 'c. question', 'd. correctly']),
+  Quizz(quest: 'Manakah kata yang merupakan adjective dalam kalimat: "The delicious cake was made by my mom."', answer: 0, options: ['a. delicious', 'b. was', 'c. made', 'd. by']),
+  Quizz(quest: 'Lengkapilah kalimat berikut dengan adjective yang tepat: "The _____ sunset was breathtaking."', answer: 1, options: ['a. beauty', 'b. beautiful', 'c. beautifully', 'd. beautified']),
 ];
+
